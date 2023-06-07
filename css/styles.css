@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+
+
+.container-lg {
+  text-align: center;
+}
+
+.card-text{
+  margin-bottom: 0;
+}
+
+.card {
+  max-width: 480px;
+}
+
+.product_rank {
+  
+}
+
+.card-body {
+  text-align: left;
+}
+
+
+.card-body .like_button {
+  border: none;
+  background: none;
+  text-align: center;
+}
+
+.card-body .like_button img{
+  width: 20px;
+}
