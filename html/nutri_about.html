@@ -11,6 +11,9 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/nutri_about.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
 </head>
 
 
@@ -24,29 +27,70 @@
 
       <div class="row featurette">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">고려은단 <span class="text-muted">See for
-              yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this
-            layout would work with some actual real-world content in place.</p>
+          <h2 class="featurette-heading fw-normal lh-1">고려은단 비타민C 1000 <span>
+              <button class="heart-button" aria-label="Heart Button">
+                <i class="fas fa-heart"></i>
+              </button>
+            </span>
+          </h2>
+
+          <ul class="nutri_about">
+            <li>구분</li>
+            <li>제조사</li>
+            <li>주성분</li>
+            <li>효능</li>
+          </ul>
         </div>
         <div class="col-md-5 order-md-1">
           <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
             height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
             preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
+            <image href="/img/vitamin.jpg" width="100%" height="100%" />
           </svg>
         </div>
       </div>
 
       <hr class="featurette-divider">
+      <div class="nutri_index">복용법
+        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa quia animi autem officiis
+          tenetur consequatur deleniti eos, neque rerum aspernatur amet corporis laborum veniam fugiat, ipsam ut facere!
+        </h3>
+      </div>
+      <div class="nutri_index">주의사항
+        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa quia animi autem officiis
+          tenetur consequatur deleniti eos, neque rerum aspernatur amet corporis laborum veniam fugiat, ipsam ut facere!
+        </h3>
+      </div>
+
+      <div class="nutri_index">기타
+        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa quia animi autem officiis
+          tenetur consequatur deleniti eos, neque rerum aspernatur amet corporis laborum veniam fugiat, ipsam ut facere!
+        </h3>
+      </div>
 
       <!-- /END THE FEATURETTES -->
 
     </div><!-- /.container -->
+    <!-- START: footer -->
+    <footer>
+      <div id="f-footer">
+        <img src="/img/footerimg.jpg" alt="이미지">
+        <p>위촉오</p>
+        <div class="copyright">
+          <p>© 2023 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- END: footer -->
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const heartButton = document.querySelector('.heart-button');
+      heartButton.addEventListener('click', function () {
+        this.classList.toggle('active');
+      });
+    </script>
+
 
 
 </body>

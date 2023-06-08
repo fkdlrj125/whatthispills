@@ -19,10 +19,6 @@ body {
   font-size: 18px;
 }
 
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
 /* Carousel base class */
 .carousel {
   margin-bottom: 4rem;
@@ -38,10 +34,6 @@ body {
 .carousel-item {
   height: 32rem;
 }
-
-
-/* MARKETING CONTENT
--------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
@@ -69,10 +61,69 @@ body {
 /* Thin out the marketing headings */
 /* rtl:begin:remove */
 .featurette-heading {
-  letter-spacing: -.05rem;
+  letter-spacing: -.01rem;
+  margin-top: 40px !important;
+  margin-left: 80px;
+  margin-bottom: 50px;
+
 }
 
 /* rtl:end:remove */
+
+
+/* nutri_about
+------------------------- */
+
+.nutri_about li {
+  font-size: 30px;
+  margin-left: 110px;
+  margin-bottom: 20px;
+}
+
+.col-md-5 {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.heart-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin-left: 10px;
+  font-size: 38px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.heart-button i {
+  transition: color 0.3s ease;
+}
+
+.heart-button.active i {
+  color: rgba(255, 0, 0, 0.719);
+}
+
+.nutri_index {
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 150px;
+}
+
+.nutri_index h3 {
+  line-height: 2;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -110,41 +161,4 @@ body {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
-}
-
-.b-example-divider {
-  height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
-  border: solid rgba(0, 0, 0, .15);
-  border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.b-example-vr {
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 100vh;
-}
-
-.bi {
-  vertical-align: -.125em;
-  fill: currentColor;
-}
-
-.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-  display: flex;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
 }
