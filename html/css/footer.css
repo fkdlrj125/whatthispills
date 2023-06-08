@@ -1,0 +1,10 @@
+footer {
+	background-color: #f2f2f2;
+	padding: 20px;
+	text-align: center;
+}
+footer img{
+	width: 25px;
+	transform: rotate(45deg);
+}
+
