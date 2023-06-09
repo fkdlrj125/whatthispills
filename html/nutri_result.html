@@ -7,12 +7,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/src/main/resources/static/css/header.css">
-  <link rel="stylesheet" href="/src/main/resources/static/css/footer.css">
-  <link rel="stylesheet" href="/src/main/resources/static/css/nutri_result.css">
-  <link rel="stylesheet" href="/src/main/resources/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="stylesheet" href="/css/nutri_result.css">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>pill&nutritional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>영양제 검색 결과</title>
 </head>
 <!-- end : header -->
 <!-- START : navi  -->
@@ -31,7 +32,7 @@
     </div>
   </div>
   <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#" id="logo">
-    <img src="/src/main/resources/static/img/logo3.png" alt="">
+    <img src="img/logo3.png" alt="">
   </a>
   <div class="flex-sm-fill text-sm-center nav-link" id="search-bar">
     <input type="text" placeholder="영양제 검색">
@@ -47,39 +48,45 @@
 <!-- START : body  -->
 
 <body>
-  <div class="location">
-    <span class="ar">home</span>
-    <span class="ar"> > </span>
-    <span class="ar">영양제 검색</span>
-    <span class="ar"> > </span>
-    <span>검색결과</span>
-  </div>
-  <div id="nutri_main">
+  <div class="container">
     <h1>
-      <label for="" id="main_title" th:text="'${nutri_name}">''검색 결과</label>
+      <label for="" id="main_title">영양제 검색 결과</label>
     </h1>
+    <!-- START THE FEATURETTES -->
+    <div class="main-likes">
+      <img src="img/nutri.jpg" id="product">
+      <ul class="text_context">
+        <li>
+          <label for="" id="name">제품명:<span th:text='${name}'>고려은단 비타민C 1000</span></label>
+          <span>
+            <button class="heart-button" aria-label="Heart Button">
+              <i class="fas fa-heart"></i>
+            </button>
+          </span>
+        </li>
+        <li>
+          <label for="" id="nutri_contens">구분: <span th:text='${content}'>비타민C</span></label>
+        </li>
+        <li>
+          <label for="" id="nutri_compeny">제조사: <span th:text='${company}'>고려은단</span></label>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="nutri_product">
-    <form action="">
-      <table>
-        <tr>
-          <td><img src="/src/main/resources/static/img/nutri.jpg" alt="{{nutri_img.png}}"></td>
-          <td>
-          <th>
-            <label for="" id="nutri_name">제품명:<span th:text='${name}'>고려은단 비타민C 1000</span>
-            </label>
-            <button class="like-button"><img src="/src/main/resources/static/img/heart nop.png" alt=""></button>
-            <button class="non-like-button"><img src="/src/main/resources/static/img/heart ful.png" alt=""></button>
-            <br>
-            <label for="" id="nutri_contens">구분: <span th:text='${content}'>비타민C</span></label>
-            <br>
-            <label for="" id="nutri_compeny">제조사: <span th:text='${company}'>고려은단</span></label>
-          </th>
-          </td>
-        </tr>
-      </table>
-    </form>
+  <div class="col-md-5 order-md-1">
+    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+      xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false">
+    </svg>
   </div>
+  <!-- /END THE FEATURETTES -->
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const heartButton = document.querySelector('.heart-button');
+    heartButton.addEventListener('click', function () {
+      this.classList.toggle('active');
+    });
+  </script>
+
 </body>
 
 <!-- END : body  -->
@@ -87,7 +94,7 @@
 <br>
 <footer>
   <div id="f-footer">
-    <img src="/src/main/resources/static/img/footerimg.jpg" alt="이미지">
+    <img src="/img/footerimg.jpg" alt="이미지">
     <p>위촉오</p>
     <div class="copyright">
       <p>© 2023 Your Company. All rights reserved.</p>

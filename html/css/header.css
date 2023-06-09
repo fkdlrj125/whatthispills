@@ -11,6 +11,7 @@
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+
 }
 
 .nav {
@@ -50,7 +51,7 @@ input[id="icon"]+label>span {
   ;
   height: 5px;
   border-radius: 30px;
-  background: #000;
+  background: #00997B;
   transition: all 0.35s;
   /* 진행되는 과정들을 천천히 보여줄 수 있다. 0.35초 동안 진행됨 */
   z-index: 2;
@@ -124,17 +125,18 @@ input[id="icon"]:checked+label>span:nth-child(3) {
   display: flex;
   align-items: center;
   background-color: #fff;
-  border: 4px solid #00997B;
+  /* border: 4px solid #00997B; */
   box-shadow: 5px 5px 5px 2px rgb(94, 94, 94);
+  width: 30% 20% 20% 20%;
   transition: top 0.3s;
 }
 
 #search-bar input {
   flex: 1;
-  height: 100%;
+  height: 80%;
   border: none;
   outline: none;
-  font-size: 30px;
+  font-size: 20px;
   text-align: left;
   /* 왼쪽 정렬 */
 }
@@ -142,7 +144,7 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 #search-bar button {
   background: url(/img/search.png);
   background-repeat: no-repeat;
-  width: 60px;
+  width: 50px;
   height: 50px;
   color: #fff;
   border: none;
@@ -175,9 +177,9 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 #util #signup,
 #util #mypage,
 #util #logout {
-  color: #00997B;
-  border: 3px solid #00997B;
-  margin-left: 10px;
+  color: rgb(69, 181, 170);
+  border: 3px solid rgb(69, 181, 170);
+  margin-left: 10%;
   width: 120px;
   height: 60px;
   line-height: 55px;
@@ -188,12 +190,12 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 
 #util #signup {
   color: #fff;
-  background-color: #00997B;
+  background-color: rgb(69, 181, 170);
 }
 
 #util #logout {
   color: #fff;
-  background-color: #00997B;
+  background-color: rgb(69, 181, 170);
 }
 
 #util #logoin:hover,
