@@ -1,16 +1,25 @@
-.body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.admin_nutri_edit {
-  margin: 120px;
+body {
+  font-family: Arial, sans-serif;
+  margin: 100px;
 }
 
 h1 {
+  top: 10%;
+  font: 30px bold;
   text-align: center;
-  margin: 10%;
 }
+
+.admin_nutri_edit {
+  margin: 100px;
+}
+
 
 table {
   margin: auto;
@@ -39,11 +48,21 @@ td {
 
 .button-row input[type="button"],
 .button-row input[type="submit"] {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 36px;
+  font: 17px bold;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-right: 25px;
 }
 
-.button-row input[type="submit"] {
-  background-color: black;
+.button-row .check {
+  border: 1px solid #00997B;
+  background-color: #00997B;
+  color: #fff;
+}
+
+.button-row .delete {
+  background-color: red;
+  border: 1px solid red;
   color: #fff;
 }
