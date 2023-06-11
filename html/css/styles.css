@@ -180,3 +180,18 @@ a {
 .table th:first-of-type {
   border-right: 1px solid #ddd;
 }
+
+.user_menu {
+  width: 160px;
+  height: 160px;
+  background-color: #fefefe;
+  border: 1px solid #eee;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 20px;
+  line-height: 60px;
+  box-shadow: 5px 10px 15px #bbb;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+}

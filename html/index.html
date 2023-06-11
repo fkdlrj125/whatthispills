@@ -7,8 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -16,91 +14,50 @@
 </head>
 <!-- end : header -->
 <!-- START : navi  -->
-<nav class="nav nav-pills flex-column flex-sm-row">
-  <div class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#" id="checkbox">
-    <input type="checkbox" id="icon">
-    <label for="icon" id="icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <div id="in_navi">
-      <ul>
-        <li><a href="#">의약품 찾기</a></li>
-      </ul>
-    </div>
-  </div>
-  <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="/" id="logo">
-    <img src="img/logo3.png" alt="">
-  </a>
-  <div class="flex-sm-fill text-sm-center nav-link" id="search-bar">
-    <input type="text" placeholder="검색어를 입력하세요">
-    <button type="submit"></button>
-  </div>
-  <div class="flex-sm-fill text-sm-center nav-link" id="util">
-    <a href="#" id="logoin">로그인</a>
-    <a href="#" id='signup'>회원가입</a>
-  </div>
-</nav>
-<br>
-<!-- END : navi  -->
-<!-- start:banner -->
-<div class="banner">
-  <div id="banner">
-    <img src="img/benner.jpg" alt="banner">
-    <div for="">나를 아끼자 !
-      <span style="font: 35px extrabold; color: #00997B">이게뭐약?</span>
-    </div>
-    <p>
-      무분별한 영양제 STOP!
-    </p>
-    <p>
-      당신만 모르는 영양제 SELECT!
-    </p>
-    <p>
-      내 몸에 달콤한 영양제 SWEET!
-    </p>
-    <a href="">
-      <button>이동하기</button>
-    </a>
-  </div>
-</div>
-<br>
-<!-- end:banner -->
-<!-- start : body  -->
 
 <body>
-  <!-- <div class="container">
-    <div id="main_contens">
-      <div class="main_context">
-        <img src="img/main_Photo1.jpg" alt="">
-        <p id="sle1"> PICK YOUR FIVORITE Nutrients
-        </p>
-        <p>풍요속에 빈곤이다. 풍부한 영양인 시대일 수록 필요한 영양은 챙기지 못한다 영양제는 우리 삶에서 중요한 부분을 채워주는 요소이다. </p>
-        <p>자주 먹는 음식으로만 영양을 채우기에 우리에게 꼭 필요한 영양제는 필수!</p>
-        <p></p>
-        <a href="#">
-          <button>check on</button>
-        </a>
+  <div id="header-placeholder"></div>
+  <br>
+  <!-- END : navi  -->
+  <!-- start:banner -->
+  <div class="banner">
+    <div id="banner">
+      <img src="img/benner.jpg" alt="banner">
+      <div for="">나를 아끼자 !
+        <span style="font: 35px extrabold; color: #00997B">이게뭐약?</span>
       </div>
+      <p>
+        무분별한 영양제 STOP!
+      </p>
+      <p>
+        당신만 모르는 영양제 SELECT!
+      </p>
+      <p>
+        내 몸에 달콤한 영양제 SWEET!
+      </p>
+      <a href="">
+        <button>이동하기</button>
+      </a>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="/js/index.js"></script> -->
   </div>
+  <br>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+      });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
 </body>
 <br>
-<!-- end : body  -->
-<!-- start: footer -->
-<footer>
-  <div id="f-footer">
-    <img src="img/footerimg.jpg" alt="이미지">
-    <p>위촉오</p>
-    <div class="copyright">
-      <p>© 2023 이게뭐약? Company. All rights reserved.</p>
-    </div>
-</footer>
-<!-- end: footer -->
+
 
 </html>

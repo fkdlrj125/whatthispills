@@ -14,11 +14,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="css/footer.css">
 </head>
-</head>
-
-
 <body>
-  <main>
+  <div id="header-placeholder"></div>
+  <div class="container">
     <div class="container marketing">
       <div class="row">
       </div>
@@ -71,18 +69,23 @@
       <!-- /END THE FEATURETTES -->
 
     </div><!-- /.container -->
-    <!-- START: footer -->
-    <footer>
-      <div id="f-footer">
-        <img src="/img/footerimg.jpg" alt="이미지">
-        <p>위촉오</p>
-        <div class="copyright">
-          <p>© 2023 Your Company. All rights reserved.</p>
-        </div>
-    </footer>
-    <!-- END: footer -->
 
+    <div id="footer-placeholder"></div>
 
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('header-placeholder').innerHTML = html;
+        });
+  
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+        
+    </script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       const heartButton = document.querySelector('.heart-button');

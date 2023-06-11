@@ -9,6 +9,7 @@
     <title>영양제 관리</title>
   </head>
   <body>
+    <div id="header-placeholder"></div>
     <div class="container-lg">
       <h2>영양제 관리</h2>
       <form action="/nutri/result" class>
@@ -44,5 +45,20 @@
         </table>
       </div>
     </div>
+
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('header-placeholder').innerHTML = html;
+        });
+  
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+    </script>
   </body>
 </html>

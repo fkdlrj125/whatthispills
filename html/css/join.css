@@ -1,6 +1,26 @@
-html,
-body {
-  height: 100%;
+/* Defuault settings */
+h1,
+h2,
+h3,
+h4,
+h5,
+a {
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 100;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Container */
+.container-lg {
+  text-align: center;
+}
+
+/* Semi title */
+.container-lg h2 {
+  font-size: 42px;
+  font-weight: 400;
 }
 
 @font-face {
@@ -11,7 +31,6 @@ body {
 }
 
 body {
-  display: flex;
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -159,4 +178,5 @@ img {
 
 button {
   margin-top: 20px;
+  background-color: #00997B;
 }

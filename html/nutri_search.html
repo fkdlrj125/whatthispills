@@ -9,6 +9,7 @@
     <title>영양제 찾기</title>
   </head>
   <body>
+    <div id="header-placeholder"></div>
     <div class="container-lg">
       <h2>영양제 찾기</h2>
       <form action="/nutri/result" class>
@@ -119,5 +120,19 @@
         <button class="nutri_item">기타</button>
       </div>
     </div>
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('header-placeholder').innerHTML = html;
+        });
+  
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+    </script>
   </body>
 </html>

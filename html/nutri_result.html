@@ -14,37 +14,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <title>pill&nutritional</title>
 </head>
-<!-- end : header -->
-<!-- START : navi  -->
-<nav class="nav nav-pills flex-column flex-sm-row">
-  <div class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#" id="checkbox">
-    <input type="checkbox" id="icon">
-    <label for="icon" id="icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <div id="in_navi">
-      <ul>
-        <li><a href="#">의약품 찾기</a></li>
-      </ul>
-    </div>
-  </div>
-  <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#" id="logo">
-    <img src="/src/main/resources/static/img/logo3.png" alt="">
-  </a>
-  <div class="flex-sm-fill text-sm-center nav-link" id="search-bar">
-    <input type="text" placeholder="영양제 검색">
-    <button type="submit"></button>
-  </div>
-  <div class="flex-sm-fill text-sm-center nav-link" id="util">
-    <a href="#" id="logoin">로그인</a>
-    <a href="#" id='signup'>회원가입</a>
-  </div>
-</nav>
-<br>
-<!-- END : navi  -->
-<!-- START : body  -->
+<div id="header-placeholder"></div>
 
 <body>
   <div class="location">
@@ -63,13 +33,13 @@
     <form action="">
       <table>
         <tr>
-          <td><img src="/src/main/resources/static/img/nutri.jpg" alt="{{nutri_img.png}}"></td>
+          <td><img src="/img/nutri.jpg" alt="{{nutri_img.png}}"></td>
           <td>
           <th>
             <label for="" id="nutri_name">제품명:<span th:text='${name}'>고려은단 비타민C 1000</span>
             </label>
-            <button class="like-button"><img src="/src/main/resources/static/img/heart nop.png" alt=""></button>
-            <button class="non-like-button"><img src="/src/main/resources/static/img/heart ful.png" alt=""></button>
+            <button class="like-button"><img src="/img/heart nop.png" alt=""></button>
+            <button class="non-like-button"><img src="/img/heart ful.png" alt=""></button>
             <br>
             <label for="" id="nutri_contens">구분: <span th:text='${content}'>비타민C</span></label>
             <br>
@@ -80,17 +50,18 @@
       </table>
     </form>
   </div>
-</body>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+      });
 
-<!-- END : body  -->
-<!-- start: footer -->
-<br>
-<footer>
-  <div id="f-footer">
-    <img src="/src/main/resources/static/img/footerimg.jpg" alt="이미지">
-    <p>위촉오</p>
-    <div class="copyright">
-      <p>© 2023 Your Company. All rights reserved.</p>
-    </div>
-</footer>
-<!-- end: footer -->
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+</body>

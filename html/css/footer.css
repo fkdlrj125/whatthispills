@@ -1,9 +1,18 @@
+@font-face {
+	font-family: 'NanumSquareNeo-Variable';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
 footer {
+	font-family: 'NanumSquareNeo-Variable';
 	background-color: #fff;
 	padding: 20px;
 	text-align: center;
 }
-footer img{
+
+footer img {
 	width: 25px;
 	transform: rotate(45deg);
 }

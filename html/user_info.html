@@ -14,8 +14,8 @@
 </head>
 
 <body class="text-center">
+  <div id="header-placeholder"></div>
   <main class="form-signin w-100 m-auto container">
-    <img class="mb-4 logo" src="/img/로고최종.png" alt="" width="72" height="57">
     <h1 class="h1 mb-3 fw-normal">회원정보</h1>
     <div class="form-align">
       <form id="user_info">
@@ -27,11 +27,6 @@
         <div class="form-floating">
           <p class="user_info">홍길동</p>
         </div>
-        <!-- <div class="info-title">비밀번호</div>
-        <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword"></label>
-        </div> -->
         <div class="info-title">성별</div>
         <div class="form-floating gender">
           <p class="user_info">남자</p>
@@ -52,7 +47,20 @@
   </main>
 
 
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+      });
 
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
 </body>
 
 </html>

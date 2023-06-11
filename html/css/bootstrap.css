@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
@@ -47,7 +53,7 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-font-sans-serif);
+  font-family: 'NanumSquareNeo-Variable';
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -3187,8 +3193,8 @@ fieldset:disabled .btn {
 .btn-check:focus+.btn-primary,
 .btn-primary:focus {
   color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
+  background-color: #00997B;
+  border-color: #00997B;
   box-shadow: 0 0 0 0.25rem rgba(49, 132, 253, 0.5);
 }
 
@@ -3198,8 +3204,8 @@ fieldset:disabled .btn {
 .btn-primary.active,
 .show>.btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0a58ca;
-  border-color: #0a53be;
+  background-color: #00997B;
+  border-color: #00997B;
 }
 
 .btn-check:checked+.btn-primary:focus,
@@ -3213,8 +3219,8 @@ fieldset:disabled .btn {
 .btn-primary:disabled,
 .btn-primary.disabled {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #00997B;
+  border-color: #00997B;
 }
 
 .btn-secondary {
@@ -3533,8 +3539,8 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-primary {
-  color: #0d6efd;
-  border-color: #0d6efd;
+  color: #00997B;
+  border-color: #00997B;
 }
 
 .btn-outline-primary:hover {
@@ -3554,8 +3560,8 @@ fieldset:disabled .btn {
 .btn-outline-primary.active,
 .btn-outline-primary.dropdown-toggle.show {
   color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color: #00997B;
+  border-color: #00997B;
 }
 
 .btn-check:checked+.btn-outline-primary:focus,
@@ -3568,7 +3574,7 @@ fieldset:disabled .btn {
 
 .btn-outline-primary:disabled,
 .btn-outline-primary.disabled {
-  color: #0d6efd;
+  color: #00997B;
   background-color: transparent;
 }
 
@@ -3854,7 +3860,7 @@ fieldset:disabled .btn {
 
 .btn-link {
   font-weight: 400;
-  color: #0d6efd;
+  color: #00997B;
   text-decoration: underline;
 }
 

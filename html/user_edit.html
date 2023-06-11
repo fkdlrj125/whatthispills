@@ -14,9 +14,9 @@
 </head>
 
 <body class="text-center">
-  <main class="form-signin w-100 m-auto container">
-    <img class="mb-4 logo" src="/img/로고최종.png" alt="" width="72" height="57">
-    <h1 class="h1 mb-3 fw-normal">회원정보 수정</h1>
+  <div id="header-placeholder"></div>
+  <div class="form-signin w-100 m-auto container">
+    <h2 class="h1 mb-3 fw-normal">회원정보 수정</h2>
     <div class="form-align">
       <form>
         <div class="info-title">이메일</div>
@@ -53,9 +53,22 @@
 
     </div>
 
-  </main>
+  </div>
 
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+      });
 
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
 
 </body>
 

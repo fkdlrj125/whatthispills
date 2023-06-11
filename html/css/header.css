@@ -1,11 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  color: #000;
-  font-family: 'Times New Roman', Times, serif;
-}
-
 @font-face {
   font-family: 'NanumSquareNeo-Variable';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
@@ -13,7 +5,21 @@
   font-style: normal;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #000;
+  font-family: 'NanumSquareNeo-Variable';
+}
+
+
+#header {
+  font-family: 'NanumSquareNeo-Variable';
+}
+
 .nav {
+
   margin: 3% auto;
   width: 100%;
   display: flex;
@@ -106,7 +112,7 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 
 #icon:checked+label+#in_navi>ul>li>a {
   color: white;
-  font: 20px bold ;
+  font: 20px bold;
 
 }
 
@@ -175,25 +181,25 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 #util #signup,
 #util #mypage,
 #util #logout {
-  color: rgb(69, 181, 170);
-  border: 3px solid rgb(69, 181, 170);
+  color: #00997B;
+  border: 3px solid #00997B;
   margin-left: 10px;
   width: 120px;
   height: 60px;
   line-height: 55px;
   text-decoration: none;
-  border-radius: 4%;
+  border-radius: 5px;
   text-align: center;
 }
 
 #util #signup {
   color: #fff;
-  background-color: rgb(69, 181, 170);
+  background-color: #00997B;
 }
 
 #util #logout {
   color: #fff;
-  background-color: rgb(69, 181, 170);
+  background-color: #00997B;
 }
 
 #util #logoin:hover,
