@@ -23,7 +23,7 @@
 }
 
 #checkbox {
-  width: 30px;
+  width: 200px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -37,8 +37,8 @@ input[id="icon"] {
 input[id="icon"]+label {
   position: absolute;
   display: block;
-  margin: 30px;
-  height: 40px;
+  margin: 50px;
+  height: 36px;
   cursor: pointer;
   /* 커서를 올려놓을 때 모양이 바뀐다. */
 }
@@ -50,7 +50,7 @@ input[id="icon"]+label>span {
   ;
   height: 5px;
   border-radius: 30px;
-  background: #00997B;
+  background: rgb(94, 94, 94);
   transition: all 0.35s;
   /* 진행되는 과정들을 천천히 보여줄 수 있다. 0.35초 동안 진행됨 */
   z-index: 2;
@@ -91,7 +91,7 @@ input[id="icon"]:checked+label>span:nth-child(3) {
   /* 스크롤을 내리더라도 같은 위치에서 붙어다닌다. */
   width: 200px;
   height: 100%;
-  background: gray;
+  background: rgb(94, 94, 94);
   top: 150px;
   padding: 60px 25px 25px 25px;
   box-sizing: border-box;
@@ -134,7 +134,7 @@ input[id="icon"]:checked+label>span:nth-child(3) {
   height: 30px;
   border: none;
   outline: none;
-  font-size: 20px;
+  font: 20px bold;
   text-align: left;
   /* 왼쪽 정렬 */
 }
