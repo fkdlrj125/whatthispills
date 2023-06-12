@@ -37,13 +37,13 @@ a {
 .user_menu {
   width: 160px;
   height: 160px;
-  background-color: #fefefe;
-  border: 1px solid #eee;
+  background-color: #fff;
+  border: 1px solid #fff;
   justify-content: center;
   justify-items: center;
   border-radius: 20px;
   line-height: 60px;
-  box-shadow: 5px 10px 15px #bbb;
+  box-shadow: 5px 10px 15px #fff;
   font-size: 24px;
   font-weight: 500;
   color: #333;
@@ -51,6 +51,6 @@ a {
 
 .user_menu_list .user_menu:hover {
   scale: 1.1;
-  box-shadow: 7px 15px 20px #ddd;
+  box-shadow: 7px 15px 20px #fff;
   transition: 0.25s;
 }
