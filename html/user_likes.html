@@ -10,35 +10,45 @@
   <link rel="stylesheet" href="css/user_likes.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>pill&nutritional</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-...your-sha512-hash..." crossorigin="anonymous" />
+  <title>찜 목록</title>
 </head>
+
 <body>
-<!-- end : header -->  <div id="header-placeholder"></div>
-  <div id="main_likes">
+  <!-- end : header -->
+  <div id="header-placeholder"></div>
+  <div class="container">
     <h1>
       <label for="" id="main_title">내가 찜한 목록</label>
     </h1>
+    <!-- START THE FEATURETTES -->
+    <div class="main-likes">
+      <img src="img/nutri.jpg" id="product">
+      <ul class="text_context">
+        <li>
+          <label for="" id="name">제품명:<span th:text='${name}'>고려은단 비타민C 1000</span></label>
+          <span>
+            <button class="heart-button" aria-label="Heart Button">
+              <i class="fas fa-heart"></i>
+            </button>
+          </span>
+        </li>
+        <li>
+          <label for="" id="nutri_contens">구분: <span th:text='${content}'>비타민C</span></label>
+        </li>
+        <li>
+          <label for="" id="nutri_compeny">제조사: <span th:text='${company}'>고려은단</span></label>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="like_product">
-    <form action="">
-      <table>
-        <tr>
-          <td><img src="/img/pill.png" alt="{{pill_img.png}}"></td>
-          <td>
-          <th>
-            <label for="" id="name">제품명:<span th:text='${name}'>인사돌정</span></label>
-            <button class="like-button"><img src="/img/heart nop.png" alt=""></button>
-            <button class="non-like-button"><img src="/img/heart ful.png" alt=""></button>
-            <br>
-            <label for="" id="nutri_contens">구분: <span th:text='${content}'>치통</span></label>
-            <br>
-            <label for="" id="nutri_compeny">제조사: <span th:text='${company}'>인사돌</span></label>
-          </th>
-          </td>
-        </tr>
-      </table>
-    </form>
+  <div class="col-md-5 order-md-1">
+    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+      xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false">
+    </svg>
   </div>
+  <!-- /END THE FEATURETTES -->
   <div id="footer-placeholder"></div>
   <script>
     fetch('header.html')
@@ -52,6 +62,9 @@
       .then(html => {
         document.getElementById('footer-placeholder').innerHTML = html;
       });
+    const heartButton = document.querySelector('.heart-button');
+    heartButton.addEventListener('click', function () {
+      this.classList.toggle('active');
+    });
   </script>
 </body>
-
