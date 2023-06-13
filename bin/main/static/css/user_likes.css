@@ -1,0 +1,40 @@
+.body {
+  min-height: calc(100vh - 100px);
+  margin: 30px;
+  width: 500px;
+}
+
+#main_likes {
+  text-align: center;
+  margin: 100px;
+}
+
+.like_product {
+  margin: 20%;
+}
+
+.like_product img {
+  width: 240px;
+}
+
+.like_product table {
+  display: flex;
+  align-items: center;
+}
+
+.like_product table td {
+  margin-left: 10px;
+}
+.like-button{
+  border: 10px white;
+}
+.like-button img{
+  width: 40px;
+}
+
+.non-like-button{
+  border: 10px white;
+}
+.non-like-button img{
+  width: 40px;
+}

@@ -13,9 +13,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class NutriController {
 	
-	@Autowired
-	private final NutriService nutriService;
-	
 	@GetMapping("/nutri/search")
 	public String nutirSearch() {
 		return null;
