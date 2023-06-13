@@ -14,8 +14,8 @@
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/pricing/"
     />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/user_menu.css" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{/css/user_menu.css}" />
   </head>
 
   <body>
@@ -41,13 +41,13 @@
 
     <div id="footer-placeholder"></div>
     <script>
-      fetch("header.html")
+      fetch("/header.html")
         .then((response) => response.text())
         .then((html) => {
           document.getElementById("header-placeholder").innerHTML = html;
         });
 
-      fetch("footer.html")
+      fetch("/footer.html")
         .then((response) => response.text())
         .then((html) => {
           document.getElementById("footer-placeholder").innerHTML = html;

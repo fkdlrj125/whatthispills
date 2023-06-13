@@ -56,7 +56,7 @@ public class JDBCUserRepository implements UserRepository{
 		map.put("user_email", user.getEmail());
 		map.put("user_name", user.getName());
 		map.put("user_pwd", user.getPwd());
-		map.put("user_age", user.getBirth());
+		map.put("user_birth", user.getBirth());
 		map.put("user_gender", user.getGender());
 		Number result = insert.executeAndReturnKey(new MapSqlParameterSource(map));
 		user.setIdx(result.longValue());

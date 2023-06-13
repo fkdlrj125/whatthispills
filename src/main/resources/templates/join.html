@@ -9,32 +9,31 @@
   <meta name="generator" content="Hugo 0.104.2">
   <title>회원가입</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-  <link rel="stylesheet" th:href="@{css/bootstrap.css}">
-  <link rel="stylesheet" th:href="@{css/join.css}">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" th:href="@{/css/join.css}">
 </head>
 
 <body class="text-center">
   <div id="header-placeholder"></div>
   <div class="container">
-
     <main class="form-signin w-100 m-auto container">
 
       <h2 class="h1 mb-3 fw-normal">회원가입</h2>
       <div class="form-align">
-        <form>
+        <form action="/join" method="Post">
           <div class="info-title">이메일</div>
           <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput"></label>
           </div>
           <div class="info-title">이름</div>
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingName" placeholder="이름을 입력해주세요">
+            <input type="text" name="name" class="form-control" id="floatingName" placeholder="이름을 입력해주세요">
             <label for="floatingName"></label>
           </div>
           <div class="info-title">비밀번호</div>
           <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" name="pwd" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword"></label>
           </div>
           <div class="info-title">성별</div>
@@ -45,7 +44,7 @@
           </div>
           <div class="info-title">생년월일</div>
           <div class="form-floating">
-            <input type="month" name="birthdaymonth">
+            <input type="date" name="birth">
           </div>
           <div class="form-btn">
 
@@ -61,13 +60,13 @@
   </div>
   <div id="footer-placeholder"></div>
   <script>
-    fetch('header.html')
+    fetch('/header.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('header-placeholder').innerHTML = html;
       });
 
-    fetch('footer.html')
+    fetch('/footer.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('footer-placeholder').innerHTML = html;

@@ -49,8 +49,10 @@ public class UserController {
 		if(userService.login(user_email, user_pwd)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("passUser", userService.findEmail(user_email));
+			return "redirect:/";
 		}
-		return "redirect:/";
+		return "redirect:/login";
+		
 	}
 	
 	@GetMapping("/logout")
@@ -87,8 +89,8 @@ public class UserController {
 	}
 	
 	@GetMapping("/user/edit")
-	public String user_edit_get(@SessionAttribute User passUser, Model model) {
-		model.addAttribute("user", passUser);
+	public String user_edit_get(/* @SessionAttribute User passUser, */Model model) {
+//		model.addAttribute("user", passUser);
 		return "user/edit";
 	}
 	

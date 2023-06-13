@@ -10,17 +10,12 @@
   <link rel="stylesheet" th:href="@{css/main.css}">
   <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>pill&nutritional</title>
-
+  <title>메인 페이지</title>
 </head>
-<!-- end : header -->
-<!-- START : navi  -->
 
 <body>
   <div id="header-placeholder"></div>
   <br>
-  <!-- END : navi  -->
-  <!-- start:banner -->
   <div class="banner">
     <div id="banner">
       <img src="img/benner.jpg" alt="banner">
@@ -42,13 +37,13 @@
 
   <div id="footer-placeholder"></div>
   <script>
-    fetch('header.html')
+    fetch('/header.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('header-placeholder').innerHTML = html;
       });
 
-    fetch('footer.html')
+    fetch('/footer.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('footer-placeholder').innerHTML = html;

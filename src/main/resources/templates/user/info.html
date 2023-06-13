@@ -9,8 +9,8 @@
   <meta name="generator" content="Hugo 0.104.2">
   <title>회원정보</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/join.css">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+  <link rel="stylesheet" th:href="@{/css/join.css}">
 </head>
 
 <body class="text-center">
@@ -49,13 +49,13 @@
 
   <div id="footer-placeholder"></div>
   <script>
-    fetch('header.html')
+    fetch('/header.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('header-placeholder').innerHTML = html;
       });
 
-    fetch('footer.html')
+    fetch('/footer.html')
       .then(response => response.text())
       .then(html => {
         document.getElementById('footer-placeholder').innerHTML = html;

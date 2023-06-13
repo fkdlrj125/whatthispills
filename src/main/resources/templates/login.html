@@ -40,24 +40,24 @@
             />
           </div>
           <div>
-            <button class="login_btn">로그인</button>
+            <button type="submit" class="login_btn">로그인</button>
           </div>
           <div class="options">
-            <a href="">비밀번호 찾기</a>
-            <a href="">가입하기</a>
+            <a href="/user/find_pwd">비밀번호 찾기</a>
+            <a href="/join">가입하기</a>
           </div>
         </form>
       </div>
     </div>
     <div id="footer-placeholder"></div>
     <script>
-      fetch('header.html')
+      fetch('/header.html')
         .then(response => response.text())
         .then(html => {
           document.getElementById('header-placeholder').innerHTML = html;
         });
   
-      fetch('footer.html')
+      fetch('/footer.html')
         .then(response => response.text())
         .then(html => {
           document.getElementById('footer-placeholder').innerHTML = html;

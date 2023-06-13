@@ -32,8 +32,6 @@ a {
 
 body {
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
   background-color: #fff;
   font-family: 'NanumSquareNeo-Variable';
   font-size: 18px;
@@ -111,7 +109,7 @@ h1 {
   fill: currentColor;
 }
 
-.nav-scroller {
+/* .nav-scroller {
   position: relative;
   z-index: 2;
   height: 2.75rem;
@@ -127,13 +125,13 @@ h1 {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-}
+} */
 
 .form-align {
   text-align: center;
 }
 
-form {
+.container form {
   border: 3px solid #00997B;
   border-radius: 20px;
   width: 500px;
