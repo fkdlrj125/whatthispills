@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="kr">
+<!-- START : header -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/user_likes.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>pill&nutritional</title>
+</head>
+<body>
+<!-- end : header -->  <div id="header-placeholder"></div>
+  <div id="main_likes">
+    <h1>
+      <label for="" id="main_title">내가 찜한 목록</label>
+    </h1>
+  </div>
+  <div class="like_product">
+    <form action="">
+      <table>
+        <tr>
+          <td><img src="/img/pill.png" alt="{{pill_img.png}}"></td>
+          <td>
+          <th>
+            <label for="" id="name">제품명:<span th:text='${name}'>인사돌정</span></label>
+            <button class="like-button"><img src="/img/heart nop.png" alt=""></button>
+            <button class="non-like-button"><img src="/img/heart ful.png" alt=""></button>
+            <br>
+            <label for="" id="nutri_contens">구분: <span th:text='${content}'>치통</span></label>
+            <br>
+            <label for="" id="nutri_compeny">제조사: <span th:text='${company}'>인사돌</span></label>
+          </th>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+      });
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      });
+  </script>
+</body>
+
