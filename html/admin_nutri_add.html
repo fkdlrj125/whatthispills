@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/admin_nutri_add.css">
-  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <title>관리자 영양제 추가</title>
 </head>
@@ -22,15 +22,16 @@
     <h1>영양제 추가</h1>
     <form>
       <table>
-        <thead>
+        <tbody>
           <tr>
             <td>분류 코드:</td>
             <td><input type="text" name="classifi_code" placeholder="내용을 입력해주세요" />
               <button id="check_id">중복확인</button>
             </td>
+            <td>이름:</td>
+            <td><input type="text" name="nutri_name" placeholder="내용을 입력해주세요" />
+            </td>
           </tr>
-        </thead>
-        <tbody>
           <tr>
             <td>구분:</td>
             <td><input type="text" name="category" placeholder="내용을 입력해주세요" /></td>
