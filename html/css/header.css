@@ -31,7 +31,7 @@
   width: 0px;
   height: 100%;
   padding-right: 0px;
-  margin-left : 50px;
+  margin-left: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,7 +166,7 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 
 #util a {
   color: #00997B;
-  border: 3px solid #00997B;
+  border: 2px solid #00997B;
   margin-left: 10px;
   width: 120px;
   height: 50px;
@@ -182,12 +182,12 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 #util #mypage,
 #util #logout {
   color: #00997B;
-  border: 3px solid #00997B;
+  border: 2px solid #00997B;
   margin-left: 10px;
   width: 100px;
   height: 40px;
   line-height: 37px;
-  font-size : 14px;
+  font-size: 14px;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
@@ -205,12 +205,14 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 
 #util #logoin:hover,
 #util #mypage:hover {
-  background-color: #00997B;
+  border: rgb(69, 181, 170);
+  background-color: rgb(69, 181, 170);
   color: #fff;
 }
 
 #util #signup:hover,
 #util #logout:hover {
-  background-color: #fff;
-  color: rgb(69, 181, 170);
+  border: rgb(69, 181, 170);
+  background-color: rgb(69, 181, 170);
+  color: #fff;
 }

@@ -7,6 +7,7 @@
 }
 
 .banner {
+  font-family: 'NanumSquareNeo-Variable';
   position: relative;
   text-align: center;
   margin-top: 150px;
@@ -54,20 +55,16 @@
   width: 240px;
 }
 
-#banner {
-  /* width: 30%; */
-}
-
 #banner a button {
   color: #fff;
-  border: 1px solid #00997B;
+  border: 2px solid #00997B;
   text-decoration: none;
   text-align: center;
   background-color: #00997B;
   width: 30%;
   height: 50px;
   line-height: 40px;
-  border-radius: 4%;
+  border-radius: 5px;
   font: 20px bold;
 }
 
@@ -88,9 +85,9 @@
   
 } */
 #banner button:hover {
-  border: 1px solid #00997B;
-  background-color: #fff;
-  color: #00997B;
+  border: 2px solid rgb(69, 181, 170);
+  background-color: rgb(69, 181, 170);
+  color: #fff;
 
 }
 
