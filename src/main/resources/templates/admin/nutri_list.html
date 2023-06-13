@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>영양제 관리</title>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+    <div class="container-lg">
+      <h2>영양제 관리</h2>
+      <form action="/nutri/result" class>
+        <div class="input-group my-5 pb-5 w-50 m-auto">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="어떤 의약품을 찾고 계신가요?"
+            aria-label="어떤 의약품을 찾고 계신가요?"
+            aria-describedby="button-addon2"
+          />
+          <button class="btn" type="submit" id="button-addon2">검색</button>
+        </div>
+      </form>
+
+      <div class="product_table">
+        <div class="add">
+          <button class="btn btn-secondary add_btn">추가</button>
+        </div>
+        <table class="table">
+          <thead class="table-active">
+            <tr>
+              <th scope="col">분류코드</th>
+              <th scope="col">제품명</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td class="product_name">고려은단 바티민C</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch('header.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('header-placeholder').innerHTML = html;
+        });
+  
+      fetch('footer.html')
+        .then(response => response.text())
+        .then(html => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+        });
+    </script>
+  </body>
+</html>
