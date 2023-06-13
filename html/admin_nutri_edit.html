@@ -14,36 +14,34 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <title>관리자 영양제 수정</title>
 </head>
-<body>  <div id="header-placeholder"></div>
+
+<body>
+  <div id="header-placeholder"></div>
 
   <div class="admin_nutri_edit">
     <h1>영양제 수정</h1>
     <form>
       <table>
-        <thead>
-          <tr>
-            <td>분류 코드:</td>
-            <td><input type="text" name="classifi_code" readonly th:value="${nutri.id}" required />
-            </td>
-            <td>이름:</td>
-            <td><input type="text" name="nutri_name" placeholder="내용을 입력해주세요" />
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>구분:</td>
-            <td><input type="text" name="category" placeholder="내용을 입력해주세요"/></td>
-            <td>제조사:</td>
-            <td><input type="text" name="manufacturer" placeholder="내용을 입력해주세요"/></td>
-          </tr>
-          <tr>
-            <td>주성분:</td>
-            <td><input type="text" name="main_ingredient" placeholder="내용을 입력해주세요"/></td>
-            <td>효능:</td>
-            <td><input type="text" name="effect" placeholder="내용을 입력해주세요"/></td>
-          </tr>
-        </tbody>
+        <tr>
+          <td>분류 코드:</td>
+          <td><input type="text" name="classifi_code" readonly th:value="${nutri.id}" required />
+          </td>
+          <td>이름:</td>
+          <td><input type="text" name="nutri_name" placeholder="내용을 입력해주세요" />
+          </td>
+        </tr>
+        <tr>
+          <td>구분:</td>
+          <td><input type="text" name="category" placeholder="내용을 입력해주세요" /></td>
+          <td>제조사:</td>
+          <td><input type="text" name="manufacturer" placeholder="내용을 입력해주세요" /></td>
+        </tr>
+        <tr>
+          <td>주성분:</td>
+          <td><input type="text" name="main_ingredient" placeholder="내용을 입력해주세요" /></td>
+          <td>효능:</td>
+          <td><input type="text" name="effect" placeholder="내용을 입력해주세요" /></td>
+        </tr>
         <tr>
           <td>복용법:</td>
           <td colspan="2" class="textarea-row">
