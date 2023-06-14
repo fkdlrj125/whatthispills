@@ -16,87 +16,95 @@
   margin-left: 20%;
 }
 
-#nutri_main{
+#nutri_main {
   text-align: center;
-  margin: 100px;
+  margin: 10px;
 }
-
-.nutri_product {
-  margin: 20%;
-  margin-top: 10%;
+#main_title{
+  margin-bottom: 5%;
+  margin-top: 5%;
 }
+.text_context{
+  display: flex;
+  flex-direction: column;
 
-.nutri_product img {
-  width: 240px;
 }
-
-.nutri_product table {
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 30px;
+  margin-left: 30px;
+}
+.row-1{
+  display: flex;
+  
+}
+.text_area {
+  position: fixed;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
-
-.nutri_product table td {
-  margin-left: 10px;
-}
-
-.nutri_product table td button {
+.product-info {
   display: flex;
-  justify-items: flex-start;
+  align-items: center;
+  justify-content: space-between; 
+  /* margin-bottom: 10px; */
 }
-.like-button{
-  border: 10px white;
+.product-info .product-name {
+  margin-right: 10px;
 }
-.like-button img{
-  width: 40px;
+.product-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  margin-bottom: 20px;
 }
-.non-like-button{
-  border: 10px white;
-}
-.non-like-button img{
-  width: 40px;
-}
-
-
-body {
-  min-height: calc(100vh - 100px);
-}
-
-.container {
-  padding: 100px;
-}
-
-h1 {
-  text-align: center;
-}
-
 #product {
   width: 250px;
 }
-
-.text_context {
-  display: inline-block;
-  align-items: center;
+.text_area img {
+  margin-right: 20px;
 }
 
-.main-likes {
-  margin: 60px;
+.name-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }
 
-.main-likes img {
-  max-width: 100%;
-  height: auto;
+.name-container span {
+  margin-bottom: 10px;
 }
 
-.main-likes .context {
-  padding-left: 30px;
+.text_area .col-6 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  /* align-content: center; */
+  align-items: baseline;
 }
 
+.text_area .col-6 .product-info .product-name {
+  text-align: left;
+}
+.text_area.col-md-6.offset-md-2 {
+  margin-right: 1%;
+}
+
+.text_area.col-md-6.offset-md-1 {
+  margin-left: 1%;
+}
+.main-container label{
+  justify-content: flex-start;
+}
 .heart-button {
   border: none;
   background-color: transparent;
   padding: 0;
   margin-left: 10px;
-  font-size: 25px;
+  font-size: 16px;
   color: #ccc;
   cursor: pointer;
 }
@@ -146,44 +154,4 @@ h1 {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
-}
-
-#nutri_main{
-  text-align: center;
-  margin: 100px;
-}
-
-.nutri_product {
-  margin: 20%;
-  margin-top: 10%;
-}
-
-.nutri_product img {
-  width: 240px;
-}
-
-.nutri_product table {
-  display: flex;
-  align-items: center;
-}
-
-.nutri_product table td {
-  margin-left: 10px;
-}
-
-.nutri_product table td button {
-  display: flex;
-  justify-items: flex-start;
-}
-.like-button{
-  border: 10px white;
-}
-.like-button img{
-  width: 40px;
-}
-.non-like-button{
-  border: 10px white;
-}
-.non-like-button img{
-  width: 40px;
 }
