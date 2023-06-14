@@ -27,6 +27,7 @@
 .text_context{
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
 
 }
 .row {
@@ -38,6 +39,19 @@
 .row-1{
   display: flex;
   
+=======
+}
+.row {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  flex-direction: row-reverse;
+}
+.row-1{
+  display: flex;
+>>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
 }
 .text_area {
   position: fixed;
@@ -48,8 +62,13 @@
 .product-info {
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   justify-content: space-between; 
   /* margin-bottom: 10px; */
+=======
+  justify-content: space-between; /* 추가 */
+  margin-bottom: 10px;
+>>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
 }
 .product-info .product-name {
   margin-right: 10px;
@@ -57,8 +76,13 @@
 .product-info {
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   justify-content: space-between; 
   margin-bottom: 20px;
+=======
+  justify-content: space-between; /* 추가 */
+  margin-bottom: 10px;
+>>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
 }
 #product {
   width: 250px;
@@ -68,13 +92,20 @@
 }
 
 .name-container {
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+=======
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+>>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
 }
 
 .name-container span {
   margin-bottom: 10px;
+<<<<<<< HEAD
 }
 
 .text_area .col-6 {
@@ -84,6 +115,20 @@
   flex-wrap: nowrap;
   /* align-content: center; */
   align-items: baseline;
+=======
+}
+.text_area .col-6 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column-reverse;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: baseline;
+}
+
+.text_area .col-6 .product-info .product-name {
+  text-align: left;
+>>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
 }
 
 .text_area .col-6 .product-info .product-name {
