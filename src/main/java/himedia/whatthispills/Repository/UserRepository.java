@@ -12,6 +12,6 @@ public interface UserRepository {
 	public Optional<User> findByEmailName(String email, String name);
 	public List<User> findAll();
 	public List<UserLikes> userLikes(Long user_idx);
-	public Optional<User> updateUser(Long update_idx, User update_user);
+	public Optional<User> updateUser(User update_user);
 	public Optional<User> updatePwd(String user_email, String update_pwd);
 }

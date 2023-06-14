@@ -39,13 +39,15 @@ public class UserController {
 	
 	@PostMapping("/edit")
 	public String userEditPost(@ModelAttribute User updateUser, HttpServletRequest request) {
-		User user = userService.update(updateUser.getIdx(), updateUser);
+		User user = userService.update(updateUser);
+		log.info(user.getPwd());
 		request.getSession().setAttribute("passUser", user);
 		return "redirect:/user/info";
 	}
 	
 	@GetMapping("/info")
 	public String userInfo(@SessionAttribute(required = false) User passUser, Model model) {
+		log.info(passUser.getEmail());
 		model.addAttribute("user", passUser);
 		return "user/info";
 	}

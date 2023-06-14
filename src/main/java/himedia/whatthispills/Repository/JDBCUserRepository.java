@@ -86,9 +86,9 @@ public class JDBCUserRepository implements UserRepository{
 	}
 
 	@Override
-	public Optional<User> updateUser(Long update_idx, User update_user) {
-		jdbcTemplate.update("update user_ set user_pwd = ?, user_gender = ?,user_birth = ? where user_idx = ?", 
-				update_user.getPwd(), update_user.getGender(), update_user.getBirth(), update_idx);
+	public Optional<User> updateUser(User update_user) {
+		jdbcTemplate.update("update user_ set user_pwd = ?, user_gender = ?,user_birth = ? where user_email like ?", 
+				update_user.getPwd(), update_user.getGender(), update_user.getBirth(), update_user.getEmail());
 		return findByEmail(update_user.getEmail());
 	}
 

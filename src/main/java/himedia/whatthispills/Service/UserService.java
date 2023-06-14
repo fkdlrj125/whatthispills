@@ -47,11 +47,9 @@ public class UserService {
 		Optional<Admin> admin = adminRepository.findByEmail(try_email);
 		Optional<User> user = userRepository.findByEmail(try_email);
 		
-		if(user.isEmpty() && admin.isEmpty()) {
-			return "";
-		} else if(user.get().getPwd().equals(try_pwd)) {
+		if(user.isPresent() && user.get().getPwd().equals(try_pwd)) {
 			return "user";
-		} else if(admin.get().getPwd().equals(try_pwd)) {
+		} else if(admin.isPresent() && admin.get().getPwd().equals(try_pwd)) {
 			return "admin";
 		}
 		return "";
@@ -66,8 +64,8 @@ public class UserService {
 		return true;
 	}
 	
-	public User update(Long update_idx, User update_user) {
-		return userRepository.updateUser(update_idx, update_user).get();
+	public User update(User update_user) {
+		return userRepository.updateUser(update_user).get();
 	}
 	
     public boolean updatePassword(String user_email, String update_pwd) {
