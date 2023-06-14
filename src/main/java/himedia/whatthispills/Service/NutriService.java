@@ -26,6 +26,8 @@ public class NutriService {
 	public Optional<Nutri> findByNameNutri(String name) {
 		return repository.findByNameNutri(name);
 	}
+	
+	// 아이디 중복 검색
 	public List<Nutri> findByIdNutri(Long idx) {
 		return repository.findByIdNutri(idx);
 	}
@@ -35,9 +37,5 @@ public class NutriService {
 		return repository.findByAllNutri();
 	}
 
-	// 추천 상품 유저 ID
-	public List<Nutri> getRecommendedProducts(String userId) {
-		return repository.getRecommendedProducts(userId);
-	}
 
 }

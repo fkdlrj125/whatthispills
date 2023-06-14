@@ -29,8 +29,8 @@ public class JDBCNutriRepository implements NutriRepository {
 					rs.getString("effect"),
 					rs.getString("taking"),
 					rs.getString("warning"),
-					rs.getString("image"),
-					rs.getString("etc")
+					rs.getString("etc"),
+					rs.getString("image")
 					);
 			return nutri;
 		};
@@ -47,12 +47,14 @@ public class JDBCNutriRepository implements NutriRepository {
 		map.put("nutri_effect", nutri.getEffect());
 		map.put("nutri_taking", nutri.getTaking());
 		map.put("nutri_warning", nutri.getWarning());
-		map.put("nutri_image", nutri.getImage());
 		map.put("nutri_etc", nutri.getEtc());
+		map.put("nutri_image", nutri.getImage());
 		Number result = insert.executeAndReturnKey(new MapSqlParameterSource(map));
 		nutri.setIdx(result.longValue());
 		return null;
 	}
+	
+	
 	@Override
 	public Optional<Nutri> findByNameNutri(String name) {
 	    List<Nutri> nutriList = jdbcTemplate.query("select * from nutri where name like ?", nutriMapper(), "%"+name+"%");
@@ -67,31 +69,6 @@ public class JDBCNutriRepository implements NutriRepository {
 	@Override
 	public List<Nutri> findByIdNutri(Long idx) {
 		return jdbcTemplate.query("select * from nutri where id like ?", nutriMapper(), idx);
-	}
-
-
-	@Override
-	public List<Nutri> getRecommendedProducts(String userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addProductToHistory(String userId, Nutri nutri) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public List<Nutri> getHistory(String userId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void clearHistory(String userId) {
-		// TODO Auto-generated method stub
-		
 	}
 
 

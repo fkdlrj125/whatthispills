@@ -19,17 +19,5 @@ public interface NutriRepository {
 	// 영양제 중복 아이디 찾기
 	List<Nutri> findByIdNutri(Long idx);
 
-	// 영양제 추천
-	List<Nutri> getRecommendedProducts(String userId);
-
-	// 영양제 history 추가
-	void addProductToHistory(String userId, Nutri nutri);
-
-	// 영양제 history
-	List<Nutri> getHistory(String userId);
-
-	// 영양제 history 지우기
-	void clearHistory(String userId);
-
 
 }
