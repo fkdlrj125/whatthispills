@@ -1,9 +1,11 @@
 package himedia.whatthispills.Service;
 
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
-import himedia.whatthispills.Domain.NutriDomain;
+import himedia.whatthispills.Domain.Admin;
 import himedia.whatthispills.Repository.JDBCAdminRepository;
 
 @Service
@@ -14,8 +16,8 @@ public class AdminService {
 	public AdminService(JDBCAdminRepository adminRepository) {
 		this.adminRepository = adminRepository;
 	}
-
-	public NutriDomain edit() {
-		return adminRepository.editNutri(null, null);
+	
+	public Optional<Admin> findEmail(String email) {
+		return adminRepository.findByEmail(email);
 	}
 }

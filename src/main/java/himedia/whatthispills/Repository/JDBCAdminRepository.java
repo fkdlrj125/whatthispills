@@ -24,7 +24,7 @@ public class JDBCAdminRepository implements AdminRepository{
 	public RowMapper<Admin> adminMapper(){
 		return (ResultSet rs, int rowNum) -> {
 			Admin admin = new Admin(
-					rs.getString("admin_email"),
+					rs.getString("admin_id"),
 					rs.getString("admin_pwd"));
 			
 			return admin;
@@ -33,11 +33,7 @@ public class JDBCAdminRepository implements AdminRepository{
 
 	@Override
 	public Optional<Admin> findByEmail(String email) {
-		List<Admin> adminList = jdbcTemplate.query("select * from admin_ where admin_email like ?", adminMapper(), email);
-		return Optional.empty();
+		List<Admin> adminList = jdbcTemplate.query("select * from admin_ where admin_id like ?", adminMapper(), email);
+		return adminList.stream().findAny();
 	}
-
-	
-
-
 }

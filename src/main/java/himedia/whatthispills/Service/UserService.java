@@ -5,16 +5,22 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import himedia.whatthispills.Domain.Admin;
 import himedia.whatthispills.Domain.User;
 import himedia.whatthispills.Domain.UserLikes;
+import himedia.whatthispills.Repository.JDBCAdminRepository;
 import himedia.whatthispills.Repository.JDBCUserRepository;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class UserService {
 	private final JDBCUserRepository userRepository;
+	private final JDBCAdminRepository adminRepository;
 	
-	public UserService(JDBCUserRepository userRepository) {
+	public UserService(JDBCUserRepository userRepository, JDBCAdminRepository adminRepository) {
 		this.userRepository = userRepository;
+		this.adminRepository = adminRepository;
 	}
 	
 	public User saveUser(User user) {
@@ -37,15 +43,18 @@ public class UserService {
 		return userRepository.userLikes(user_idx);
 	}
 	
-	public boolean login(String try_email, String try_pwd) {
+	public String login(String try_email, String try_pwd) {
+		Optional<Admin> admin = adminRepository.findByEmail(try_email);
 		Optional<User> user = userRepository.findByEmail(try_email);
 		
-		if(user.isEmpty()) {
-			return false;
-		} else if(user.get().getPwd() == try_pwd) {
-			return true;
+		if(user.isEmpty() && admin.isEmpty()) {
+			return "";
+		} else if(user.get().getPwd().equals(try_pwd)) {
+			return "user";
+		} else if(admin.get().getPwd().equals(try_pwd)) {
+			return "admin";
 		}
-		return false;
+		return "";
 	}
 	
 	public boolean find_pwd(String try_email, String try_name) {
@@ -61,11 +70,11 @@ public class UserService {
 		return userRepository.updateUser(update_idx, update_user).get();
 	}
 	
-	public boolean updatePassword(String user_email, String update_pwd) {
-		Optional<User> idx = userRepository.updatePwd(user_email, update_pwd);
-		if(idx.isPresent()) {
-			return true;
-		}
-		return false;
-	}
+    public boolean updatePassword(String user_email, String update_pwd) {
+        Optional<User> idx = userRepository.updatePwd(user_email, update_pwd);
+        if(idx.isPresent()) {
+            return true;
+        }
+        return false;
+    }
 }

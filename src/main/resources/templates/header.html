@@ -37,9 +37,13 @@
         <button type="submit"></button>
       </form>
     </div>
-    <div class="flex-sm-fill text-sm-center nav-link" id="util">
+    <div  th:if="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
       <a href="/login" id="logoin" style="font-family: 'NanumSquareNeo-Variable';">로그인</a>
       <a href="/join" id='signup' style="font-family: 'NanumSquareNeo-Variable';">회원가입</a>
+    </div>
+    <div  th:unless="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
+      <a href="/user/menu" id='mypage' style="font-family: 'NanumSquareNeo-Variable';">마이페이지</a>
+      <a href="/logout" id="logout" style="font-family: 'NanumSquareNeo-Variable';">로그아웃</a>
     </div>
   </nav>
   <br>

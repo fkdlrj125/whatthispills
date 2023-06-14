@@ -17,7 +17,6 @@ public class NutriController {
 
 	private final NutriService nutriService;
 
-	@Autowired
 	public NutriController(NutriService nutriService) {
 		this.nutriService = nutriService;
 	}
@@ -59,13 +58,13 @@ public class NutriController {
 		return "nutri/about";
 	}
 
-	// 상품 추천
-	@GetMapping("/nutri/result")
-	public String nutriRecommend(@RequestParam("userId") String userId, Model model) {
-		List<Nutri> recommendedProducts = nutriService.getRecommendedProducts(userId);
-		model.addAttribute("recommendedProducts", recommendedProducts);
-		return "nutri/recommendation";
-	}
+//	// 상품 추천
+//	@GetMapping("/nutri/result")
+//	public String nutriRecommend(@RequestParam("userId") String userId, Model model) {
+//		List<Nutri> recommendedProducts = nutriService.getRecommendedProducts(userId);
+//		model.addAttribute("recommendedProducts", recommendedProducts);
+//		return "nutri/recommendation";
+//	}
 //	// 영양제 히스토리 추가
 //		@GetMapping("/nutri/history/add")
 //		public String addToHistory(@RequestParam("userId") String userId, @RequestParam("nutriId") Long nutriId) {

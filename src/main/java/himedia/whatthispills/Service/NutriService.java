@@ -13,7 +13,6 @@ import himedia.whatthispills.Repository.NutriRepository;
 public class NutriService {
 	private final NutriRepository repository;
 
-	@Autowired
 	public NutriService(NutriRepository repository) {
 		this.repository = repository;
 	}
