@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import himedia.whatthispills.Domain.NutriDomain;
+import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Service.AdminService;
 
 @Controller
@@ -32,7 +32,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/nutri_add")
-	public String nutri_add(@ModelAttribute NutriDomain nutri, RedirectAttributes attributes) {
+	public String nutri_add(@ModelAttribute Nutri nutri, RedirectAttributes attributes) {
 //		adminService.add(nutri);
 		return "redirect:/admin/nutri_list";
 	}

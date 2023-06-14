@@ -1,14 +1,17 @@
 package himedia.whatthispills.Repository;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import himedia.whatthispills.Domain.NutriDomain;
+import himedia.whatthispills.Domain.Admin;
+import himedia.whatthispills.Domain.Nutri;
 
 @Repository
 public class JDBCAdminRepository implements AdminRepository{
@@ -17,44 +20,24 @@ public class JDBCAdminRepository implements AdminRepository{
 	public JDBCAdminRepository(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
-	@Override
-	public List<NutriDomain> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public RowMapper<Admin> adminMapper(){
+		return (ResultSet rs, int rowNum) -> {
+			Admin admin = new Admin(
+					rs.getString("admin_email"),
+					rs.getString("admin_pwd"));
+			
+			return admin;
+		};
 	}
 
 	@Override
-	public Optional<NutriDomain> findByIdx(Long nutri_idx) {
-		// TODO Auto-generated method stub
+	public Optional<Admin> findByEmail(String email) {
+		List<Admin> adminList = jdbcTemplate.query("select * from admin_ where admin_email like ?", adminMapper(), email);
 		return Optional.empty();
 	}
 
-	@Override
-	public Optional<NutriDomain> findByName(String nutri_name) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
-
-	@Override
-	public NutriDomain addNutri(NutriDomain nutri) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public NutriDomain editNutri(Long nutri_idx, NutriDomain nutri) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void removeNutri(Long nutri_idx) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
+	
 
 
 }
