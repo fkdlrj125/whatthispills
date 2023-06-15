@@ -63,7 +63,7 @@ public class AdminController {
 	@PostMapping("/nutri_edit/{nutri_idx}")
 	public String nutriEditPost(@PathVariable Long nutri_idx, Nutri nutri, Model model) {
 		Nutri nutri_edit = nutriService.nutriEdit(nutri_idx, nutri);
-		model.addAttribute("nutri", nutri);
+		model.addAttribute("nutri", nutri_edit);
 		return "redirect:/admin/nutri_list";
 	}
 	
