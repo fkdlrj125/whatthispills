@@ -57,7 +57,7 @@ public class JDBCNutriRepository implements NutriRepository {
 		map.put("nutri_base", nutri.getBase());
 		map.put("nutri_effect", nutri.getEffect());
 		map.put("nutri_taking", nutri.getTaking());
-		map.put("nutri_warning", nutri.getCaution());
+		map.put("nutri_caution", nutri.getCaution());
 		map.put("nutri_etc", nutri.getEtc());
 		map.put("nutri_image", nutri.getImage());
 		insert.execute(map);
@@ -93,11 +93,12 @@ public class JDBCNutriRepository implements NutriRepository {
 
 	@Override
 	public Nutri update(Long nutri_idx, Nutri update_nutri) {
-		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_base = ?, nutri_effect = ?, nutri_taking = ?, nutri_warning = ?, nutri_image = ?, nutri_etc = ? ";
+		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_base = ?, nutri_effect = ?, nutri_taking = ?, nutri_caution= ?, nutri_image = ?, nutri_etc = ? where nutri_idx = ? " ;
 		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
 				update_nutri.getCompany(), update_nutri.getBase(), update_nutri.getEffect(),
 				update_nutri.getTaking(), update_nutri.getCaution(), update_nutri.getImage(),
-				update_nutri.getEtc());
+				update_nutri.getEtc(), nutri_idx);
+		update_nutri.setIdx(nutri_idx);
 		return findByIdxNutri(nutri_idx).get();
 	}
 
