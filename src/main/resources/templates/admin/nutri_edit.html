@@ -18,7 +18,7 @@
 
   <div class="admin_nutri_edit">
     <h1>영양제 수정</h1>
-    <form th:object=${nutri} action="/admin/nutri_edit" method="POST">
+    <form th:object=${nutri} action="#" th:action="@{/admin/nutri_edit/}+${nutri.idx}"  method="POST">
       <table>
         <tbody>
           <tr>
