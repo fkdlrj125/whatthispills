@@ -6,6 +6,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import himedia.whatthispills.Domain.Nutri;
@@ -51,4 +54,46 @@ public class NutriController {
 		return "nutri/about";
 	}
 	
+<<<<<<< HEAD
+	// 관리자 -------------------------------------------------------
+	
+	@GetMapping("/admin/nutri_list")
+	public String nutriAll(Model model) {
+//		List<Nutri> nutriList = nutriService.findByAllNutri();
+//		model.addAttribute("nutriList", nutriList);
+		return "admin/nutri_list";
+	}
+	
+	@GetMapping("/admin/nutri_add")
+	public String nutriAddGet() {
+		return "admin/nutri_add";
+	}
+	
+	@PostMapping("/admin/nutri_add")
+	public String nutriAddPost(@ModelAttribute Nutri nutri) {
+		nutriService.saveNutri(nutri);
+		return "redirect:/admin/nutri_list";
+	}
+	
+	@GetMapping("/admin/nutri_edit/{nutri_idx}")
+	public String nutriEditGet(@PathVariable Long nutri_idx, Model model) {
+		Nutri nutri = nutriService.findIdNutri(nutri_idx).get();
+		model.addAttribute("nutri", nutri);
+		return "admin/nutri_edit";
+	}
+	
+	@PostMapping("/admin/nutri_edit/{nutri_idx}")
+	public String nutriEditPost(@PathVariable Long nutri_idx, Nutri nutri, Model model) {
+		Nutri nutri_edit = nutriService.nutriEdit(nutri_idx, nutri).get();
+		return "redirect:/admin/nutri_list";
+	}
+	
+	@GetMapping("/admin/nutri_remove{nutri_idx}")
+	public String nutriRemove(@PathVariable Long nutri_idx) {
+		nutriService.removeNutri(nutri_idx);
+		return "redirect:/admin/nutri_list";
+	}
+	
+=======
+>>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5
 }

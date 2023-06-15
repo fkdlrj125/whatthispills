@@ -22,6 +22,17 @@ public class JDBCNutriRepository implements NutriRepository {
 	public RowMapper<Nutri> nutriMapper() {
 		return (ResultSet rs, int rowNum) -> {
 			Nutri nutri = new Nutri(
+<<<<<<< HEAD
+					rs.getString("nutri_name"),
+					rs.getString("nutri_category"),
+					rs.getString("nutri_company"),
+					rs.getString("nutri_base"),
+					rs.getString("nutri_effect"),
+					rs.getString("nutri_taking"),
+					rs.getString("nutri_warning"),
+					rs.getString("nutri_image"),
+					rs.getString("nutri_etc")
+=======
 					rs.getString("name"),
 					rs.getString("category"),
 					rs.getString("company"),
@@ -31,6 +42,7 @@ public class JDBCNutriRepository implements NutriRepository {
 					rs.getString("warning"),
 					rs.getString("etc"),
 					rs.getString("image")
+>>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5
 					);
 			return nutri;
 		};
@@ -57,19 +69,50 @@ public class JDBCNutriRepository implements NutriRepository {
 	
 	@Override
 	public Optional<Nutri> findByNameNutri(String name) {
-	    List<Nutri> nutriList = jdbcTemplate.query("select * from nutri where name like ?", nutriMapper(), "%"+name+"%");
+	    List<Nutri> nutriList = jdbcTemplate.query("select * from nutri_ where name like ?", nutriMapper(), "%"+name+"%");
 	    return nutriList.stream().findAny();
 	}
+	
 
+	// 관리자 -------------------------------------------------------
+	
 	@Override
 	public List<Nutri> findByAllNutri() {
-	    return jdbcTemplate.query("select * from nutri", nutriMapper());
+	    return jdbcTemplate.query("select * from nutri_", nutriMapper());
 	}
 	
 	@Override
-	public List<Nutri> findByIdNutri(Long idx) {
-		return jdbcTemplate.query("select * from nutri where id like ?", nutriMapper(), idx);
+	public Optional<Nutri> findByIdxNutri(Long nutri_idx) {
+		String sql = "select * from nutri_ where nutri_idx = ?";
+		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper(), nutri_idx);
+		return result.stream().findAny();
 	}
 
 
+<<<<<<< HEAD
+	@Override
+	public Optional<Nutri> nutriEditByIdx(Long nutri_idx, Nutri update_nutri) {
+		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_base = ?, nutri_effect = ?, nutri_taking = ?, nutri_warning = ?, nutri_image = ?, nutri_etc = ? ";
+		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
+				update_nutri.getCompany(), update_nutri.getBase(), update_nutri.getEffect(),
+				update_nutri.getTaking(), update_nutri.getWarning(), update_nutri.getImage(),
+				update_nutri.getEtc());
+		return findByIdxNutri(nutri_idx);
+	}
+
+	@Override
+	public Optional<Nutri> nutriRemoveByIdx(Long nutri_idx) {
+		String sql = "delete from nutri_ where nutri_idx = ?";
+		jdbcTemplate.update(sql, nutri_idx);
+		return Optional.empty();
+	}
+
+
+
+
+
+
+
+=======
+>>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5
 }

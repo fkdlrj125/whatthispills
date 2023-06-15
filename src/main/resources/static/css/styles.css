@@ -87,22 +87,6 @@ a {
   text-align: left;
 }
 
-.heart-button {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  margin-left: 10px;
-  font-size: 38px;
-}
-
-.heart-button i {
-  transition: color 0.3s ease;
-}
-
-.heart-button.active i {
-  color: rgba(255, 0, 0, 0.719);
-}
-
 .card-text {
   margin-bottom: 0;
 }

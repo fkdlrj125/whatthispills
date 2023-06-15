@@ -15,115 +15,43 @@
 </head>
 
 <body>
-  <body>
-    <div class="location">
-      <span class="ar">home</span>
-      <span class="ar"> > </span>
-      <span class="ar">영양제 검색</span>
-      <span class="ar"> > </span>
-      <span>검색결과</span>
-    </div>
-  
-    <div id="nutri_main">
-      <h1>
-        <label for="" id="main_title">영양제 검색 결과</label>
-      </h1>
-      <!-- START THE FEATURETTES -->
-      <div class="nutri-result">
-        <div class="text_context">
-          <div class="row">
-<<<<<<< HEAD
-            <div class="text_area col-md-5 offset-md-1" th:each="nutri : ${nutris}">
-=======
-            <div class="text_area col-md-6" th:each="nutri : ${nutris}">
->>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
-              <div class="row-1">
-                <div class="col-6">
-                  <div id="col-1">
-                    <span>
-                      <img src="/src/main/resources/static/img/nutri.jpg" id="product" th:onclick="'location.href=\'/nutri/about?keyword=\' + ${nutri.name}'">
-                    </span>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div id="col-2">
-                    <div class="name-container">
-                      <span id="name">제품명: <span th:text="${nutri.name}">고려은단 비타민C 1000</span>
-                      <button class="heart-button" aria-label="Heart Button">
-                        <i class="fas fa-heart"></i>
-                    </span>
-                      </button>
-                    </div>
-<<<<<<< HEAD
-                    <div class="name-container">
-                      <label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label>
-                    </div>
-                    <div class="name-container">
-=======
-                    <div>
-                      <label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label>
-                    </div>
-                    <div>
->>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
-                      <label for="nutri_company">제조사: <span th:text="${nutri.company}">고려은단</span></label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-<<<<<<< HEAD
-            <div class="text_area col-md-5" th:each="nutri : ${nutris}">
-=======
-            <div class="text_area col-md-6" th:each="nutri : ${nutris}">
->>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
-              <div class="row-1">
-                <div class="col-6">
-                  <div id="col-1">
-                    <span>
-                      <img src="/src/main/resources/static/img/nutri.jpg" id="product" th:onclick="'location.href=\'/nutri/about?keyword=\' + ${nutri.name}'">
-                    </span>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div id="col-2">
-                    <div class="name-container">
-                      <span id="name">제품명: <span th:text="${nutri.name}">고려은단 비타민C 1000</span>
-                      <button class="heart-button" aria-label="Heart Button">
-                        <i class="fas fa-heart"></i>
-<<<<<<< HEAD
-                    </span>
-                      </button>
-                    </div>
-                    <div class="name-container">
-                      <label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label>
-                    </div>
-                    <div class="name-container">
-=======
-                      </span>
-                      </button>
-                    </div>
-                    <div>
-                      <label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label>
-                    </div>
-                    <div>
->>>>>>> a885e0ed32ba5a6a902765079339f156953fc977
-                      <label for="nutri_company">제조사: <span th:text="${nutri.company}">고려은단</span></label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="location">
+    <span class="ar">home</span>
+    <span class="ar"> > </span>
+    <span class="ar">영양제 검색</span>
+    <span class="ar"> > </span>
+    <span>검색결과</span>
+  </div>
 
+  <div id="nutri_main">
+    <h1>
+      <label for="" id="main_title">영양제 검색 결과</label>
+    </h1>
+    <!-- START THE FEATURETTES -->
+    <div class="nutri-result">
+      <img th:src="@{image}}" id="product">
+      <ul class="text_context">
+        <li>
+          <label for="" id="name">제품명:<span th:text='${nutri_name}'>고려은단 비타민C 1000</span></label>
+          <span>
+            <button class="heart-button" aria-label="Heart Button">
+              <i class="fas fa-heart"></i>
+            </button>
+          </span>
+        </li>
+        <li>
+          <label for="" id="nutri_contens">구분: <span th:text='${nutri_category}'>비타민C</span></label>
+        </li>
+        <li>
+          <label for="" id="nutri_company">제조사: <span th:text='${nutri_company}'>고려은단</span></label>
+        </li>
+      </ul>
+    </div>
+  </div>
   <div class="col-md-5 order-md-1">
     <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
       xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false">
     </svg>
-
   </div>
   <div id="footer-placeholder"></div>
   <script th:src="@{/js/hf.js}"></script>
