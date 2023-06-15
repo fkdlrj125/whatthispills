@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8" />
@@ -17,13 +17,12 @@
     <h2>영양제 관리</h2>
     <form action="/nutri/result">
       <div class="input-group my-5 pb-5 w-50 m-auto">
-        <input type="text" class="form-control" placeholder="어떤 의약품을 찾고 계신가요?" aria-label="어떤 의약품을 찾고 계신가요?"
+        <input type="text" class="form-control" placeholder="어떤 영양제를 찾고 계신가요?" aria-label="어떤 영양제를 찾고 계신가요?"
           aria-describedby="button-addon2" />
         <button class="btn" type="submit" id="button-addon2">검색</button>
       </div>
     </form>
 
-<<<<<<< HEAD
     <div class="product_table">
       <div class="add">
         <button class="btn btn-secondary add_btn" onclick="location.href='nutri_add'">추가</button>
@@ -36,9 +35,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td class="product_name">고려은단 바티민C</td>
+          <tr th:each="nutri: ${nutri}">
+            <th scope="row"><a href="" th:text="${nutri.idx}"></a></th>
+            <td class="product_name"><a href="" th:text="${nutri.name}">안들어옴</a></td>
           </tr>
         </tbody>
       </table>
@@ -60,11 +59,3 @@
       });
   </script>
 </body>
-
-</html>
-=======
-    <div id="footer-placeholder"></div>
-    <script th:src="@{/js/hf.js}"></script>
-  </body>
-</html>
->>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5

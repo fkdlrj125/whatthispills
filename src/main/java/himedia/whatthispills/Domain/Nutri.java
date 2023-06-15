@@ -17,7 +17,6 @@ public class Nutri {
 	private String etc;
 	private String image;
 
-
 	public Nutri(String name, String category, String company, String base, String effect,
 			String taking, String caution, String etc, String image) {
 		this.name = name;
