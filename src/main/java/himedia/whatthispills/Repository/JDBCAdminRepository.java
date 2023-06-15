@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import himedia.whatthispills.Domain.Admin;
-import himedia.whatthispills.Domain.Nutri;
 
 @Repository
 public class JDBCAdminRepository implements AdminRepository{

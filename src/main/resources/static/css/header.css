@@ -1,6 +1,7 @@
 @font-face {
-  font-family: 'NanumSquareNeo-Variable';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-family: "NanumSquareNeo-Variable";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,12 +11,11 @@
   padding: 0;
   text-decoration: none;
   color: #000;
-  font-family: 'NanumSquareNeo-Variable';
+  font-family: "NanumSquareNeo-Variable";
 }
 
-
 #header {
-  font-family: 'NanumSquareNeo-Variable';
+  font-family: "NanumSquareNeo-Variable";
 }
 
 .nav {
@@ -31,7 +31,7 @@
   width: 0px;
   height: 100%;
   padding-right: 0px;
-  margin-left : 50px;
+  margin-left: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,7 +41,7 @@ input[id="icon"] {
   display: none;
 }
 
-input[id="icon"]+label {
+input[id="icon"] + label {
   position: absolute;
   display: block;
   margin: 50px;
@@ -50,7 +50,7 @@ input[id="icon"]+label {
   /* 커서를 올려놓을 때 모양이 바뀐다. */
 }
 
-input[id="icon"]+label>span {
+input[id="icon"] + label > span {
   position: absolute;
   display: block;
   width: 40px;
@@ -60,39 +60,37 @@ input[id="icon"]+label>span {
   transition: all 0.35s;
   /* 진행되는 과정들을 천천히 보여줄 수 있다. 0.35초 동안 진행됨 */
   z-index: 2;
-
 }
 
-input[id="icon"]+label>span:nth-child(1) {
+input[id="icon"] + label > span:nth-child(1) {
   top: 0px;
 }
 
-input[id="icon"]+label>span:nth-child(2) {
+input[id="icon"] + label > span:nth-child(2) {
   top: 50%;
   transform: translateY(-50%);
   /* 엘리먼트를 변형할 때 쓴다. 비틀거나 구부리거나 돌릴 때 . 여러가지로 모양을 바꿀 때 */
 }
 
-input[id="icon"]+label>span:nth-child(3) {
+input[id="icon"] + label > span:nth-child(3) {
   bottom: 0px;
 }
 
-
-input[id="icon"]:checked+label>span:nth-child(1) {
+input[id="icon"]:checked + label > span:nth-child(1) {
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
 }
 
-input[id="icon"]:checked+label>span:nth-child(2) {
+input[id="icon"]:checked + label > span:nth-child(2) {
   opacity: 0;
 }
 
-input[id="icon"]:checked+label>span:nth-child(3) {
+input[id="icon"]:checked + label > span:nth-child(3) {
   bottom: 50%;
   transform: translateY(50%) rotate(-45deg);
 }
 
-#icon+label+#in_navi {
+#icon + label + #in_navi {
   position: fixed;
   /* 스크롤을 내리더라도 같은 위치에서 붙어다닌다. */
   width: 200px;
@@ -106,14 +104,13 @@ input[id="icon"]:checked+label>span:nth-child(3) {
   transition: all 0.35s;
 }
 
-#icon:checked+label+#in_navi {
+#icon:checked + label + #in_navi {
   left: 0px;
 }
 
-#icon:checked+label+#in_navi>ul>li>a {
+#icon:checked + label + #in_navi > ul > li > a {
   color: white;
   font: 20px bold;
-
 }
 
 #logo {
@@ -155,7 +152,6 @@ input[id="icon"]:checked+label>span:nth-child(3) {
   cursor: pointer;
 }
 
-
 #util {
   display: flex;
   justify-content: left;
@@ -165,8 +161,8 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 }
 
 #util a {
-  color: #00997B;
-  border: 3px solid #00997B;
+  color: #00997b;
+  border: 2px solid #00997b;
   margin-left: 10px;
   width: 120px;
   height: 50px;
@@ -181,13 +177,13 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 #util #signup,
 #util #mypage,
 #util #logout {
-  color: #00997B;
-  border: 3px solid #00997B;
+  color: #00997b;
+  border: 2px solid #00997b;
   margin-left: 10px;
   width: 100px;
   height: 40px;
   line-height: 37px;
-  font-size : 14px;
+  font-size: 14px;
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
@@ -195,22 +191,25 @@ input[id="icon"]:checked+label>span:nth-child(3) {
 
 #util #signup {
   color: #fff;
-  background-color: #00997B;
+  background-color: #00997b;
 }
 
 #util #logout {
   color: #fff;
-  background-color: #00997B;
+  background-color: #00997b;
 }
 
 #util #logoin:hover,
 #util #mypage:hover {
-  background-color: #00997B;
+  border: rgb(69, 181, 170);
+  background-color: rgb(69, 181, 170);
   color: #fff;
 }
 
 #util #signup:hover,
 #util #logout:hover {
-  background-color: #fff;
-  color: rgb(69, 181, 170);
+  border: rgb(69, 181, 170);
+  background-color: rgb(69, 181, 170);
+  color: #fff;
+  
 }
