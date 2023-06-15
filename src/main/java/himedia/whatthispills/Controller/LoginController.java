@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import himedia.whatthispills.Domain.User;
 import himedia.whatthispills.Service.AdminService;
@@ -46,7 +47,7 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public String loginPost(@RequestParam String input_email, @RequestParam String input_pwd, HttpServletRequest request) {
+	public String loginPost(@RequestParam String input_email, @RequestParam String input_pwd, HttpServletRequest request, RedirectAttributes re) {
 		String result = userService.login(input_email, input_pwd);
 		if(result.equals("user")) {
 			HttpSession session = request.getSession();
@@ -57,6 +58,7 @@ public class LoginController {
 			session.setAttribute("admin", adminService.findEmail(input_email).get());
 			return "redirect:/admin/nutri_list";
 		}
+		re.addFlashAttribute("message", "아이디와 비밀번호가 일치하지 않습니다."); // alert 문구
 		return "redirect:/user/login";
 	}
 	
@@ -72,27 +74,27 @@ public class LoginController {
 	}
 	
 	@PostMapping("/find_pwd")
-	public String findPwdPost(String input_email, String input_name, Model model, HttpServletRequest request) {
+	public String findPwdPost(String input_email, String input_name, Model model, HttpServletRequest request, RedirectAttributes re) {
 		if(userService.findPwd(input_email, input_name)) {
 			request.getSession().setAttribute("user_email", input_email);
 			return "redirect:/user/reset_pwd";
 		}
-		model.addAttribute(""); //alert 문구
-		return "user/find_pwd";
+		re.addFlashAttribute("message", "입력하신 아이디와 이름에 해당하는 계정이 존재하지 않습니다."); // alert 문구
+		return "redirect:/user/find_pwd";
 	}
 	
 	@GetMapping("/reset_pwd")
-	public String resetPwdGet(String input_email) {
+	public String resetPwdGet() {
 		return "user/reset_pwd";
 	}
 	
 	@PostMapping("/reset_pwd")
-	public String resetPwdPost(@SessionAttribute String input_email, String input_pwd, HttpServletRequest request, Model model) {
-		if(userService.updatePassword(input_email, input_pwd)) {
+	public String resetPwdPost(@SessionAttribute String user_email, String input_pwd, HttpServletRequest request, RedirectAttributes re) {
+		if(userService.updatePassword(user_email, input_pwd)) {
 			request.getSession().invalidate();
 			return "redirect:/user/login";
 		}
-		model.addAttribute(""); // alert 문구
+		re.addFlashAttribute("message", "기존 비밀번호와 같습니다.\n다른 비밀번호를 입력해주세요."); // alert 문구
 		return "redirect:/user/reset_pwd";
 	}
 }

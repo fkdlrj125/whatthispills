@@ -21,12 +21,9 @@
     <div class="body_main_size">
       <img th:src="@{/img/logo3.png}" alt="logo" />
       <div id="reset_pwd">
-        <form action="/user/reset_pwd" method="POST">
+        <form action="/user/find_pwd" method="POST">
           <h1>비밀번호 찾기</h1>
-          <p>
-            본인확인 이메일 주소와 입력한 이메일 주소가 같아야 비밀번호를 찾을
-            수 있습니다.
-          </p>
+          <p>이메일과 이름을 입력해주세요.</p>
           <div class="info">
             <input
               type="email"
@@ -49,6 +46,10 @@
     </div>
 
     <div id="footer-placeholder"></div>
+    <script th:inline="javascript">
+      var message = [[${message}]];
+    </script>
+    <script th:inline="javascript" th:src="@{/js/alert.js}"></script>
     <script th:src="@{/js/hf.js}"></script>
   </body>
 </html>

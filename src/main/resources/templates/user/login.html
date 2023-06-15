@@ -49,6 +49,10 @@
       </div>
     </div>
     <div id="footer-placeholder"></div>
+    <script th:inline="javascript">
+      var message = [[${message}]];
+    </script>
+    <script th:inline="javascript" th:src="@{/js/alert.js}"></script>
     <script th:src="@{/js/hf.js}"></script>
   </body>
 </html>

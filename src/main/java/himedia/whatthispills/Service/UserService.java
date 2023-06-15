@@ -68,8 +68,9 @@ public class UserService {
 	}
 	
     public boolean updatePassword(String user_email, String update_pwd) {
-        Optional<User> idx = userRepository.updatePwd(user_email, update_pwd);
-        if(idx.isPresent()) {
+        Optional<User> user = userRepository.findByEmail(user_email);
+        if(!update_pwd.equals(user.get().getPwd())) {
+        	userRepository.updatePwd(user_email, update_pwd);
             return true;
         }
         return false;
