@@ -11,6 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import himedia.whatthispills.Domain.Admin;
+import himedia.whatthispills.Domain.Nutri;
 
 @Repository
 public class JDBCAdminRepository implements AdminRepository{
@@ -35,8 +36,4 @@ public class JDBCAdminRepository implements AdminRepository{
 		List<Admin> adminList = jdbcTemplate.query("select * from admin_ where admin_id like ?", adminMapper(), email);
 		return adminList.stream().findAny();
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5
 }

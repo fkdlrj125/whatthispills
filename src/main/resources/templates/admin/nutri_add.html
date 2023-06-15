@@ -2,18 +2,6 @@
 <html lang="kr">
   <!-- START : header -->
 
-<<<<<<< HEAD
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/css/admin_nutri_add.css}">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <title>관리자 영양제 추가</title>
-</head>
-=======
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -29,18 +17,10 @@
     />
     <title>관리자 영양제 추가</title>
   </head>
->>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5
 
   <body>
     <div id="header-placeholder"></div>
 
-<<<<<<< HEAD
-  <div class="admin_nutri_add">
-    <h1>영양제 추가</h1>
-    <form action="/admin/nutri_add" method="POST">
-      <table>
-        <tbody>
-=======
     <div class="admin_nutri_add">
       <h1>영양제 추가</h1>
       <form>
@@ -102,7 +82,6 @@
               </td>
             </tr>
           </tbody>
->>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5
           <tr>
             <td>복용법:</td>
             <td colspan="2" class="textarea-row">
@@ -133,55 +112,6 @@
               ></textarea>
             </td>
           </tr>
-<<<<<<< HEAD
-        </tbody>
-        <tr>
-          <td>복용법:</td>
-          <td colspan="2" class="textarea-row">
-            <textarea name="dosage" maxlength="500" placeholder="내용을 입력해주세요"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td>주의사항:</td>
-          <td colspan="2" class="textarea-row">
-            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td>기타:</td>
-          <td colspan="2" class="textarea-row">
-            <textarea name="others" maxlength="500" placeholder="내용을 입력해주세요"></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td>이미지 첨부:</td>
-          <td><input type="file" name="image" accept="image/*" /></td>
-        </tr>
-      </table>
-      <div class="button-row">
-        <input type="button" value="취소" onclick="location.href='nutri_list'"/>
-        <input type="submit" class="check" value="확인" />
-      </div>
-    </form>
-  </div>
-  <div id="footer-placeholder"></div>
-  <script>
-    fetch('/header.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('header-placeholder').innerHTML = html;
-      });
-
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('footer-placeholder').innerHTML = html;
-      });
-  </script>
-</body>
-
-</html>
-=======
           <tr>
             <td>이미지 첨부:</td>
             <td><input type="file" name="image" accept="image/*" /></td>
@@ -197,4 +127,3 @@
     <script th:src="@{/js/hf.js}"></script>
   </body>
 </html>
->>>>>>> 1dd594956a84b1922c4d2f7885a443b462951bc5

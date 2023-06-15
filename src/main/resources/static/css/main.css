@@ -1,14 +1,12 @@
 /* CSS style sheet */
 @font-face {
-  font-family: "NanumSquareNeo-Variable";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2")
-    format("woff2");
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 .banner {
-  font-family: "NanumSquareNeo-Variable";
   position: relative;
   text-align: center;
   margin-top: 150px;
@@ -56,16 +54,20 @@
   width: 240px;
 }
 
+#banner {
+  /* width: 30%; */
+}
+
 #banner a button {
   color: #fff;
-  border: 2px solid #00997b;
+  border: 1px solid #00997B;
   text-decoration: none;
   text-align: center;
-  background-color: #00997b;
+  background-color: #00997B;
   width: 30%;
   height: 50px;
   line-height: 40px;
-  border-radius: 5px;
+  border-radius: 4%;
   font: 20px bold;
 }
 
@@ -86,16 +88,17 @@
   
 } */
 #banner button:hover {
-  border: 2px solid rgb(69, 181, 170);
-  background-color: rgb(69, 181, 170);
-  color: #fff;
+  border: 1px solid #00997B;
+  background-color: #fff;
+  color: #00997B;
+
 }
 
-#icon:checked + label + #in_navi {
+#icon:checked+label+#in_navi {
   position: fixed;
 }
 
-#icon + label + #in_navi {
+#icon+label+#in_navi {
   position: fixed;
   /* Other styles... */
   left: -300px;
@@ -103,11 +106,12 @@
   transition: all 0.35s;
 }
 
-#icon:checked + label + #in_navi {
+#icon:checked+label+#in_navi {
   left: 0px;
   position: fixed;
 }
 
 #in_navi ul li a {
-  font-size: 20px;
+  font-size: 21px;
+
 }
