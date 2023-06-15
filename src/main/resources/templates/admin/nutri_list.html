@@ -36,8 +36,8 @@
         </thead>
         <tbody>
           <tr th:each="nutri: ${nutri}">
-            <th scope="row"><a href="" th:text="${nutri.idx}"></a></th>
-            <td class="product_name"><a href="" th:text="${nutri.name}">안들어옴</a></td>
+            <th scope="row"><a th:href="@{nutri_edit/}+${nutri.idx}" th:text="${nutri.idx}"></a></th>
+            <td class="product_name"><a th:href="@{nutri_edit/}+${nutri.idx}" th:text="${nutri.name}"></a></td>
           </tr>
         </tbody>
       </table>
