@@ -17,8 +17,7 @@ public class AdminService {
 		this.adminRepository = adminRepository;
 	}
 	
-	public Optional<Admin> findEmail(String email) {
-		return adminRepository.findByEmail(email);
+	public Optional<Admin> findEmail(String id) {
+		return adminRepository.findByEmail(id);
 	}
-
 }

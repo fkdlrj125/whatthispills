@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="kr">
-<!-- START : header -->
+  <!-- START : header -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" th:href="@{css/main.css}" />
-  <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-  <title>메인 페이지</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <title>메인 페이지</title>
+  </head>
 
-<body>
-  <div id="header-placeholder"></div>
-  <br />
-  <div class="banner">
-    <div id="banner">
-      <img src="img/benner.jpg" alt="banner" />
-      <div for="">
-        건강해지는 질문,
-        <span style="
+  <body>
+    <div id="header-placeholder"></div>
+    <br />
+    <div class="banner">
+      <div id="banner">
+        <img th:src="@{/img/benner.jpg}" alt="banner" />
+        <div for="">
+          건강해지는 질문,
+          <span
+            style="
               font-family: 35px extrabold 'NanumSquareNeo-Variable';
               color: #00997b;
-            ">이게뭐약?</span>
+            "
+            >이게뭐약?</span
+          >
+        </div>
+        <p>간편한 검색과 스마트한 분석을 통한 맞춤 서비스로</p>
+        <p>이게뭐약에서 당신의 건강을 완성해보세요!</p>
+        <a href="">
+          <button>바로가기</button>
+        </a>
       </div>
-      <p>간편한 검색과 스마트한 분석을 통한 맞춤 서비스로</p>
-      <p>이게뭐약에서 당신의 건강을 완성해보세요!</p>
-      <a href="">
-        <button>바로가기</button>
-      </a>
     </div>
-  </div>
+    <br />
+
+    <div id="footer-placeholder"></div>
+    <script th:src="@{/js/hf.js}"></script>
+  </body>
   <br />
-
-  <div id="footer-placeholder"></div>
-  <script th:src="@{/js/hf.js}"></script>
-</body>
-<br />
-
 </html>
