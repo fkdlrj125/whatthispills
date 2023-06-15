@@ -16,6 +16,7 @@ public class NutriService {
 	public NutriService(NutriRepository repository) {
 		this.nutriRepository = repository;
 	}
+	
 
 
 	// 이름 검색

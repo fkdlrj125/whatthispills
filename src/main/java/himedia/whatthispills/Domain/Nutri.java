@@ -13,20 +13,20 @@ public class Nutri {
 	private String base;
 	private String effect;
 	private String taking;
-	private String warning;
+	private String caution;
 	private String etc;
 	private String image;
 
 
 	public Nutri(String name, String category, String company, String base, String effect,
-			String taking, String warning, String etc, String image) {
+			String taking, String caution, String etc, String image) {
 		this.name = name;
 		this.category = category;
 		this.company = company;
 		this.base = base;
 		this.effect = effect;
 		this.taking = taking;
-		this.warning = warning;
+		this.caution = caution;
 		this.etc = etc;
 		this.image = image;
 	}

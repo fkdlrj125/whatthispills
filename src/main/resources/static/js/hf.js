@@ -12,7 +12,10 @@ fetch('/footer')
 
 src = "../assets/dist/js/bootstrap.bundle.min.js"
 
-const heartButton = document.querySelector('.heart-button');
-heartButton.addEventListener('click', function () {
-  this.classList.toggle('active');
+const heartButtons = document.querySelectorAll('.heart-button');
+
+heartButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    this.classList.toggle('active');
+  });
 });

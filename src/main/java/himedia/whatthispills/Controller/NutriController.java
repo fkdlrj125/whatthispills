@@ -25,18 +25,12 @@ public class NutriController {
 
 	// 영양제 검색
 	@GetMapping("/nutri/search")
-	public String nutriSearch(@RequestParam(required = false) String keyword, Model model) {
+	public String nutriSearch(String keyword, Model model) {
 		Optional<Nutri> nutris = nutriService.findByNameNutri(keyword);
 		
-		if (keyword != null) {
 			model.addAttribute("nutris", nutris);
 			return "nutri/result";
-		}
-		else {
-			return "/";
-		}
 	}
-	
 	// 영양제 결과
 	@GetMapping("/nutri/result")
 	public String nutriResult(Model model) {

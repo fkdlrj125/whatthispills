@@ -7,12 +7,13 @@ import himedia.whatthispills.Domain.Nutri;
 
 public interface NutriRepository {
 
-
+	
 	// 영양제 이름으로 찾기
 	Optional<Nutri> findByNameNutri(String name);
 
 
 	// 관리자에서 사용 ----------------------------------------
+	
 	// 영양제 전체 조회
 	List<Nutri> findByAllNutri();
 
