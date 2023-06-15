@@ -27,7 +27,7 @@ public class NutriService {
 	
 	// 등록된 영양제의 전체 리스트
 	public List<Nutri> findByAllNutri() {
-		return nutriRepository.findByAllNutri();
+		return nutriRepository.findAllNutri();
 	}
 	
 	// 영양제 저장

@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Service.NutriService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 public class NutriController {
 
@@ -58,8 +61,9 @@ public class NutriController {
 	
 	@GetMapping("/admin/nutri_list")
 	public String nutriAll(Model model) {
-//		List<Nutri> nutriList = nutriService.findByAllNutri();
-//		model.addAttribute("nutriList", nutriList);
+		List<Nutri> nutri = nutriService.findByAllNutri();
+		model.addAttribute("nutri", nutri);
+		log.info("컨트롤러");
 		return "admin/nutri_list";
 	}
 	
@@ -71,6 +75,7 @@ public class NutriController {
 	@PostMapping("/admin/nutri_add")
 	public String nutriAddPost(@ModelAttribute Nutri nutri) {
 		nutriService.saveNutri(nutri);
+		log.info("컨트롤러");
 		return "redirect:/admin/nutri_list";
 	}
 	

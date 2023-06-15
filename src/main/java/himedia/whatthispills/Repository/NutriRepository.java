@@ -14,7 +14,7 @@ public interface NutriRepository {
 
 	// 관리자에서 사용 ----------------------------------------
 	// 영양제 전체 조회
-	List<Nutri> findByAllNutri();
+	List<Nutri> findAllNutri();
 
 	// 영양제 추가
 	Nutri saveNutri(Nutri nutri);

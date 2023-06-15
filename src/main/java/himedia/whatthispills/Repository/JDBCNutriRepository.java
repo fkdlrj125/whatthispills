@@ -9,19 +9,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.sql.DataSource;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import himedia.whatthispills.Domain.Nutri;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Repository
 public class JDBCNutriRepository implements NutriRepository {
-	private final JdbcTemplate jdbcTemplate = new JdbcTemplate();
+	private final JdbcTemplate jdbcTemplate;
+	
+	public JDBCNutriRepository(DataSource dataSource) {
+		jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
 	
 	public RowMapper<Nutri> nutriMapper() {
 		return (ResultSet rs, int rowNum) -> {
 			Nutri nutri = new Nutri(
+					rs.getLong("nutri_idx"),
 					rs.getString("nutri_name"),
 					rs.getString("nutri_category"),
 					rs.getString("nutri_company"),
@@ -40,6 +50,7 @@ public class JDBCNutriRepository implements NutriRepository {
 	public Nutri saveNutri(Nutri nutri) {
 		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri_").usingGeneratedKeyColumns("nutri_idx");
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("nutri_idx", nutri.getIdx());
 		map.put("nutri_name", nutri.getName());
 		map.put("nutri_category", nutri.getCategory());
 		map.put("nutri_company", nutri.getCompany());
@@ -51,7 +62,8 @@ public class JDBCNutriRepository implements NutriRepository {
 		map.put("nutri_image", nutri.getImage());
 		Number result = insert.executeAndReturnKey(new MapSqlParameterSource(map));
 		nutri.setIdx(result.longValue());
-		return null;
+		log.info("리파지토리");
+		return nutri;
 	}
 	
 	
@@ -65,8 +77,11 @@ public class JDBCNutriRepository implements NutriRepository {
 	// 관리자 -------------------------------------------------------
 	
 	@Override
-	public List<Nutri> findByAllNutri() {
-	    return jdbcTemplate.query("select * from nutri_", nutriMapper());
+	public List<Nutri> findAllNutri() {
+		String sql = "select * from nutri_";
+		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper());
+		System.out.println("리파지토리" + result);
+		return result;
 	}
 	
 	@Override

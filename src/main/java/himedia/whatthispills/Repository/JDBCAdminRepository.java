@@ -35,4 +35,5 @@ public class JDBCAdminRepository implements AdminRepository{
 		List<Admin> adminList = jdbcTemplate.query("select * from admin_ where admin_id like ?", adminMapper(), email);
 		return adminList.stream().findAny();
 	}
+
 }
