@@ -18,12 +18,13 @@ import himedia.whatthispills.Service.AdminService;
 @RequestMapping("/admin")
 public class AdminController {
 	private final AdminService adminService;
+	private final NutriService nutriService;
 	
-	public AdminController(AdminService adminService) {
+	public AdminController(AdminService adminService, NutriService nutriService) {
 		this.adminService = adminService;
+		this.nutriService = nutriService;
 	}
 	
-<<<<<<< HEAD
 	@GetMapping("/nutri_list")
 	public String nutriAll(Model model) {
 		List<Nutri> nutri = nutriService.findByAllNutri();
@@ -73,6 +74,4 @@ public class AdminController {
 	
 
 	
-=======
->>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
 }

@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'NanumSquareNeo-Variable' !important;
+  font-family: Arial, sans-serif;
   margin: 100px;
 }
 
@@ -32,7 +32,7 @@ td {
 }
 
 .textarea-row {
-  width: 60%;
+  width: 100%;
 }
 
 .input-row input[type="text"],
@@ -42,7 +42,6 @@ td {
 }
 
 .button-row {
-  font-family: 'NanumSquareNeo-Variable' !important;
   margin-top: 20px;
   text-align: center;
 }
@@ -56,22 +55,13 @@ td {
   margin-right: 25px;
 }
 
-.button-row .cancel {
-  font-family: 'NanumSquareNeo-Variable' !important;
-  border: 1px solid #575e4f;
-  background-color: #575e4f;
-  color: #fff;
-}
-
 .button-row .check {
-  font-family: 'NanumSquareNeo-Variable' !important;
   border: 1px solid #00997B;
   background-color: #00997B;
   color: #fff;
 }
 
 .button-row .delete {
-  font-family: 'NanumSquareNeo-Variable' !important;
   background-color: red;
   border: 1px solid red;
   color: #fff;

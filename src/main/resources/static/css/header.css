@@ -31,7 +31,7 @@
   width: 0px;
   height: 100%;
   padding-right: 0px;
-  margin-left: 50px;
+  margin-left: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,20 +160,7 @@ input[id="icon"]:checked + label > span:nth-child(3) {
   margin-left: 20px;
 }
 
-#util a {
-  color: #00997b;
-  border: 2px solid #00997b;
-  margin-left: 10px;
-  width: 120px;
-  height: 50px;
-  line-height: 40px;
-  text-decoration: none;
-  border-radius: 4%;
-  text-align: center;
-  font: 20px bold;
-}
-
-#util #logoin,
+#util #login,
 #util #signup,
 #util #mypage,
 #util #logout {
@@ -199,11 +186,12 @@ input[id="icon"]:checked + label > span:nth-child(3) {
   background-color: #00997b;
 }
 
-#util #logoin:hover,
+#util #login:hover,
 #util #mypage:hover {
   border: rgb(69, 181, 170);
   background-color: rgb(69, 181, 170);
   color: #fff;
+  line-height: 40px;
 }
 
 #util #signup:hover,
@@ -211,5 +199,5 @@ input[id="icon"]:checked + label > span:nth-child(3) {
   border: rgb(69, 181, 170);
   background-color: rgb(69, 181, 170);
   color: #fff;
-  
+  line-height: 40px;
 }

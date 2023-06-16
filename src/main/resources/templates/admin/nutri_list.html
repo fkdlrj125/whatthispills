@@ -15,9 +15,9 @@
   <div id="header-placeholder"></div>
   <div class="container-lg">
     <h2>영양제 관리</h2>
-    <form action="/admin/nutri_search">
+    <form action="/nutri/result">
       <div class="input-group my-5 pb-5 w-50 m-auto">
-        <input type="search" name="search" class="form-control" placeholder="어떤 영양제를 찾고 계신가요?" aria-label="어떤 영양제를 찾고 계신가요?"
+        <input type="text" class="form-control" placeholder="어떤 영양제를 찾고 계신가요?" aria-label="어떤 영양제를 찾고 계신가요?"
           aria-describedby="button-addon2" />
         <button class="btn" type="submit" id="button-addon2">검색</button>
       </div>
@@ -36,8 +36,8 @@
         </thead>
         <tbody>
           <tr th:each="nutri: ${nutri}">
-            <th scope="row"><a href="" th:text="${nutri.idx}"></a></th>
-            <td class="product_name"><a href="" th:text="${nutri.name}">안들어옴</a></td>
+            <th scope="row"><a th:href="@{nutri_edit/}+${nutri.idx}" th:text="${nutri.idx}"></a></th>
+            <td class="product_name"><a th:href="@{nutri_edit/}+${nutri.idx}" th:text="${nutri.name}"></a></td>
           </tr>
         </tbody>
       </table>
@@ -45,17 +45,5 @@
   </div>
 
   <div id="footer-placeholder"></div>
-  <script>
-    fetch('/header.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('header-placeholder').innerHTML = html;
-      });
-
-    fetch('/footer.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('footer-placeholder').innerHTML = html;
-      });
-  </script>
+  <script th:src="@{/js/hf.js}"></script>
 </body>

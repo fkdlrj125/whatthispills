@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <!-- START : header -->
 
 <head>
@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/admin_nutri_edit.css}" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" th:href="@{/css/admin_nutri_add.css}" />
   <title>관리자 영양제 수정</title>
 </head>
 
@@ -18,12 +18,13 @@
 
   <div class="admin_nutri_edit">
     <h1>영양제 수정</h1>
-    <form>
+    <form th:object=${nutri} action="#" th:action="@{/admin/nutri_edit/}+${nutri.idx}"  method="POST">
       <table>
-        <thead>
+        <tbody>
           <tr>
             <td>분류 코드:</td>
             <td>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
               <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" th:field="${nutri.idx}" readonly/>
@@ -33,58 +34,62 @@
 =======
               <input type="text" name="classifi_code" readonly th:value="${nutri.id}" required />
 >>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
+=======
+              <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" th:field="${nutri.idx}" readonly/>
+              <button id="check_id">중복확인</button>
+>>>>>>> parent of 9abbc5f (230616 -nutri_add.html, nuti_edit.html, JDBCNutriRepository.java, AdminController.java- nutri_add, edit.css 파일 통합, 영양제 검색/삭제 기능 추가(Repository, Service, Controller))
             </td>
             <td>이름:</td>
             <td>
-              <input type="text" name="nutri_name" placeholder="내용을 입력해주세요" />
+              <input type="text" name="name" placeholder="내용을 입력해주세요" th:value="${name}" th:field="${nutri.name}" />
             </td>
           </tr>
-        </thead>
-        <tbody>
           <tr>
             <td>구분:</td>
             <td>
-              <input type="text" name="category" placeholder="내용을 입력해주세요" />
+              <input type="text" name="category" placeholder="내용을 입력해주세요" th:value="${category}" th:field="${nutri.category}"/>
             </td>
             <td>제조사:</td>
             <td>
-              <input type="text" name="manufacturer" placeholder="내용을 입력해주세요" />
+              <input type="text" name="company" placeholder="내용을 입력해주세요" th:value="${company}" th:field="${nutri.company}"/>
             </td>
           </tr>
           <tr>
             <td>주성분:</td>
             <td>
-              <input type="text" name="main_ingredient" placeholder="내용을 입력해주세요" />
+              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}" th:field="${nutri.base}"/>
             </td>
             <td>효능:</td>
             <td>
-              <input type="text" name="effect" placeholder="내용을 입력해주세요" />
+              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${effect}" th:field="${nutri.effect}"/>
             </td>
           </tr>
         </tbody>
         <tr>
           <td>복용법:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="dosage" maxlength="500" placeholder="내용을 입력해주세요"></textarea>
+            <textarea name="taking" maxlength="500" placeholder="내용을 입력해주세요" th:value="${taking}" th:field="${nutri.taking}"></textarea>
           </td>
         </tr>
         <tr>
           <td>주의사항:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요"></textarea>
+            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요" th:value="${caution}" th:field="${nutri.caution}"></textarea>
           </td>
         </tr>
         <tr>
           <td>기타:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="others" maxlength="500" placeholder="내용을 입력해주세요"></textarea>
+            <textarea name="etc" maxlength="500" placeholder="내용을 입력해주세요" th:value="${etc}" th:field="${nutri.etc}"></textarea>
           </td>
         </tr>
+        </tbody>
         <tr>
           <td>이미지 첨부:</td>
-          <td><input type="file" name="image" accept="image/*" /></td>
+          <td><input type="file" name="img" accept="image/*" th:value="${img}" th:src="${img}" ></td>
         </tr>
       </table>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <div style="font-family: 35px extrabold 'NanumSquareNeo-Variable'" class="button-row">
@@ -92,9 +97,12 @@
         <input type="submit" class="check" value="확인" />
         <input type="button" class="delete" value="삭제" th:onclick="|location.href='@{/admin/nutri_remove/{nutri.idx}(nutri.idx=${nutri.idx})}'|"/>
 =======
+=======
+>>>>>>> parent of 9abbc5f (230616 -nutri_add.html, nuti_edit.html, JDBCNutriRepository.java, AdminController.java- nutri_add, edit.css 파일 통합, 영양제 검색/삭제 기능 추가(Repository, Service, Controller))
       <div class="button-row">
-        <input type="button" value="취소" />
+        <input type="button" value="취소" onclick="location.href='/admin/nutri_list'"/>
         <input type="submit" class="check" value="확인" />
+<<<<<<< HEAD
         <input type="submit" class="delete" value="삭제" />
 >>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
 =======
@@ -103,6 +111,8 @@
         <input type="submit" class="check" value="확인" />
         <input type="submit" class="delete" value="삭제" />
 >>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
+=======
+>>>>>>> parent of 9abbc5f (230616 -nutri_add.html, nuti_edit.html, JDBCNutriRepository.java, AdminController.java- nutri_add, edit.css 파일 통합, 영양제 검색/삭제 기능 추가(Repository, Service, Controller))
       </div>
     </form>
   </div>

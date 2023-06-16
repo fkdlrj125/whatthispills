@@ -1,50 +1,94 @@
 <!DOCTYPE html>
 <html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="/css/header.css" />
+    <title>header</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="/css/header.css">
-  <title>header</title>
-</head>
-
-<header id="header">
-
-  <nav class="nav nav-pills flex-column flex-sm-row">
-    <div class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#" id="checkbox">
-      <input type="checkbox" id="icon">
-      <label for="icon" id="icon">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
-      <div id="in_navi">
-        <ul>
-          <li><a href="#" style="font-family: 'NanumSquareNeo-Variable';">영양제 찾기</a></li>
-        </ul>
+  <header id="header">
+    <nav class="nav nav-pills flex-column flex-sm-row">
+      <div
+        class="flex-sm-fill text-sm-center nav-link"
+        aria-current="page"
+        href="#"
+        id="checkbox"
+      >
+        <input type="checkbox" id="icon" />
+        <label for="icon" id="icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div id="in_navi">
+          <ul>
+            <li>
+              <a href="#" style="font-family: 'NanumSquareNeo-Variable'"
+                >영양제 찾기</a
+              >
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <a class="text-sm-center nav-link" aria-current="page" href="/" id="logo">
-      <img class="logo" src="/img/logo3.png" alt="">
-    </a>
-    <div class="flex-sm-fill">
-      <form action="/nutri/search" class="text-sm-center nav-link" id="search-bar">
-        <input type="search" name="keyword" placeholder="검색어를 입력하세요" style="font-family: 'NanumSquareNeo-Variable'">
-        <button type="submit"></button>
-      </form>
-    </div>
-    <div th:if="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
-      <a href="/login" id="logoin" style="font-family: 'NanumSquareNeo-Variable';">로그인</a>
-      <a href="/join" id='signup' style="font-family: 'NanumSquareNeo-Variable';">회원가입</a>
-    </div>
-    <div th:unless="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
-      <a href="/user/menu" id='mypage' style="font-family: 'NanumSquareNeo-Variable';">마이페이지</a>
-      <a href="/logout" id="logout" style="font-family: 'NanumSquareNeo-Variable';">로그아웃</a>
-    </div>
-  </nav>
-  <br>
-</header>
+      <a class="text-sm-center nav-link" aria-current="page" href="/" id="logo">
+        <img class="logo" src="/img/logo3.png" alt="" />
+      </a>
+      <div class="flex-sm-fill">
+        <form
+          action="/nutri/search"
+          class="text-sm-center nav-link"
+          id="search-bar"
+        >
+          <input
+            type="search"
+            placeholder="검색어를 입력하세요"
+            style="font-family: 'NanumSquareNeo-Variable'"
+          />
+          <button type="submit"></button>
+        </form>
+      </div>
+      <div
+        th:if="${user} == null"
+        class="flex-sm-fill text-sm-center nav-link"
+        id="util"
+      >
+        <a
+          href="/user/login"
+          id="login"
+          style="font-family: 'NanumSquareNeo-Variable'"
+          >로그인</a
+        >
+        <a
+          href="/user/join"
+          id="signup"
+          style="font-family: 'NanumSquareNeo-Variable'"
+          >회원가입</a
+        >
+      </div>
+      <div
+        th:unless="${user} == null"
+        class="flex-sm-fill text-sm-center nav-link"
+        id="util"
+      >
+        <a
+          href="/user/menu"
+          id="mypage"
+          style="font-family: 'NanumSquareNeo-Variable'"
+          >마이페이지</a
+        >
+        <a
+          href="/user/logout"
+          id="logout"
+          style="font-family: 'NanumSquareNeo-Variable'"
+          >로그아웃</a
+        >
+      </div>
+    </nav>
+    <br />
+  </header>
+</html>
