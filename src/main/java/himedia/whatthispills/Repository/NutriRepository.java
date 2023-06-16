@@ -9,7 +9,7 @@ public interface NutriRepository {
 
 
 	// 영양제 이름으로 찾기
-	Optional<Nutri> findByNameNutri(String name);
+	List<Nutri> findByNameNutri(Object name);
 
 
 	// 관리자에서 사용 ----------------------------------------

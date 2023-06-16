@@ -19,8 +19,8 @@ public class NutriService {
 	}
 
 	// 이름 검색
-	public Optional<Nutri> findByNameNutri(String name) {
-		return nutriRepository.findByNameNutri(name);
+	public List<Nutri> findByNameNutri(String keyword) {
+		return nutriRepository.findByNameNutri(keyword);
 	}
 
 	// 관리자 -------------------------------------------------------

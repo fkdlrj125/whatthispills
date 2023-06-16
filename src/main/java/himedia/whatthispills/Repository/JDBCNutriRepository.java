@@ -65,10 +65,13 @@ public class JDBCNutriRepository implements NutriRepository {
 	
 	
 	@Override
-	public Optional<Nutri> findByNameNutri(String name) {
-		List<Nutri> nutriList = jdbcTemplate.query("select * from nutri_ where nutri_name like ?", nutriMapper(),
-				"%" + name + "%");
-		return nutriList.stream().findAny();
+	public List<Nutri> findByNameNutri(Object name) {
+		String queryM = "SELECT * FROM nutri_ WHERE nutri_name LIKE ?";
+		List<Nutri> nutriList = jdbcTemplate.query(queryM,
+				nutriMapper(), "%" + name + "%");
+		System.out.println("name 말:" + name);
+		System.out.println("nutriList: " + nutriList);
+		return nutriList;
 	}
 	
 
