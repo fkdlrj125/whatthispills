@@ -24,20 +24,8 @@
           <tr>
             <td>분류 코드:</td>
             <td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" th:field="${nutri.idx}" readonly/>
-=======
-              <input type="text" name="classifi_code" readonly th:value="${nutri.id}" required />
->>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
-=======
-              <input type="text" name="classifi_code" readonly th:value="${nutri.id}" required />
->>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
-=======
               <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" th:field="${nutri.idx}" readonly/>
               <button id="check_id">중복확인</button>
->>>>>>> parent of 9abbc5f (230616 -nutri_add.html, nuti_edit.html, JDBCNutriRepository.java, AdminController.java- nutri_add, edit.css 파일 통합, 영양제 검색/삭제 기능 추가(Repository, Service, Controller))
             </td>
             <td>이름:</td>
             <td>
@@ -89,30 +77,10 @@
           <td><input type="file" name="img" accept="image/*" th:value="${img}" th:src="${img}" ></td>
         </tr>
       </table>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       <div style="font-family: 35px extrabold 'NanumSquareNeo-Variable'" class="button-row">
         <input type="button" class="cancel" value="취소" onclick="location.href='/admin/nutri_list'"/>
         <input type="submit" class="check" value="확인" />
         <input type="button" class="delete" value="삭제" th:onclick="|location.href='@{/admin/nutri_remove/{nutri.idx}(nutri.idx=${nutri.idx})}'|"/>
-=======
-=======
->>>>>>> parent of 9abbc5f (230616 -nutri_add.html, nuti_edit.html, JDBCNutriRepository.java, AdminController.java- nutri_add, edit.css 파일 통합, 영양제 검색/삭제 기능 추가(Repository, Service, Controller))
-      <div class="button-row">
-        <input type="button" value="취소" onclick="location.href='/admin/nutri_list'"/>
-        <input type="submit" class="check" value="확인" />
-<<<<<<< HEAD
-        <input type="submit" class="delete" value="삭제" />
->>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
-=======
-      <div class="button-row">
-        <input type="button" value="취소" />
-        <input type="submit" class="check" value="확인" />
-        <input type="submit" class="delete" value="삭제" />
->>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
-=======
->>>>>>> parent of 9abbc5f (230616 -nutri_add.html, nuti_edit.html, JDBCNutriRepository.java, AdminController.java- nutri_add, edit.css 파일 통합, 영양제 검색/삭제 기능 추가(Repository, Service, Controller))
       </div>
     </form>
   </div>

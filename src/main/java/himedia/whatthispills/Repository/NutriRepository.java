@@ -33,5 +33,4 @@ public interface NutriRepository {
 
 	Optional<Nutri> nutriRemoveByIdx(Long nutri_idx);
 
-	List<Nutri> findByAllNutri();
 }

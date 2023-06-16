@@ -1,8 +1,5 @@
 package himedia.whatthispills.Repository;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.List;
@@ -11,9 +8,10 @@ import java.util.Optional;
 
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
+import org.springframework.stereotype.Repository;
 
 import himedia.whatthispills.Domain.Nutri;
 import lombok.extern.slf4j.Slf4j;
@@ -116,6 +114,13 @@ public class JDBCNutriRepository implements NutriRepository {
 	public Optional<Nutri> delete(Long nutri_idx) {
 		String sql = "delete from nutri_ where nutri_idx = ?";
 		jdbcTemplate.update(sql, nutri_idx);
+		return Optional.empty();
+	}
+
+
+	@Override
+	public Optional<Nutri> nutriRemoveByIdx(Long nutri_idx) {
+		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 }

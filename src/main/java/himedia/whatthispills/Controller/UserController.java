@@ -3,7 +3,6 @@ package himedia.whatthispills.Controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import himedia.whatthispills.Domain.User;
 import himedia.whatthispills.Domain.UserLikes;
-import himedia.whatthispills.Service.AdminService;
 import himedia.whatthispills.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
