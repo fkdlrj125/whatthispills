@@ -66,8 +66,7 @@
   height: 50px;
   line-height: 40px;
   border-radius: 5px;
-  font-size: 20px;
-  font-weight: bold;
+  font: 20px bold;
 }
 
 .container #main_contens .main_context {

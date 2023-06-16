@@ -1,4 +1,4 @@
-package himedia.whatthispills.Repository;
+spackage himedia.whatthispills.Repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

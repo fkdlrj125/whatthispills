@@ -33,7 +33,7 @@ public class JDBCUserRepository implements UserRepository{
 					rs.getString("user_pwd"),
 					rs.getString("user_birth"),
 					rs.getString("user_gender"));
-			user.setIdx(rs.getLong("user_idx"));
+			
 			return user;
 		};
 	}
@@ -44,6 +44,7 @@ public class JDBCUserRepository implements UserRepository{
 					rs.getLong("user_idx"),
 					rs.getLong("nutri_idx"),
 					rs.getBoolean("likes"));
+			
 			return userlikes;
 		};
 	}
@@ -59,7 +60,7 @@ public class JDBCUserRepository implements UserRepository{
 		map.put("user_gender", user.getGender());
 		Number result = insert.executeAndReturnKey(new MapSqlParameterSource(map));
 		user.setIdx(result.longValue());
-		return user;
+		return null;
 	}
 
 	@Override
@@ -70,7 +71,7 @@ public class JDBCUserRepository implements UserRepository{
 
 	@Override
 	public Optional<User> findByEmailName(String email, String name) {
-		List<User> userList = jdbcTemplate.query("select * from user_ where user_email like ? and user_name like ?", userMapper(), email, name);
+		List<User> userList = jdbcTemplate.query("select * from user_ where user_email like ? and user_name like ?", userMapper(), name, email);
 		return userList.stream().findAny();
 	}
 
@@ -85,9 +86,9 @@ public class JDBCUserRepository implements UserRepository{
 	}
 
 	@Override
-	public Optional<User> updateUser(User update_user) {
-		jdbcTemplate.update("update user_ set user_name = ?, user_pwd = ?, user_gender = ?,user_birth = ? where user_email like ?", 
-				update_user.getName(), update_user.getPwd(), update_user.getGender(), update_user.getBirth(), update_user.getEmail());
+	public Optional<User> updateUser(Long update_idx, User update_user) {
+		jdbcTemplate.update("update user_ set user_pwd = ?, user_gender = ?,user_birth = ? where user_idx = ?", 
+				update_user.getPwd(), update_user.getGender(), update_user.getBirth(), update_idx);
 		return findByEmail(update_user.getEmail());
 	}
 

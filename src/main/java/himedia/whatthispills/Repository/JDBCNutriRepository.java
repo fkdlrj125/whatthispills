@@ -68,8 +68,9 @@ public class JDBCNutriRepository implements NutriRepository {
 	
 	@Override
 	public Optional<Nutri> findByNameNutri(String name) {
-	    List<Nutri> nutriList = jdbcTemplate.query("select * from nutri_ where nutri_name like ?", nutriMapper(), "%"+name+"%");
-	    return nutriList.stream().findAny();
+		List<Nutri> nutriList = jdbcTemplate.query("select * from nutri_ where nutri_name like ?", nutriMapper(),
+				"%" + name + "%");
+		return nutriList.stream().findAny();
 	}
 	
 
@@ -79,15 +80,24 @@ public class JDBCNutriRepository implements NutriRepository {
 	public List<Nutri> findAllNutri() {
 		String sql = "select * from nutri_";
 		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper());
-		System.out.println("리파지토리" + result);
 		return result;
 	}
+	
 	
 	@Override
 	public Optional<Nutri> findByIdxNutri(Long nutri_idx) {
 		String sql = "select * from nutri_ where nutri_idx = ?";
 		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper(), nutri_idx);
 		return result.stream().findAny();
+	}
+	
+	@Override
+	public List<Nutri> search(Object search) {
+		String sql = "select * from nutri_ where nutri_idx like ? or nutri_name like ?";
+		String word = "%" + search + "%";
+		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper(), word, word);
+		log.info("실행 결과 result >> ", result);
+		return result;
 	}
 
 
@@ -103,16 +113,18 @@ public class JDBCNutriRepository implements NutriRepository {
 	}
 
 	@Override
-	public Optional<Nutri> nutriRemoveByIdx(Long nutri_idx) {
+	public Optional<Nutri> delete(Long nutri_idx) {
 		String sql = "delete from nutri_ where nutri_idx = ?";
 		jdbcTemplate.update(sql, nutri_idx);
 		return Optional.empty();
 	}
+<<<<<<< HEAD
 
 
 
 
 
 
-
+=======
+>>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
 }

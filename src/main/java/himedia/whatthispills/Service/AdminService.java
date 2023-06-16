@@ -20,7 +20,5 @@ public class AdminService {
 	public Optional<Admin> findEmail(String email) {
 		return adminRepository.findByEmail(email);
 	}
-	
-	
 
 }

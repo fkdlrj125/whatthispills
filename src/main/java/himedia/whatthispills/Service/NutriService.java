@@ -3,12 +3,13 @@ package himedia.whatthispills.Service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Repository.NutriRepository;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class NutriService {
 	private final NutriRepository nutriRepository;
@@ -39,6 +40,12 @@ public class NutriService {
 	public Optional<Nutri> findIdNutri(Long nutri_idx) {
 		return nutriRepository.findByIdxNutri(nutri_idx);
 	}
+	
+	public List<Nutri> searchNutri(Object search){
+		log.info("서비스");
+		return nutriRepository.search(search);
+				
+	}
 
 	// 영양제 수정
 	public Nutri nutriEdit(Long nutri_idx, Nutri nutri) {
@@ -47,7 +54,7 @@ public class NutriService {
 	
 	// 영양제 삭제
 	public Optional<Nutri> removeNutri(Long nutri_idx) {
-		return nutriRepository.nutriRemoveByIdx(nutri_idx);
+		return nutriRepository.delete(nutri_idx);
 	}
 
 

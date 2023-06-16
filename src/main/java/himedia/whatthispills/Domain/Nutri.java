@@ -3,7 +3,8 @@ package himedia.whatthispills.Domain;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 public class Nutri {
 	private Long idx;
 	private String name;
@@ -15,7 +16,6 @@ public class Nutri {
 	private String caution;
 	private String etc;
 	private String image;
-
 
 	public Nutri(Long idx, String name, String category, String company, String base, String effect,
 			String taking, String caution, String etc, String image) {

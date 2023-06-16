@@ -15,6 +15,9 @@ public interface NutriRepository {
 	// 관리자에서 사용 ----------------------------------------
 	// 영양제 전체 조회
 	List<Nutri> findAllNutri();
+	
+	// 영양제 검색
+	List<Nutri> search(Object search);
 
 	// 영양제 추가
 	Nutri saveNutri(Nutri nutri);
@@ -26,6 +29,13 @@ public interface NutriRepository {
 	Nutri update(Long nutri_idx, Nutri update_nutri);
 	
 	// 영양제 삭제
+<<<<<<< HEAD
+	Optional<Nutri> delete(Long nutri_idx);
+=======
 	Optional<Nutri> nutriRemoveByIdx(Long nutri_idx);
+
+
+	List<Nutri> findByAllNutri();
+>>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
 	
 }

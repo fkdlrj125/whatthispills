@@ -32,18 +32,14 @@
       <img class="logo" src="/img/logo3.png" alt="">
     </a>
     <div class="flex-sm-fill">
-      <form action="/nutri/search" class="text-sm-center nav-link" id="search-bar">
-        <input type="search" name="keyword" placeholder="검색어를 입력하세요" style="font-family: 'NanumSquareNeo-Variable'">
+      <form action="" class="text-sm-center nav-link" id="search-bar">
+        <input type="text" placeholder="검색어를 입력하세요" style="font-family: 'NanumSquareNeo-Variable';">
         <button type="submit"></button>
       </form>
     </div>
-    <div th:if="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
+    <div class="flex-sm-fill text-sm-center nav-link" id="util">
       <a href="/login" id="logoin" style="font-family: 'NanumSquareNeo-Variable';">로그인</a>
       <a href="/join" id='signup' style="font-family: 'NanumSquareNeo-Variable';">회원가입</a>
-    </div>
-    <div th:unless="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
-      <a href="/user/menu" id='mypage' style="font-family: 'NanumSquareNeo-Variable';">마이페이지</a>
-      <a href="/logout" id="logout" style="font-family: 'NanumSquareNeo-Variable';">로그아웃</a>
     </div>
   </nav>
   <br>
