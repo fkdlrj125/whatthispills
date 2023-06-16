@@ -16,7 +16,6 @@ public class NutriService {
 	public NutriService(NutriRepository repository) {
 		this.nutriRepository = repository;
 	}
-	
 
 
 	// 이름 검색
@@ -42,8 +41,8 @@ public class NutriService {
 	}
 
 	// 영양제 수정
-	public Optional<Nutri> nutriEdit(Long nutri_idx, Nutri nutri) {
-		return nutriRepository.nutriEditByIdx(nutri_idx, nutri);
+	public Nutri nutriEdit(Long nutri_idx, Nutri nutri) {
+		return nutriRepository.update(nutri_idx, nutri);
 	}
 	
 	// 영양제 삭제

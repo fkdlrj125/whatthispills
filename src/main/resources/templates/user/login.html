@@ -15,11 +15,11 @@
         <h2>로그인</h2>
       </div>
       <div class="login_form">
-        <form action="/login" method="POST">
+        <form action="/user/login" method="POST">
           <div class="input-group">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input
-              type="email"
+              type="text"
               class="form-control"
               placeholder="이메일을 입력해주세요"
               aria-label="Username"
@@ -43,12 +43,16 @@
           </div>
           <div class="options">
             <a href="/user/find_pwd">비밀번호 찾기</a>
-            <a href="/join">가입하기</a>
+            <a href="/user/join">가입하기</a>
           </div>
         </form>
       </div>
     </div>
     <div id="footer-placeholder"></div>
+    <script th:inline="javascript">
+      var message = [[${message}]];
+    </script>
+    <script th:inline="javascript" th:src="@{/js/alert.js}"></script>
     <script th:src="@{/js/hf.js}"></script>
   </body>
 </html>

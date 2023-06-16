@@ -16,51 +16,79 @@
   margin-left: 20%;
 }
 
-#nutri_main {
+#nutri_main{
   text-align: center;
-  margin: 10px;
+  margin: 100px;
 }
 
-#main_title {
-  margin-bottom: 5%;
-  margin-top: 5%;
+.nutri_product {
+  margin: 20%;
+  margin-top: 10%;
+}
+
+.nutri_product img {
+  width: 240px;
+}
+
+.nutri_product table {
+  display: flex;
+  align-items: center;
+}
+
+.nutri_product table td {
+  margin-left: 10px;
+}
+
+.nutri_product table td button {
+  display: flex;
+  justify-items: flex-start;
+}
+.like-button{
+  border: 10px white;
+}
+.like-button img{
+  width: 40px;
+}
+.non-like-button{
+  border: 10px white;
+}
+.non-like-button img{
+  width: 40px;
+}
+
+
+body {
+  min-height: calc(100vh - 100px);
+}
+
+.container {
+  padding: 100px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#product {
+  width: 250px;
 }
 
 .text_context {
-  width: 100%;
+  display: inline-block;
+  align-items: center;
 }
 
-.grid-contents {
-  display: flex;
-  justify-content: space-evenly;
+.main-likes {
+  margin: 60px;
 }
 
-.grid-item1 {
-  float: left;
+.main-likes img {
+  max-width: 100%;
+  height: auto;
 }
 
-.grid-item2 {
-  float: right;
-}
-
-.p_content {
-  display: flex;
-  flex-direction: column;
-}
-
-.p_img {
-  float: left;
-  margin-right: 10px 0;
-}
-
-.p_img img {
-  width: 350px;
-}
-
-.labels {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.main-likes .context {
+  padding-left: 30px;
 }
 
 .heart-button {
@@ -68,7 +96,7 @@
   background-color: transparent;
   padding: 0;
   margin-left: 10px;
-  font-size: 24px;
+  font-size: 25px;
   color: #ccc;
   cursor: pointer;
 }
@@ -80,6 +108,7 @@
 .heart-button.active i {
   color: rgba(255, 0, 0, 0.719);
 }
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -117,4 +146,44 @@
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+}
+
+#nutri_main{
+  text-align: center;
+  margin: 100px;
+}
+
+.nutri_product {
+  margin: 20%;
+  margin-top: 10%;
+}
+
+.nutri_product img {
+  width: 240px;
+}
+
+.nutri_product table {
+  display: flex;
+  align-items: center;
+}
+
+.nutri_product table td {
+  margin-left: 10px;
+}
+
+.nutri_product table td button {
+  display: flex;
+  justify-items: flex-start;
+}
+.like-button{
+  border: 10px white;
+}
+.like-button img{
+  width: 40px;
+}
+.non-like-button{
+  border: 10px white;
+}
+.non-like-button img{
+  width: 40px;
 }

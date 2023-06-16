@@ -21,16 +21,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Repository
 public class JDBCNutriRepository implements NutriRepository {
-
 	private final JdbcTemplate jdbcTemplate;
-
+	
 	public JDBCNutriRepository(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
+	
+	
 	public RowMapper<Nutri> nutriMapper() {
 		return (ResultSet rs, int rowNum) -> {
 			Nutri nutri = new Nutri(
+					rs.getLong("nutri_idx"),
 					rs.getString("nutri_name"),
 					rs.getString("nutri_category"),
 					rs.getString("nutri_company"),
@@ -38,13 +39,13 @@ public class JDBCNutriRepository implements NutriRepository {
 					rs.getString("nutri_effect"),
 					rs.getString("nutri_taking"),
 					rs.getString("nutri_caution"),
-					rs.getString("nutri_etc"),
-					rs.getString("nutri_image"));
-			nutri.setIdx(rs.getLong("nutri_idx"));
+					rs.getString("nutri_image"),
+					rs.getString("nutri_etc")
+					);
 			return nutri;
 		};
 	}
-
+	
 	@Override
 	public Nutri saveNutri(Nutri nutri) {
 		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri_");
@@ -60,38 +61,46 @@ public class JDBCNutriRepository implements NutriRepository {
 		map.put("nutri_etc", nutri.getEtc());
 		map.put("nutri_image", nutri.getImage());
 		insert.execute(map);
+		log.info("리파지토리", nutri);
 		return nutri;
 	}
-
+	
+	
 	@Override
 	public Optional<Nutri> findByNameNutri(String name) {
 		List<Nutri> nutriList = jdbcTemplate.query("select * from nutri_ where nutri_name like ?", nutriMapper(),
 				"%" + name + "%");
 		return nutriList.stream().findAny();
 	}
+	
 
 	// 관리자 -------------------------------------------------------
-
+	
 	@Override
-	public List<Nutri> findByAllNutri() {
-		return jdbcTemplate.query("select * from nutri_", nutriMapper());
+	public List<Nutri> findAllNutri() {
+		String sql = "select * from nutri_";
+		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper());
+		System.out.println("리파지토리" + result);
+		return result;
 	}
-
+	
 	@Override
 	public Optional<Nutri> findByIdxNutri(Long nutri_idx) {
-		String sql = "select * from nutri where nutri_idx = ?";
+		String sql = "select * from nutri_ where nutri_idx = ?";
 		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper(), nutri_idx);
 		return result.stream().findAny();
 	}
 
+
 	@Override
-	public Optional<Nutri> nutriEditByIdx(Long nutri_idx, Nutri update_nutri) {
-		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_base = ?, nutri_effect = ?, nutri_taking = ?, nutri_warning = ?, nutri_image = ?, nutri_etc = ? ";
+	public Nutri update(Long nutri_idx, Nutri update_nutri) {
+		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_base = ?, nutri_effect = ?, nutri_taking = ?, nutri_caution= ?, nutri_image = ?, nutri_etc = ? where nutri_idx = ? " ;
 		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
 				update_nutri.getCompany(), update_nutri.getBase(), update_nutri.getEffect(),
 				update_nutri.getTaking(), update_nutri.getCaution(), update_nutri.getImage(),
-				update_nutri.getEtc());
-		return findByIdxNutri(nutri_idx);
+				update_nutri.getEtc(), nutri_idx);
+		update_nutri.setIdx(nutri_idx);
+		return findByIdxNutri(nutri_idx).get();
 	}
 
 	@Override
@@ -100,11 +109,4 @@ public class JDBCNutriRepository implements NutriRepository {
 		jdbcTemplate.update(sql, nutri_idx);
 		return Optional.empty();
 	}
-
-	@Override
-	public List<Nutri> findAllNutri() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
