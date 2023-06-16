@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+  <div id="header-placeholder"></div>
   <div class="location">
     <span class="ar">home</span>
     <span class="ar"> > </span>
@@ -23,16 +23,17 @@
     <span class="ar"> > </span>
     <span>검색결과</span>
   </div>
-	
+
   <div id="nutri_main">
+
     <h1>
-      <label for="" id="main_title">영양제 검색 결과</label>
+      <label for="" id="main_title">검색 결과</label>
     </h1>
     <!-- START THE FEATURETTES -->
     <div class="nutri-result">
       <div class="text_context">
         <div class="grid-contents">
-          <div class="text_area grid-item1" th:each="nutri : ${nutris}">
+          <div class="text_area grid-item1" th:each="nutri : ${nutri}">
             <div class="raw">
               <div class="cal">
                 <div class="cal-v">
@@ -62,7 +63,8 @@
             </div>
           </div>
 
-          <div class="text_area grid-item2" th:each="nutri : ${nutris}">
+          <!-- Add an additional row if there are more than 1 nutri -->
+          <div th:if="${nutriSize > 1}" class="text_area grid-item2" th:each="nutri : ${nutri}">
             <div class="raw">
               <div class="cal">
                 <div class="cal-v">
@@ -91,6 +93,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
