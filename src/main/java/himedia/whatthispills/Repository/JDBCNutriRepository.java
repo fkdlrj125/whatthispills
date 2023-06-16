@@ -47,7 +47,7 @@ public class JDBCNutriRepository implements NutriRepository {
 
 	@Override
 	public Nutri saveNutri(Nutri nutri) {
-		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri");
+		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri_");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("nutri_idx", nutri.getIdx());
 		map.put("nutri_name", nutri.getName());
@@ -65,7 +65,7 @@ public class JDBCNutriRepository implements NutriRepository {
 
 	@Override
 	public Optional<Nutri> findByNameNutri(String name) {
-		List<Nutri> nutriList = jdbcTemplate.query("select * from nutri where nutri_name like ?", nutriMapper(),
+		List<Nutri> nutriList = jdbcTemplate.query("select * from nutri_ where nutri_name like ?", nutriMapper(),
 				"%" + name + "%");
 		return nutriList.stream().findAny();
 	}
@@ -73,17 +73,8 @@ public class JDBCNutriRepository implements NutriRepository {
 	// 관리자 -------------------------------------------------------
 
 	@Override
-<<<<<<< HEAD
 	public List<Nutri> findByAllNutri() {
-	    return jdbcTemplate.query("select * from nutri", nutriMapper());
-=======
-
-	public List<Nutri> findAllNutri() {
-		String sql = "select * from nutri_";
-		List<Nutri> result = jdbcTemplate.query(sql, nutriMapper());
-		System.out.println("리파지토리" + result);
-		return result;
->>>>>>> 08f5ad33572adc9d6abb1001d816f8902b57e784
+		return jdbcTemplate.query("select * from nutri_", nutriMapper());
 	}
 
 	@Override
@@ -108,6 +99,12 @@ public class JDBCNutriRepository implements NutriRepository {
 		String sql = "delete from nutri_ where nutri_idx = ?";
 		jdbcTemplate.update(sql, nutri_idx);
 		return Optional.empty();
+	}
+
+	@Override
+	public List<Nutri> findAllNutri() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

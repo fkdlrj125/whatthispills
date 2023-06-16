@@ -29,16 +29,16 @@ public class NutriController {
 	@GetMapping("/nutri/search")
 	public String nutriSearch(String keyword, Model model) {
 		Optional<Nutri> nutris = nutriService.findByNameNutri(keyword);
-		
 			model.addAttribute("nutris", nutris);
 			return "nutri/result";
 	}
+	
 	// 영양제 결과
 	@GetMapping("/nutri/result")
 	public String nutriResult(Model model) {
 		List<Nutri> nutrits = nutriService.findByAllNutri();
 		model.addAttribute("nutrits", nutrits);
-		return "nutri/about";
+		return "nutri/result";
 	}
 
 	// 영양제 상세 페이지

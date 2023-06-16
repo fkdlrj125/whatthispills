@@ -28,5 +28,8 @@ public interface NutriRepository {
 	
 	// 영양제 삭제
 	Optional<Nutri> nutriRemoveByIdx(Long nutri_idx);
+
+
+	List<Nutri> findByAllNutri();
 	
 }
