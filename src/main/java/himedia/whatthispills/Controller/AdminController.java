@@ -23,6 +23,7 @@ public class AdminController {
 		this.adminService = adminService;
 	}
 	
+<<<<<<< HEAD
 	@GetMapping("/nutri_list")
 	public String nutriAll(Model model) {
 		List<Nutri> nutri = nutriService.findByAllNutri();
@@ -72,4 +73,6 @@ public class AdminController {
 	
 
 	
+=======
+>>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
 }

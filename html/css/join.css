@@ -32,6 +32,8 @@ a {
 
 body {
   align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background-color: #fff;
   font-family: 'NanumSquareNeo-Variable';
   font-size: 18px;
@@ -40,7 +42,6 @@ body {
 .container {
   display: grid;
   place-items: center;
-  justify-content: center;
   height: 100vh;
 }
 
@@ -109,7 +110,7 @@ h1 {
   fill: currentColor;
 }
 
-/* .nav-scroller {
+.nav-scroller {
   position: relative;
   z-index: 2;
   height: 2.75rem;
@@ -125,29 +126,28 @@ h1 {
   text-align: center;
   white-space: nowrap;
   -webkit-overflow-scrolling: touch;
-} */
+}
 
 .form-align {
-  text-align: left;
+  text-align: center;
 }
 
-.container form {
+form {
   border: 3px solid #00997B;
   border-radius: 20px;
   width: 500px;
+  height: 720px;
   padding: 30px;
   margin-bottom: 100px;
 }
 
-#user_info {
-  border: 3px solid #00997B;
-  border-radius: 20px;
+form#user_info {
   width: 500px;
-  padding: 30px;
-  margin-bottom: 100px;
+  height: 500px;
 }
 
 .form-floating {
+  text-align: left;
   margin-bottom: 20px;
 }
 
@@ -158,33 +158,25 @@ img {
 .info-title {
   font-size: 18px;
   text-align: left;
+  padding: 10px;
 }
 
 .form-floating.gender {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
   width: 100%;
 }
 
 .form-floating.gender input[type="radio"] {
+  flex: 1;
+  margin-left: 15px;
   margin-right: 10px;
-  vertical-align: -4px;
-  width: 20px;
-  height: 20px;
-}
-
-.form-floating.gender > label{
-  position: initial;
-  padding: 0;
-  border: none;
-  pointer-events: initial;
 }
 
 .user_info {
   margin-left: 12px;
 }
 
-.form-btn > button {
+button {
   margin-top: 20px;
   background-color: #00997B;
 }

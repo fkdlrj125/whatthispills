@@ -18,67 +18,41 @@
   <div class="form-signin w-100 m-auto container">
     <h2 class="h1 mb-3 fw-normal">회원정보 수정</h2>
     <div class="form-align">
-      <form action="/user/edit" method="Post">
+      <form>
         <div class="info-title">이메일</div>
         <div class="form-floating">
-          <input
-            type="email"
-            name="email"
-            class="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
-            th:value="${user.email}"
-            readonly
-          />
-          <label for="floatingInput"></label>
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" readonly>
+          <label for="floatingInput">hong@sample.com</label>
         </div>
         <div class="info-title">이름</div>
         <div class="form-floating">
-          <input
-            type="text"
-            name="name"
-            class="form-control"
-            id="floatingName"
-            placeholder="이름을 입력해주세요"
-            th:value="${user.name}"
-          />
-          <label for="floatingName"></label>
+          <input type="text" class="form-control" id="floatingName" placeholder="이름을 입력해주세요" readonly>
+          <label for="floatingName">홍길동</label>
         </div>
         <div class="info-title">비밀번호</div>
         <div class="form-floating">
-          <input
-            type="password"
-            name="pwd"
-            class="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-            th:value="${user.pwd}"
-          />
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
           <label for="floatingPassword"></label>
         </div>
         <div class="info-title">성별</div>
         <div class="form-floating gender">
-          <label>
-          <input type="radio" name="gender" id="male" value="male" th:checked="${user.gender == 'male'}" /> 남자
-          </label>
-          <label>
-          <input type="radio" name="gender" id="female" value="female" th:checked="${user.gender == 'female'}"/> 여자 
-          </label>
-          <label for="nan">
-          <input type="radio" name="gender" id="nan" value="nan" th:checked="${user.gender == 'nan'}"/> 없음
-          </label>
+          <input type="radio" name="gender" value="male" checked> 남자
+          <input type="radio" name="gender" value="female"> 여자
+          <input type="radio" name="gender" value="nan"> 없음
         </div>
         <div class="info-title">생년월일</div>
         <div class="form-floating">
-          <input type="date" name="birth" th:field="${user.birth}"/>
+          <input type="month" name="birthdaymonth">
         </div>
         <div class="form-btn">
-          <button class="w-100 btn btn-lg btn-primary" type="submit">
-            수정 완료
-          </button>
+          <button class="w-100 btn btn-lg btn-primary" type="submit">수정 완료</button>
         </div>
+
       </form>
+
+
     </div>
+
   </div>
 
   <div id="footer-placeholder"></div>

@@ -30,6 +30,8 @@
 #checkbox {
   width: 0px;
   height: 100%;
+  padding-right: 0px;
+  margin-left: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,8 +42,9 @@ input[id="icon"] {
 }
 
 input[id="icon"] + label {
-  position: relative;
+  position: absolute;
   display: block;
+  margin: 50px;
   height: 30px;
   cursor: pointer;
   /* 커서를 올려놓을 때 모양이 바뀐다. */
@@ -60,7 +63,7 @@ input[id="icon"] + label > span {
 }
 
 input[id="icon"] + label > span:nth-child(1) {
-  top: 0;
+  top: 0px;
 }
 
 input[id="icon"] + label > span:nth-child(2) {
@@ -70,7 +73,7 @@ input[id="icon"] + label > span:nth-child(2) {
 }
 
 input[id="icon"] + label > span:nth-child(3) {
-  bottom: 0;
+  bottom: 0px;
 }
 
 input[id="icon"]:checked + label > span:nth-child(1) {

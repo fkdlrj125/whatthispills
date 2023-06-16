@@ -25,7 +25,11 @@
             <td>분류 코드:</td>
             <td>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" th:field="${nutri.idx}" readonly/>
+=======
+              <input type="text" name="classifi_code" readonly th:value="${nutri.id}" required />
+>>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
 =======
               <input type="text" name="classifi_code" readonly th:value="${nutri.id}" required />
 >>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
@@ -82,10 +86,17 @@
         </tr>
       </table>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div style="font-family: 35px extrabold 'NanumSquareNeo-Variable'" class="button-row">
         <input type="button" class="cancel" value="취소" onclick="location.href='/admin/nutri_list'"/>
         <input type="submit" class="check" value="확인" />
         <input type="button" class="delete" value="삭제" th:onclick="|location.href='@{/admin/nutri_remove/{nutri.idx}(nutri.idx=${nutri.idx})}'|"/>
+=======
+      <div class="button-row">
+        <input type="button" value="취소" />
+        <input type="submit" class="check" value="확인" />
+        <input type="submit" class="delete" value="삭제" />
+>>>>>>> d12135ff1db1ad57836653555a24987102a26d2a
 =======
       <div class="button-row">
         <input type="button" value="취소" />
