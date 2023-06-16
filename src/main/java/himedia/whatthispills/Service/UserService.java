@@ -10,10 +10,8 @@ import himedia.whatthispills.Domain.User;
 import himedia.whatthispills.Domain.UserLikes;
 import himedia.whatthispills.Repository.JDBCAdminRepository;
 import himedia.whatthispills.Repository.JDBCUserRepository;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
 public class UserService {
 	private final JDBCUserRepository userRepository;
 	private final JDBCAdminRepository adminRepository;
