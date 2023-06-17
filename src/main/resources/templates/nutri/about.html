@@ -22,68 +22,70 @@
 		<span class="ar">home</span> <span class="ar"> > </span> <span
 			class="ar">영양제 검색</span> <span class="ar"> > </span> <span>검색결과</span>
 	</div>
+	<form action="nutri/about">
 
-	<div id="nutri_main">
-		<h1>
-			<label for="" id="main_title">영양제 검색 결과</label>
-		</h1>
-		<!-- START THE FEATURETTES -->
-		<div class="nutri-result">
-			<div class="text_context">
-				<div class="grid-contents">
-					<div class="text_area grid-item1"
-						th:each="nutri, iterStat : ${nutris}">
-						<div class="raw">
-							<div class="cal">
-								<div class="cal-v">
-									<div class="p_img">
-										<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
-											src="/src/main/resources/static/img/nutri.jpg" id="product" />
-										</a>
-									</div>
-									<div class="p_content">
-										<div>
-											<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
-											<button class="heart-button" aria-label="Heart Button">
-												<i class="fas fa-heart"></i>
-											</button>
+		<div id="nutri_main">
+			<h1>
+				<label for="" id="main_title">영양제 검색 결과</label>
+			</h1>
+			<!-- START THE FEATURETTES -->
+			<div class="nutri-result">
+				<div class="text_context">
+					<div class="grid-contents">
+						<div class="text_area grid-item1"
+							th:each="nutri, iterStat : ${nutris}">
+							<div class="raw">
+								<div class="cal">
+									<div class="cal-v">
+										<div class="p_img">
+											<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
+												src="/src/main/resources/static/img/nutri.jpg" id="product" />
+											</a>
 										</div>
-										<div class="labels">
-											<label for="nutri_contens">구분: <span
-												th:text="${nutri.category}">비타민C</span>
-											</label> <label for="nutri_company">제조사: <span
-												th:text="${nutri.company}">고려은단</span>
-											</label>
+										<div class="p_content">
+											<div>
+												<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
+												<button class="heart-button" aria-label="Heart Button">
+													<i class="fas fa-heart"></i>
+												</button>
+											</div>
+											<div class="labels">
+												<label for="nutri_contens">구분: <span
+													th:text="${nutri.category}">비타민C</span>
+												</label> <label for="nutri_company">제조사: <span
+													th:text="${nutri.company}">고려은단</span>
+												</label>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="text_area grid-item2"
-						th:each="nutri, iterStat : ${nutris}"
-						th:if="${iterStat.index % 2 != 0}">
-						<div class="raw">
-							<div class="cal">
-								<div class="cal-v">
-									<div class="p_img">
-										<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
-											src="/src/main/resources/static/img/nutri.jpg" id="product" />
-										</a>
-									</div>
-									<div class="p_content">
-										<div>
-											<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
-											<button class="heart-button" aria-label="Heart Button">
-												<i class="fas fa-heart"></i>
-											</button>
+						<div class="text_area grid-item2"
+							th:each="nutri, iterStat : ${nutris}"
+							th:if="${iterStat.index % 2 != 0}">
+							<div class="raw">
+								<div class="cal">
+									<div class="cal-v">
+										<div class="p_img">
+											<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
+												src="/src/main/resources/static/img/nutri.jpg" id="product" />
+											</a>
 										</div>
-										<div class="labels">
-											<label for="nutri_contens">구분: <span
-												th:text="${nutri.category}">비타민C</span>
-											</label> <label for="nutri_company">제조사: <span
-												th:text="${nutri.company}">고려은단</span>
-											</label>
+										<div class="p_content">
+											<div>
+												<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
+												<button class="heart-button" aria-label="Heart Button">
+													<i class="fas fa-heart"></i>
+												</button>
+											</div>
+											<div class="labels">
+												<label for="nutri_contens">구분: <span
+													th:text="${nutri.category}">비타민C</span>
+												</label> <label for="nutri_company">제조사: <span
+													th:text="${nutri.company}">고려은단</span>
+												</label>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -92,10 +94,9 @@
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="col-md-5 order-md-1">
-			<svg class="bd-placeholder
+			<div class="col-md-5 order-md-1">
+				<svg class="bd-placeholder
 
 
       <hr class="featurette-divider">
@@ -116,16 +117,19 @@
         </h3>
       </div>
 
-      <!-- /END THE FEATURETTES -->
+	
+	
+	</form>
+	<!-- /END THE FEATURETTES -->
 
-    
-		
-		</div>
-		<!-- /.container -->
 
-		<div id="footer-placeholder"></div>
-		<script th:src="@{/js/hf.js}"></script>
-		<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+	</div>
+	<!-- /.container -->
+
+	<div id="footer-placeholder"></div>
+	<script th:src="@{/js/hf.js}"></script>
+	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
