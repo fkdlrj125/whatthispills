@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import himedia.whatthispills.Domain.Nutri;
@@ -22,31 +23,27 @@ public class NutriController {
 
 	// 영양제 검색
 	@GetMapping("/nutri/search")
-	public String nutriSearch(@RequestParam(required=false) String keyword, Model model) {
-	    List<Nutri> nutri = nutriService.findByNameNutri(keyword);
-	    model.addAttribute("nutri", nutri);
-	    System.out.println("nutri" + nutri);
-	    System.out.println("keyword" + keyword);
+	public String nutriSearch(@RequestParam(required = false) String keyword, Model model) {
+		List<Nutri> nutri = nutriService.findByNameNutri(keyword);
+		model.addAttribute("nutri", nutri);
+		System.out.println("nutri" + nutri);
+		System.out.println("keyword" + keyword);
 //	    if (nutri.isEmpty()) {
 //	        model.addAttribute("message", "검색 결과가 없습니다.");
 //	    } else if (nutri.size() > 1) {
 //	        model.addAttribute("nutriSize", nutri.size());
 //	    }
-	    return "nutri/result";
+		return "nutri/result";
 	}
-	
-	// 영양제 결과
-		@GetMapping("/nutri/result")
-		public String nutriResult() {
-		    return "nutri/result";
-		}
 
-		@GetMapping("/nutri/about")
-		public String nutriAbout(@RequestParam String keyword, Model model) {
-		    List<Nutri> nutri = nutriService.findByNameNutri(keyword);
-		    model.addAttribute("nutri", nutri);
-		    return "nutri/about";
-		}
+	// 상세 페이지
+	@GetMapping("/nutri/{nutri_name}")
+    public String nutriAbout(@PathVariable String nutri_name, Model model) {
+        Nutri nutris = nutriService.findByNameInfo(nutri_name).get();
+        System.out.println("nutri 상세:" + nutris);
+        System.out.println("nutri_name: " + nutri_name);
+        model.addAttribute("nutri", nutris);
+        return "nutri/about";
+    }
 
-		
 }

@@ -22,7 +22,12 @@ public class NutriService {
 	public List<Nutri> findByNameNutri(String keyword) {
 		return nutriRepository.findByNameNutri(keyword);
 	}
-
+	// 상세페이지(아이디로 검색)
+	public Optional<Nutri> findByNameInfo(String nutri_name) {
+		System.out.println("nutri_name 서비스"+ nutri_name);
+		return nutriRepository.findByNameInfo(nutri_name);
+	}
+	
 	// 관리자 -------------------------------------------------------
 
 	// 등록된 영양제의 전체 리스트
