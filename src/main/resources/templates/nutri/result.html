@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="kr">
 <!-- START : header -->
 
@@ -37,8 +37,9 @@
 							<div class="cal">
 								<div class="cal-v">
 									<div class="p_img">
-										<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}"> 
-										<img th:src="@{${nutri.image}}" id="product" /></a>
+										<img src="/src/main/resources/static/img/nutri.jpg"
+											id="product"
+											th:onclick="'location.href=\'/nutri/about?keyword=\' + ${nutri.name}'" />
 									</div>
 									<div class="p_content">
 										<div th:text="${nutri.name}">고려은단 비타민C 1000</div>
@@ -64,8 +65,9 @@
 							<div class="cal">
 								<div class="cal-v">
 									<div class="p_img">
-										<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
-										<img th:src="@{${nutri.image}}" id="product" /></a>
+										<img src="/src/main/resources/static/img/nutri.jpg"
+											id="product"
+											th:onclick="'location.href=\'/nutri/about?keyword=\' + ${nutri.name}'" />
 									</div>
 									<div class="p_content">
 										<div th:text="${nutri.name}">고려은단 비타민C 1000</div>
@@ -100,7 +102,6 @@
 
 	<div id="footer-placeholder"></div>
 	<script th:src="@{/js/hf.js}"></script>
-	<script th:src="@{/js/heartbutton.js}"></script>
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
