@@ -39,14 +39,16 @@
 								<div class="cal-v">
 									<div class="p_img">
 										<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
-											<img th:src="@{${nutri.image}}" id="product" />
+											<img th:src="${nutri.image}" id="product" /> </span>
 										</a>
 									</div>
 									<div class="p_content">
 										<div th:text="${nutri.name}">고려은단 비타민C 1000</div>
-										<button class="heart-button" aria-label="Heart Button">
-											<i class="fas fa-heart"></i>
-										</button>
+										<span>
+											<button class="heart-button" aria-label="Heart Button">
+												<i class="fas fa-heart"></i>
+											</button>
+										</span>
 										<div class="labels">
 											<label for="nutri_contens">구분: <span
 												th:text="${nutri.category}">비타민C</span>
@@ -67,14 +69,16 @@
 								<div class="cal-v">
 									<div class="p_img">
 										<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
-											<img th:src="@{${nutri.image}}" id="product" />
+											<img th:src="${nutri.image}" id="product" />
 										</a>
 									</div>
 									<div class="p_content">
 										<div th:text="${nutri.name}">고려은단 비타민C 1000</div>
-										<button class="heart-button" aria-label="Heart Button">
-											<i class="fas fa-heart"></i>
-										</button>
+										<span>
+											<button class="heart-button" aria-label="Heart Button">
+												<i class="fas fa-heart"></i>
+											</button>
+										</span>
 										<div class="labels">
 											<label for="nutri_contens">구분: <span
 												th:text="${nutri.category}">비타민C</span>

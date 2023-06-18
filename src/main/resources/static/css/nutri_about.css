@@ -1,7 +1,3 @@
-html,
-body {
-  height: 100%;
-}
 
 @font-face {
   font-family: 'NanumSquareNeo-Variable';
@@ -10,13 +6,10 @@ body {
   font-style: normal;
 }
 
-body {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  color: #5a5a5a;
-  background-color: #fff;
-  font-family: 'NanumSquareNeo-Variable';
-  font-size: 18px;
+.body {
+  min-height: calc(100vh - 100px);
+  margin: 30px;
+  width: 500px;
 }
 
 /* Carousel base class */

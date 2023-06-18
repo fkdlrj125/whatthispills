@@ -33,12 +33,14 @@ public class JDBCNutriRepository implements NutriRepository {
 					rs.getString("nutri_name"),
 					rs.getString("nutri_category"),
 					rs.getString("nutri_company"),
+					rs.getString("nutri_shape"),
 					rs.getString("nutri_base"),
-					rs.getString("nutri_effect"),
 					rs.getString("nutri_taking"),
+					rs.getString("nutri_effect"),
 					rs.getString("nutri_caution"),
-					rs.getString("nutri_image"),
-					rs.getString("nutri_etc")
+					rs.getString("nutri_storage"),
+					rs.getString("nutri_type"),
+					rs.getString("nutri_image")
 					);
 			return nutri;
 		};
@@ -52,16 +54,19 @@ public class JDBCNutriRepository implements NutriRepository {
 		map.put("nutri_name", nutri.getName());
 		map.put("nutri_category", nutri.getCategory());
 		map.put("nutri_company", nutri.getCompany());
+		map.put("nutri_shape", nutri.getShape());
 		map.put("nutri_base", nutri.getBase());
-		map.put("nutri_effect", nutri.getEffect());
 		map.put("nutri_taking", nutri.getTaking());
+		map.put("nutri_effect", nutri.getEffect());
 		map.put("nutri_caution", nutri.getCaution());
-		map.put("nutri_etc", nutri.getEtc());
+		map.put("nutri_storage", nutri.getStorage());
+		map.put("nutri_type", nutri.getType());
 		map.put("nutri_image", nutri.getImage());
 		insert.execute(map);
-		log.info("리파지토리", nutri);
 		return nutri;
 	}
+	
+	
 	
 	// 제품명 검색
 	@Override
@@ -113,7 +118,7 @@ public class JDBCNutriRepository implements NutriRepository {
 		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
 				update_nutri.getCompany(), update_nutri.getBase(), update_nutri.getEffect(),
 				update_nutri.getTaking(), update_nutri.getCaution(), update_nutri.getImage(),
-				update_nutri.getEtc(), nutri_idx);
+				update_nutri.getStorage(), nutri_idx);
 		update_nutri.setIdx(nutri_idx);
 		return findByIdxNutri(nutri_idx).get();
 	}

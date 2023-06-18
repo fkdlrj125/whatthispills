@@ -18,15 +18,16 @@
 
 <body>
 	<div id="header-placeholder"></div>
+
 	<div class="location">
 		<span class="ar">home</span> <span class="ar"> > </span> <span
-			class="ar">영양제 검색</span> <span class="ar"> > </span> <span>검색결과</span>
+			class="ar">영양제 검색</span> <span class="ar"> > </span> <span>상세페이지</span>
 	</div>
 	<form action="nutri/about">
 
 		<div id="nutri_main">
 			<h1>
-				<label for="" id="main_title">영양제 검색 결과</label>
+				<label for="" id="main_title">상세 페이지</label>
 			</h1>
 			<!-- START THE FEATURETTES -->
 			<div class="nutri-result">
@@ -38,7 +39,7 @@
 									<div class="cal-v">
 										<div class="p_img">
 											<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
-												src="/src/main/resources/static/img/nutri.jpg" id="product" />
+												th:src="${nutri.image}" id="product" />
 											</a>
 										</div>
 										<div class="p_content">
@@ -102,29 +103,55 @@
       </svg>
 
 				<hr class="featurette-divider">
-				<div class="nutri_index">
+				<div class="nutri_index" th:text="${nutri.shape}">
 					복용법
 					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
 						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
 						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
 						fugiat, ipsam ut facere!</h3>
 				</div>
-				<div class="nutri_index">
+				<div class="nutri_index" th:text="${nutri.base}">
+					복용법
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+				<div class="nutri_index" th:text="${nutri.taking}">
+					복용법
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+				<div class="nutri_index" th:text="${nutri.effect}">
+					복용법
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+				<div class="nutri_index" th:text="${nutri.caution}">
+					복용법
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+				<div class="nutri_index" th:text="${nutri.storage}">
+					복용법
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+				<div class="nutri_index" th:text="${nutri.type}">
 					주의사항
 					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
 						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
 						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
 						fugiat, ipsam ut facere!</h3>
-				</div>
-
-				<div class="nutri_index">
-					기타
-					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
-						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
-						fugiat, ipsam ut facere!</h3>
-				</div>
-	</form>
+				</div></form>
 	<!-- /END THE FEATURETTES -->
 
 
