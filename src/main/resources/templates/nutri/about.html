@@ -22,68 +22,69 @@
 		<span class="ar">home</span> <span class="ar"> > </span> <span
 			class="ar">영양제 검색</span> <span class="ar"> > </span> <span>검색결과</span>
 	</div>
+	<form action="nutri/about">
 
-	<div id="nutri_main">
-		<h1>
-			<label for="" id="main_title">영양제 검색 결과</label>
-		</h1>
-		<!-- START THE FEATURETTES -->
-		<div class="nutri-result">
-			<div class="text_context">
-				<div class="grid-contents">
-					<div class="text_area grid-item1"
-						th:each="nutri, iterStat : ${nutris}">
-						<div class="raw">
-							<div class="cal">
-								<div class="cal-v">
-									<div class="p_img">
-										<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
-											src="/src/main/resources/static/img/nutri.jpg" id="product" />
-										</a>
-									</div>
-									<div class="p_content">
-										<div>
-											<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
-											<button class="heart-button" aria-label="Heart Button">
-												<i class="fas fa-heart"></i>
-											</button>
+		<div id="nutri_main">
+			<h1>
+				<label for="" id="main_title">영양제 검색 결과</label>
+			</h1>
+			<!-- START THE FEATURETTES -->
+			<div class="nutri-result">
+				<div class="text_context">
+					<div class="grid-contents">
+						<div class="text_area grid-item1" th:each="nutri, stat : ${nutri}">
+							<div class="raw">
+								<div class="cal">
+									<div class="cal-v">
+										<div class="p_img">
+											<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
+												src="/src/main/resources/static/img/nutri.jpg" id="product" />
+											</a>
 										</div>
-										<div class="labels">
-											<label for="nutri_contens">구분: <span
-												th:text="${nutri.category}">비타민C</span>
-											</label> <label for="nutri_company">제조사: <span
-												th:text="${nutri.company}">고려은단</span>
-											</label>
+										<div class="p_content">
+											<div>
+												<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
+												<button class="heart-button" aria-label="Heart Button">
+													<i class="fas fa-heart"></i>
+												</button>
+											</div>
+											<div class="labels">
+												<label for="nutri_contens">구분: <span
+													th:text="${nutri.category}">비타민C</span>
+												</label> <label for="nutri_company">제조사: <span
+													th:text="${nutri.company}">고려은단</span>
+												</label>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="text_area grid-item2"
-						th:each="nutri, iterStat : ${nutris}"
-						th:if="${iterStat.index % 2 != 0}">
-						<div class="raw">
-							<div class="cal">
-								<div class="cal-v">
-									<div class="p_img">
-										<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
-											src="/src/main/resources/static/img/nutri.jpg" id="product" />
-										</a>
-									</div>
-									<div class="p_content">
-										<div>
-											<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
-											<button class="heart-button" aria-label="Heart Button">
-												<i class="fas fa-heart"></i>
-											</button>
+						<div class="text_area grid-item2"
+							th:each="nutri, iterStat : ${nutri}"
+							th:if="${iterStat.index % 2 != 0}">
+							<div class="raw">
+								<div class="cal">
+									<div class="cal-v">
+										<div class="p_img">
+											<a th:href="@{/nutri/about(keyword=${nutri.name})}"> <img
+												src="/src/main/resources/static/img/nutri.jpg" id="product" />
+											</a>
 										</div>
-										<div class="labels">
-											<label for="nutri_contens">구분: <span
-												th:text="${nutri.category}">비타민C</span>
-											</label> <label for="nutri_company">제조사: <span
-												th:text="${nutri.company}">고려은단</span>
-											</label>
+										<div class="p_content">
+											<div>
+												<span th:text="${nutri.name}">고려은단 비타민C 1000</span>
+												<button class="heart-button" aria-label="Heart Button">
+													<i class="fas fa-heart"></i>
+												</button>
+											</div>
+											<div class="labels">
+												<label for="nutri_contens">구분: <span
+													th:text="${nutri.category}">비타민C</span>
+												</label> <label for="nutri_company">제조사: <span
+													th:text="${nutri.company}">고려은단</span>
+												</label>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -92,40 +93,49 @@
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="col-md-5 order-md-1">
-			<svg class="bd-placeholder
+			<div class="col-md-5 order-md-1">
+				<svg
+					class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+					xmlns="http://www.w3.org/2000/svg"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+      </svg>
+
+				<hr class="featurette-divider">
+				<div class="nutri_index">
+					복용법
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+				<div class="nutri_index">
+					주의사항
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+
+				<div class="nutri_index">
+					기타
+					<h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Nisi obcaecati culpa quia animi autem officiis tenetur consequatur
+						deleniti eos, neque rerum aspernatur amet corporis laborum veniam
+						fugiat, ipsam ut facere!</h3>
+				</div>
+	</form>
+	<!-- /END THE FEATURETTES -->
 
 
-      <hr class="featurette-divider">
-      <div class="nutri_index">복용법
-        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa quia animi autem officiis
-          tenetur consequatur deleniti eos, neque rerum aspernatur amet corporis laborum veniam fugiat, ipsam ut facere!
-        </h3>
-      </div>
-      <div class="nutri_index">주의사항
-        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa quia animi autem officiis
-          tenetur consequatur deleniti eos, neque rerum aspernatur amet corporis laborum veniam fugiat, ipsam ut facere!
-        </h3>
-      </div>
 
-      <div class="nutri_index">기타
-        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa quia animi autem officiis
-          tenetur consequatur deleniti eos, neque rerum aspernatur amet corporis laborum veniam fugiat, ipsam ut facere!
-        </h3>
-      </div>
+	</div>
+	<!-- /.container -->
 
-      <!-- /END THE FEATURETTES -->
-
-    
-		
-		</div>
-		<!-- /.container -->
-
-		<div id="footer-placeholder"></div>
-		<script th:src="@{/js/hf.js}"></script>
-		<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+	<div id="footer-placeholder"></div>
+	<script th:src="@{/js/hf.js}"></script>
+	<script th:src="@{/js/heartbutton.js}"></script>
+	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
