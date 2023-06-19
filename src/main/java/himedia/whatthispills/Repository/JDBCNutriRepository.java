@@ -70,11 +70,8 @@ public class JDBCNutriRepository implements NutriRepository {
 	// 제품명 검색
 	@Override
 	public List<Nutri> findByNameNutri(Object name) {
-//		String queryM = "SELECT * FROM nutri_ WHERE nutri_name LIKE ?";
 		List<Nutri> nutriList = jdbcTemplate.query("SELECT * FROM nutri_ WHERE nutri_name LIKE ?",
 				nutriMapper(), "%" + name + "%");
-		System.out.println("name 말:" + name);
-		System.out.println("nutriList: " + nutriList);
 		return nutriList;
 	}
 	

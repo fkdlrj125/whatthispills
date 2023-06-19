@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="kr">
 <!-- START : header -->
@@ -20,6 +19,7 @@
 
 <body>
 	<div id="header-placeholder"></div>
+
 	<div class="location">
 		<span class="ar">home</span> <span class="ar"> > </span> <span
 			class="ar">영양제 검색</span> <span class="ar"> > </span> <span>검색결과</span>
@@ -33,75 +33,52 @@
 		<div class="nutri-result">
 			<div class="text_context">
 				<div class="grid-contents">
-					<div class="text_area grid-item1" th:each="nutri, stat : ${nutri}">
-						<div class="raw">
-							<div class="cal">
-								<div class="cal-v">
-									<div class="p_img">
-										<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
-											<img th:src="${nutri.image}" id="product" /> </span>
-										</a>
-									</div>
-									<div class="p_content">
-										<div th:text="${nutri.name}">고려은단 비타민C 1000</div>
-										<span>
-											<button class="heart-button" aria-label="Heart Button">
-												<i class="fas fa-heart"></i>
-											</button>
-										</span>
-										<div class="labels">
-											<label for="nutri_contens">구분: <span
-												th:text="${nutri.category}">비타민C</span>
-											</label> <label for="nutri_company">제조사: <span
-												th:text="${nutri.company}">고려은단</span>
-											</label>
+					<table>
+						<tbody>
+							<th:block th:each="nutri, stat : ${nutri}">
+								<div
+									th:class="${stat.index % 2 == 0} ? 'text_area grid-item1' : 'text_area grid-item2'">
+									<div class="cal">
+										<div class="cal-v">
+											<div class="p_img">
+												<a
+													th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
+													<img th:src="@{${nutri.image}}" alt="제품이미지" id="product">
+												</a>
+											</div>
+											<div class="p_content">
+												<a
+													th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
+													<span th:text="${nutri.name}">고려은단 비타민C 1000 
+												</a>
+												<button class="heart-button" aria-label="Heart Button">
+													<i class="fas fa-heart"></i>
+												</button>
+												</span>
+												<div class="labels">
+													<label for="nutri_contens">구분: <span
+														th:text="${nutri.category}">비타민C</span></label> <label
+														for="nutri_company">제조사: <span
+														th:text="${nutri.company}">고려은단</span></label>
+												</div>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="text_area grid-item2" th:each="nutri, stat : ${nutri}"
-						th:if="${stat.index % 2 == 1}">
-						<div class="raw">
-							<div class="cal">
-								<div class="cal-v">
-									<div class="p_img">
-										<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
-											<img th:src="${nutri.image}" id="product" />
-										</a>
-									</div>
-									<div class="p_content">
-										<div th:text="${nutri.name}">고려은단 비타민C 1000</div>
-										<span>
-											<button class="heart-button" aria-label="Heart Button">
-												<i class="fas fa-heart"></i>
-											</button>
-										</span>
-										<div class="labels">
-											<label for="nutri_contens">구분: <span
-												th:text="${nutri.category}">비타민C</span>
-											</label> <label for="nutri_company">제조사: <span
-												th:text="${nutri.company}">고려은단</span>
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+							</th:block>
+						</tbody>
+					</table>
+					<!-- END THE FEATURETTES -->
 				</div>
 			</div>
 		</div>
-
 
 		<div class="col-md-5 order-md-1">
 			<svg
 				class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
 				xmlns="http://www.w3.org/2000/svg"
 				preserveAspectRatio="xMidYMid slice" focusable="false">
-      </svg>
+			</svg>
 		</div>
 	</div>
 
@@ -110,5 +87,6 @@
 	<script th:src="@{/js/heartbutton.js}"></script>
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 
 </html>

@@ -26,22 +26,20 @@ public class NutriController {
 	public String nutriSearch(@RequestParam(required=false) String keyword, Model model) {
 	    List<Nutri> nutri = nutriService.findByNameNutri(keyword);
 	    model.addAttribute("nutri", nutri);
-	    System.out.println("nutri" + nutri);
-	    System.out.println("keyword" + keyword);
 //	    if (nutri.isEmpty()) {
 //	        model.addAttribute("message", "검색 결과가 없습니다.");
 //	    } else if (nutri.size() > 1) {
 //	        model.addAttribute("nutriSize", nutri.size());
 //	    }
+
 	    return "nutri/result";
 	}
+	
 	
 	// 상세 페이지
 		@GetMapping("/nutri/{nutri_name}")
 	    public String nutriAbout(@PathVariable String nutri_name, Model model) {
 	        Nutri nutris = nutriService.findByNameInfo(nutri_name).get();
-	        System.out.println("nutri 상세:" + nutris);
-	        System.out.println("nutri_name: " + nutri_name);
 	        model.addAttribute("nutri", nutris);
 	        return "nutri/about";
 	    }

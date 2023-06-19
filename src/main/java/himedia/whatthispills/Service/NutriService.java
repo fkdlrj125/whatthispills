@@ -24,7 +24,6 @@ public class NutriService {
 	}
 	// 상세페이지(이름로 검색)
 	public Optional<Nutri> findByNameInfo(String nutri_name) {
-		System.out.println("nutri_name 서비스"+ nutri_name);
 		return nutriRepository.findByNameInfo(nutri_name);
 	}
 	
