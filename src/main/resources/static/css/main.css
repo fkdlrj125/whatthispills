@@ -86,7 +86,7 @@
   color: #00997B;
   
 } */
-#banner button:hover {
+#banner a button:hover {
   border: 2px solid rgb(69, 181, 170);
   background-color: rgb(69, 181, 170);
   color: #fff;

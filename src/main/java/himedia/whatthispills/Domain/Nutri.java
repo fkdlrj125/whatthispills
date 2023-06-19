@@ -20,7 +20,7 @@ public class Nutri {
 	private String image;
 
 	public Nutri(Long idx, String name, String category, String company, String shape, String base, String taking,
-			String effect, String caution, String storage,  String type, String image ) {
+			String effect, String caution, String storage, String type, String image) {
 		this.idx = idx;
 		this.name = name;
 		this.category = category;

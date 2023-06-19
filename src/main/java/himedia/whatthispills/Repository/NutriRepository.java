@@ -13,6 +13,9 @@ public interface NutriRepository {
 	// 영양제 이름로 찾기(상세페이지)
 	Optional<Nutri> findByNameInfo(Object nutri_name);
 
+	// 카테고리 이동
+	List<Nutri> findByCategory(Object keyword);
+
 	// 관리자에서 사용 ----------------------------------------
 	// 영양제 전체 조회
 	List<Nutri> findAllNutri();
@@ -31,6 +34,5 @@ public interface NutriRepository {
 
 	// 영양제 삭제
 	Optional<Nutri> delete(Long nutri_idx);
-
 
 }
