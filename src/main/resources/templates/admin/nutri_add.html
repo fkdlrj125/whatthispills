@@ -45,11 +45,11 @@
           <tr>
             <td>성상:</td>
             <td>
-              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${shape}" />
+              <input type="text" name="shpae" placeholder="내용을 입력해주세요" th:value="${shape}" />
             </td>
             <td>주성분:</td>
             <td>
-              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${base}" />
+              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}" />
             </td>
           </tr>
         <tr>
@@ -62,7 +62,7 @@
         <tr>
           <td>효능:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="taking" placeholder="내용을 입력해주세요" th:value="${effect}"></textarea>
+            <textarea name="effect" placeholder="내용을 입력해주세요" th:value="${effect}"></textarea>
           </td>
         </tr>
         <tr>
@@ -74,19 +74,19 @@
         <tr>
           <td>보관방법:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요" th:value="${storage}"></textarea>
+            <textarea name="storage" maxlength="500" placeholder="내용을 입력해주세요" th:value="${storage}"></textarea>
           </td>
         </tr>
         <tr>
           <td>제품형태:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="etc" maxlength="500" placeholder="내용을 입력해주세요" th:value="${type}"></textarea>
+            <textarea name="type" maxlength="500" placeholder="내용을 입력해주세요" th:value="${type}"></textarea>
           </td>
         </tr>
         </tbody>
         <tr>
           <td>이미지 첨부:</td>
-          <td><input type="file" name="img" accept="image/*" th:value="${image}" /></td>
+          <td><input type="file" name="image" accept="image/*" th:value="${image}" /></td>
         </tr>
       </table>
       <div class="button-row">
