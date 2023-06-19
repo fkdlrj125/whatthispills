@@ -35,12 +35,22 @@ public class NutriController {
 	}
 
 	// 영양제 검색
+//	@GetMapping("/nutri/search")
+//	public String nutriSearch(@RequestParam String keyword, Model model) {
+//		List<Nutri> nutri = nutriService.findByNameNutri(keyword);
+//		model.addAttribute("nutri", nutri);
+//		model.addAttribute("keyword", keyword);
+//		return "nutri/result";
+//	}
 	@GetMapping("/nutri/search")
-	public String nutriSearch(@RequestParam(required = false) String keyword, Model model) {
-		List<Nutri> nutri = nutriService.findByNameNutri(keyword);
-		model.addAttribute("nutri", nutri);
-		model.addAttribute("keyword", keyword);
-		return "nutri/result";
+	public String nutriSearch(@RequestParam String keyword, Model model) {
+	    if (keyword == null || keyword.trim().isEmpty()) {
+	        return "index";
+	    }
+	    List<Nutri> nutri = nutriService.findByNameNutri(keyword);
+	    model.addAttribute("nutri", nutri);
+	    model.addAttribute("keyword", keyword);
+	    return "nutri/result";
 	}
 
 	// 상세 페이지
@@ -50,11 +60,9 @@ public class NutriController {
 		Nutri nutri = nutriService.findByNameInfo(nutri_name).get();
 		if (passUser != null) {
 			List<UserLikes> like_list = userService.userLikeList(passUser.getIdx());
-			Optional<UserLikes> user_like = like_list.stream()
-					.filter(like -> {
-						return like.getNutri_idx().equals(nutri.getIdx());
-					})
-					.findAny();
+			Optional<UserLikes> user_like = like_list.stream().filter(like -> {
+				return like.getNutri_idx().equals(nutri.getIdx());
+			}).findAny();
 			if (user_like.isPresent()) {
 				model.addAttribute("like", user_like.get());
 			}
