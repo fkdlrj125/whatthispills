@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: NanumSquareNeo-Variable;
   margin: 100px;
 }
 
@@ -14,6 +14,10 @@ h1 {
   top: 10%;
   font: 30px bold;
   text-align: center;
+}
+
+.admin_nutri_add {
+  margin: 100px;
 }
 
 .admin_nutri_edit {
@@ -55,14 +59,24 @@ td {
   margin-right: 25px;
 }
 
+
+.button-row .cancel {
+  font-family: 'NanumSquareNeo-Variable' !important;
+  border: 1px solid #4c5554;
+  background-color: #4c5554;
+  color: #fff;
+}
+
 .button-row .check {
+  font-family: 'NanumSquareNeo-Variable' !important;
   border: 1px solid #00997B;
   background-color: #00997B;
   color: #fff;
 }
 
 .button-row .delete {
-  background-color: red;
-  border: 1px solid red;
+  font-family: 'NanumSquareNeo-Variable' !important;
+  background-color: rgb(212, 26, 26);
+  border: 1px solid rgb(212, 26, 26);
   color: #fff;
 }

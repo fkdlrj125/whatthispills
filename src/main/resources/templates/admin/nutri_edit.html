@@ -18,14 +18,14 @@
 
   <div class="admin_nutri_edit">
     <h1>영양제 수정</h1>
-    <form th:object=${nutri} action="#" th:action="@{/admin/nutri_edit/}+${nutri.idx}"  method="POST">
+    <form th:object=${nutri} action="#" th:action="@{/admin/nutri_edit/}+${nutri.idx}" method="POST">
       <table>
         <tbody>
           <tr>
             <td>분류 코드:</td>
-            <td>
-              <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" th:field="${nutri.idx}" readonly/>
-              <button id="check_id">중복확인</button>
+            <td class="idx_input">
+              <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" th:field="${nutri.idx}"
+                readonly />
             </td>
             <td>이름:</td>
             <td>
@@ -35,57 +35,65 @@
           <tr>
             <td>구분:</td>
             <td>
-              <input type="text" name="category" placeholder="내용을 입력해주세요" th:value="${category}" th:field="${nutri.category}"/>
+              <input type="text" name="category" placeholder="내용을 입력해주세요" th:value="${category}"
+                th:field="${nutri.category}" />
             </td>
             <td>제조사:</td>
             <td>
-              <input type="text" name="company" placeholder="내용을 입력해주세요" th:value="${company}" th:field="${nutri.company}"/>
+              <input type="text" name="company" placeholder="내용을 입력해주세요" th:value="${company}"
+                th:field="${nutri.company}" />
             </td>
           </tr>
           <tr>
             <td>주성분:</td>
             <td>
-              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}" th:field="${nutri.base}"/>
+              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}" th:field="${nutri.base}" />
             </td>
             <td>효능:</td>
             <td>
-              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${effect}" th:field="${nutri.effect}"/>
+              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${effect}"
+                th:field="${nutri.effect}" />
             </td>
           </tr>
         </tbody>
         <tr>
           <td>복용법:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="taking" maxlength="500" placeholder="내용을 입력해주세요" th:value="${taking}" th:field="${nutri.taking}"></textarea>
+            <textarea name="taking" maxlength="500" placeholder="내용을 입력해주세요" th:value="${taking}"
+              th:field="${nutri.taking}"></textarea>
           </td>
         </tr>
         <tr>
           <td>주의사항:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요" th:value="${caution}" th:field="${nutri.caution}"></textarea>
+            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요" th:value="${caution}"
+              th:field="${nutri.caution}"></textarea>
           </td>
         </tr>
         <tr>
           <td>기타:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="etc" maxlength="500" placeholder="내용을 입력해주세요" th:value="${etc}" th:field="${nutri.etc}"></textarea>
+            <textarea name="etc" maxlength="500" placeholder="내용을 입력해주세요" th:value="${etc}"
+              th:field="${nutri.etc}"></textarea>
           </td>
         </tr>
         </tbody>
         <tr>
           <td>이미지 첨부:</td>
-          <td><input type="file" name="img" accept="image/*" th:value="${img}" th:src="${img}" ></td>
+          <td><input type="file" name="img" accept="image/*" th:value="${img}" th:src="${img}"></td>
         </tr>
       </table>
       <div style="font-family: 35px extrabold 'NanumSquareNeo-Variable'" class="button-row">
-        <input type="button" class="cancel" value="취소" onclick="location.href='/admin/nutri_list'"/>
+        <input type="button" class="cancel" value="취소" onclick="location.href='/admin/nutri_list'" />
         <input type="submit" class="check" value="확인" />
-        <input type="button" class="delete" value="삭제" th:onclick="|location.href='@{/admin/nutri_remove/{nutri.idx}(nutri.idx=${nutri.idx})}'|"/>
+        <input type="button" class="delete" value="삭제"
+          th:onclick="|location.href='@{/admin/nutri_remove/{nutri.idx}(nutri.idx=${nutri.idx})}'|" />
       </div>
     </form>
   </div>
   <div id="footer-placeholder"></div>
   <script th:src="@{/js/hf.js}"></script>
+
 </body>
 
 </html>

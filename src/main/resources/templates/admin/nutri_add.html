@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/css/admin_nutri_add.css}">
+  <link rel="stylesheet" th:href="@{/css/admin_nutri_edit.css}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <title>관리자 영양제 추가</title>
 </head>
@@ -23,33 +23,33 @@
         <tbody>
           <tr>
             <td>분류 코드:</td>
-            <td>
-              <input type="text" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}"/>
-              <button id="check_id">중복확인</button>
+            <td for="idx_check">
+              <input type="text" id="idx_check" name="idx_check" placeholder="내용을 입력해주세요" th:value="${idx}" />
+              <button onclick="checkDupliicate()">중복확인</button>
             </td>
             <td>이름:</td>
             <td>
-              <input type="text" name="name" placeholder="내용을 입력해주세요" th:value="${name}"/>
+              <input type="text" name="name" placeholder="내용을 입력해주세요" th:value="${name}" />
             </td>
           </tr>
           <tr>
             <td>구분:</td>
             <td>
-              <input type="text" name="category" placeholder="내용을 입력해주세요" th:value="${category}"/>
+              <input type="text" name="category" placeholder="내용을 입력해주세요" th:value="${category}" />
             </td>
             <td>제조사:</td>
             <td>
-              <input type="text" name="company" placeholder="내용을 입력해주세요" th:value="${company}"/>
+              <input type="text" name="company" placeholder="내용을 입력해주세요" th:value="${company}" />
             </td>
           </tr>
           <tr>
             <td>주성분:</td>
             <td>
-              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}"/>
+              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}" />
             </td>
             <td>효능:</td>
             <td>
-              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${effect}"/>
+              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${effect}" />
             </td>
           </tr>
         </tbody>
@@ -74,17 +74,38 @@
         </tbody>
         <tr>
           <td>이미지 첨부:</td>
-          <td><input type="file" name="img" accept="image/*" th:value="${img}"/></td>
+          <td><input type="file" name="img" accept="image/*" th:value="${img}" /></td>
         </tr>
       </table>
       <div class="button-row">
-        <input type="button" value="취소" onclick="location.href='/admin/nutri_list'"/>
+        <input type="button" class="cancel" value="취소" onclick="location.href='/admin/nutri_list'" />
         <input type="submit" class="check" value="확인" />
       </div>
     </form>
   </div>
   <div id="footer-placeholder"></div>
   <script th:src="@{/js/hf.js}"></script>
+  <script>
+    function checkDupliicate() {
+      var idx_check = document.getElementById('idx_check').value;
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/checkDuplicate', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var message;
+          if (response.duplicated) {
+            message = '이미 존재하는 분류코드 입니다.';
+          } else {
+            message = '사용 가능한 분료코드 입니다.';
+          }
+          alert(message);
+        }
+      };
+      xhr.send(JSON.stringify({idx_check: idx_check }))
+    }
+  </script>
 </body>
 
 </html>

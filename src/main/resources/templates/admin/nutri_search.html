@@ -14,13 +14,10 @@
 <body>
   <div id="header-placeholder"></div>
   <div class="container-lg">
-    <h2>영양제 검색 결과</h2>
-    <h3>
-	"<span th:text="${search}"></span>" 에 대한 검색 결과
-	</h3>
-    <form action="/nutri_list/search">
+    <h2>"<span th:text="${search}"></span>" 에 대한 검색 결과</h2>
+    <form action="/admin/nutri_search">
       <div class="input-group my-5 pb-5 w-50 m-auto">
-        <input type="text" name ="search" class="form-control" placeholder="어떤 영양제를 찾고 계신가요?" aria-label="어떤 영양제를 찾고 계신가요?"
+        <input type="text" name="search" class="form-control" placeholder="어떤 영양제를 찾고 계신가요?" aria-label="어떤 영양제를 찾고 계신가요?"
           aria-describedby="button-addon2" />
         <button class="btn" type="submit" id="button-addon2">검색</button>
       </div>
