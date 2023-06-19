@@ -43,20 +43,26 @@
             </td>
           </tr>
           <tr>
+            <td>성상:</td>
+            <td>
+              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${shape}" />
+            </td>
             <td>주성분:</td>
             <td>
-              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}" />
-            </td>
-            <td>효능:</td>
-            <td>
-              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${effect}" />
+              <input type="text" name="effect" placeholder="내용을 입력해주세요" th:value="${base}" />
             </td>
           </tr>
-        </tbody>
         <tr>
           <td>복용법:</td>
           <td colspan="2" class="textarea-row">
             <textarea name="taking" placeholder="내용을 입력해주세요" th:value="${taking}"></textarea>
+          </td>
+        </tr>
+        </tbody>
+        <tr>
+          <td>효능:</td>
+          <td colspan="2" class="textarea-row">
+            <textarea name="taking" placeholder="내용을 입력해주세요" th:value="${effect}"></textarea>
           </td>
         </tr>
         <tr>
@@ -66,15 +72,21 @@
           </td>
         </tr>
         <tr>
-          <td>기타:</td>
+          <td>보관방법:</td>
           <td colspan="2" class="textarea-row">
-            <textarea name="etc" maxlength="500" placeholder="내용을 입력해주세요" th:value="${etc}"></textarea>
+            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요" th:value="${storage}"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>제품형태:</td>
+          <td colspan="2" class="textarea-row">
+            <textarea name="etc" maxlength="500" placeholder="내용을 입력해주세요" th:value="${type}"></textarea>
           </td>
         </tr>
         </tbody>
         <tr>
           <td>이미지 첨부:</td>
-          <td><input type="file" name="img" accept="image/*" th:value="${img}" /></td>
+          <td><input type="file" name="img" accept="image/*" th:value="${image}" /></td>
         </tr>
       </table>
       <div class="button-row">
