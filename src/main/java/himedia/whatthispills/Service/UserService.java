@@ -23,8 +23,17 @@ public class UserService {
 		this.adminRepository = adminRepository;
 	}
 	
-	public User saveUser(User user) {
-		return userRepository.save(user);
+	public User save(User user) {
+		return userRepository.saveUser(user);
+	}
+	
+	public void like(Long nutri_idx, Long user_idx) {
+		Optional<UserLikes> user_like = userRepository.findByIdToNutriLike(nutri_idx, user_idx);
+		if(user_like.isEmpty()) {
+			userRepository.saveLikes(nutri_idx, user_idx);
+		} else {
+			userRepository.removeLikes(nutri_idx, user_idx);
+		}
 	}
 	
 	public Optional<User> findEmail(String email) {
@@ -37,6 +46,14 @@ public class UserService {
 	
 	public List<User> findAll() {
 		return userRepository.findAll();
+	}
+	
+	public UserLikes userLike(Long nutri_idx, Long user_idx) {
+		Optional<UserLikes> user_like = userRepository.findByIdToNutriLike(nutri_idx, user_idx);
+		if(user_like.isEmpty()) {
+			return null;
+		}
+		return user_like.get();
 	}
 	
 	public List<UserLikes> userLikeList(Long user_idx) {

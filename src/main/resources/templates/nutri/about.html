@@ -23,12 +23,12 @@
 
       <div class="row featurette">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1" th:text="${nutri.name}">고려은단 비타민C 1000 <span>
-              <button class="heart-button" aria-label="Heart Button">
-                <i class="fas fa-heart"></i>
-              </button>
-            </span>
-          </h2>
+       		<div>
+    			<h2 class="featurette-heading fw-normal lh-1" th:text="${nutri.name}">고려은단 비타민C 1000 </h2>
+              	<button type="button" class="heart-button" aria-label="Heart Button" th:if="${user}" th:onclick="|location.href='@{/user/like(nutri_idx=${nutri.idx}, user_idx=${user.idx})}'|">
+                	<i class="fas fa-heart" ></i>
+              	</button>
+           </div>
 
           <ul class="nutri_about" >
             <li th:text="${nutri.category}">구분</li>
@@ -87,6 +87,9 @@
     <!-- /.container -->
 
     <div id="footer-placeholder"></div>
+    <script th:inline="javascript">
+    	var like = [[${like}]];
+    </script>
     <script th:src="@{/js/hf.js}"></script>
     <script th:src="@{/js/heartbutton.js}"></script>
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

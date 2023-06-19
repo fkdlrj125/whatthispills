@@ -7,13 +7,11 @@ import lombok.Setter;
 public class UserLikes {
 	private Long user_idx;
 	private Long nutri_idx;
-	private boolean likes;
 	
 	
-	public UserLikes(Long user_idx, Long nutri_idx, boolean likes) {
+	public UserLikes(Long user_idx, Long nutri_idx) {
 		super();
 		this.user_idx = user_idx;
 		this.nutri_idx = nutri_idx;
-		this.likes = likes;
 	}
 }

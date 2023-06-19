@@ -42,14 +42,13 @@ public class JDBCUserRepository implements UserRepository{
 		return (ResultSet rs, int rowNum) -> {
 			UserLikes userlikes = new UserLikes(
 					rs.getLong("user_idx"),
-					rs.getLong("nutri_idx"),
-					rs.getBoolean("likes"));
+					rs.getLong("nutri_idx"));
 			return userlikes;
 		};
 	}
 
 	@Override
-	public User save(User user) {
+	public User saveUser(User user) {
 		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("user_").usingGeneratedKeyColumns("user_idx");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("user_email", user.getEmail());
@@ -60,6 +59,15 @@ public class JDBCUserRepository implements UserRepository{
 		Number result = insert.executeAndReturnKey(new MapSqlParameterSource(map));
 		user.setIdx(result.longValue());
 		return user;
+	}
+	
+	@Override
+	public void saveLikes(Long nutri_idx, Long user_idx) {
+		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri_like");
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("user_idx", user_idx);
+		map.put("nutri_idx", nutri_idx);
+		insert.execute(map);
 	}
 
 	@Override
@@ -80,6 +88,12 @@ public class JDBCUserRepository implements UserRepository{
 	}
 	
 	@Override
+	public Optional<UserLikes> findByIdToNutriLike(Long nutri_idx, Long user_idx) {
+		List<UserLikes> userLike = jdbcTemplate.query("select * from nutri_like where nutri_idx = ? and user_idx = ?", userLikesMapper(), nutri_idx, user_idx);
+		return userLike.stream().findAny();
+	}
+	
+	@Override
 	public List<UserLikes> userLikes(Long user_idx) {
 		return jdbcTemplate.query("select * from nutri_like where user_idx = ?", userLikesMapper(), user_idx);
 	}
@@ -96,5 +110,10 @@ public class JDBCUserRepository implements UserRepository{
 		jdbcTemplate.update("update user_ set user_pwd = ? where user_email = ?", 
 				update_pwd, user_email);
 		return findByEmail(user_email);
+	}
+	
+	@Override
+	public void removeLikes(Long nutri_idx, Long user_idx) {
+		jdbcTemplate.update("delete from nutri_like where nutri_idx = ? and user_idx = ?", nutri_idx, user_idx);
 	}
 }

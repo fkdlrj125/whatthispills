@@ -37,7 +37,7 @@ public class LoginController {
 	
 	@PostMapping("/join")
 	public String joinPost(@ModelAttribute User addUser) {
-		userService.saveUser(addUser);
+		userService.save(addUser);
 		return "redirect:/user/login";
 	}
 	

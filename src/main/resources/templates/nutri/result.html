@@ -51,7 +51,7 @@
 													th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
 													<span th:text="${nutri.name}">고려은단 비타민C 1000 
 												</a>
-												<button class="heart-button" aria-label="Heart Button">
+												<button type="button" class="heart-button" aria-label="Heart Button" th:if="${user}" th:onclick="|location.href='@{/user/like(nutri_idx=${nutri.idx}, user_idx=${user.idx})}'|">
 													<i class="fas fa-heart"></i>
 												</button>
 												</span>

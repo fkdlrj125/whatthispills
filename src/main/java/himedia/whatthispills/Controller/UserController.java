@@ -57,6 +57,13 @@ public class UserController {
 		return "user/likes";
 	}
 	
+	@GetMapping("/like")
+	public String userLikes(Long nutri_idx, Long user_idx, Model model, HttpServletRequest request) {
+		userService.like(nutri_idx, user_idx);
+		String referer = request.getHeader("Referer");
+		return "redirect:" + referer;
+	}
+	
 	@GetMapping("/menu")
 	public String userMenu(@SessionAttribute(required = false) User passUser, Model model) {
 		model.addAttribute("user", passUser);
