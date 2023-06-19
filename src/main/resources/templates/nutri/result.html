@@ -8,9 +8,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-	<link rel="stylesheet" th:href="@{/css/nutri_result.css}" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<link rel="stylesheet" th:href="@{/css/nutri_result.css}" />
 	<title>검색 결과</title>
 </head>
 
@@ -43,13 +43,14 @@
 												</a>
 											</div>
 											<div class="p_content">
-												<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
-													<span th:text="${nutri.name}">고려은단 비타민C 1000
-												</a>
-												<button class="heart-button" aria-label="Heart Button">
-													<i class="fas fa-heart"></i>
-												</button>
-												</span>
+												<div class="row">
+													<a class="col-10" th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
+														<span class="p_name" th:text="${nutri.name}">고려은단 비타민C 1000 </span>
+													</a>
+													<button type="button" class="heart-button col-2" aria-label="Heart Button" th:classappend="${#lists.contains(like_list, nutri.idx)} ? 'active' : ''"  th:if="${user}" th:onclick="|location.href='@{/user/like(nutri_idx=${nutri.idx}, user_idx=${user.idx})}'|">
+														<i class="fas fa-heart"></i>
+													</button>
+												</div>
 												<div class="labels">
 													<label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label> <label
 														for="nutri_company">제조사: <span th:text="${nutri.company}">고려은단</span></label>
@@ -75,7 +76,6 @@
 
 	<div id="footer-placeholder"></div>
 	<script th:src="@{/js/hf.js}"></script>
-	<script th:src="@{/js/heartbutton.js}"></script>
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

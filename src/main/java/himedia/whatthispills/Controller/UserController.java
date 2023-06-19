@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Domain.User;
-import himedia.whatthispills.Domain.UserLikes;
 import himedia.whatthispills.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -51,7 +51,9 @@ public class UserController {
 	
 	@GetMapping("/likes")
 	public String userLikes(@SessionAttribute(required = false) User passUser, Model model) {
-		List<UserLikes> like_list = userService.userLikeList(passUser.getIdx());
+		List<Nutri> like_list = userService.userLikeList(passUser.getIdx());
+		List<Long> idx_list = userService.likeIdxList(passUser.getIdx());
+		model.addAttribute("idx_list", idx_list);
 		model.addAttribute("like_list", like_list);
 		model.addAttribute("user", passUser);
 		return "user/likes";

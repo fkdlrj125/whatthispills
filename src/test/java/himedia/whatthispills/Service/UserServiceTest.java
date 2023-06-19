@@ -23,7 +23,7 @@ class UserServiceTest {
 	void 로그인1() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		String result = userService.login("test2", "1111");
 //		then
@@ -34,7 +34,7 @@ class UserServiceTest {
 	void 로그인2() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		String result = userService.login(save_user.getEmail(), save_user.getPwd());
 //		then
@@ -45,7 +45,7 @@ class UserServiceTest {
 	void 로그인3() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		String result = userService.login(" ", " ");
 //		then
@@ -56,7 +56,7 @@ class UserServiceTest {
 	void 비밀번호찾기1() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		boolean result = userService.findPwd(null, null);
 //		then
@@ -67,7 +67,7 @@ class UserServiceTest {
 	void 비밀번호찾기2() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		boolean result = userService.findPwd(user.getEmail(), user.getName());
 //		then
@@ -78,7 +78,7 @@ class UserServiceTest {
 	void 비밀번호업데이트1() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		boolean result = userService.updatePassword(user.getEmail(), "0101");
 //		then
@@ -89,7 +89,7 @@ class UserServiceTest {
 	void 비밀번호업데이트2() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		boolean result = userService.updatePassword("test2", "0101");
 //		then

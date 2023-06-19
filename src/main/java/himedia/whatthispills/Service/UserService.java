@@ -1,14 +1,17 @@
 package himedia.whatthispills.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import himedia.whatthispills.Domain.Admin;
+import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Domain.User;
 import himedia.whatthispills.Domain.UserLikes;
 import himedia.whatthispills.Repository.JDBCAdminRepository;
+import himedia.whatthispills.Repository.JDBCNutriRepository;
 import himedia.whatthispills.Repository.JDBCUserRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,10 +19,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserService {
 	private final JDBCUserRepository userRepository;
+	private final JDBCNutriRepository nutriRepository;
 	private final JDBCAdminRepository adminRepository;
 	
-	public UserService(JDBCUserRepository userRepository, JDBCAdminRepository adminRepository) {
+	public UserService(JDBCUserRepository userRepository, JDBCNutriRepository nutriRepository, JDBCAdminRepository adminRepository) {
 		this.userRepository = userRepository;
+		this.nutriRepository = nutriRepository;
 		this.adminRepository = adminRepository;
 	}
 	
@@ -56,8 +61,23 @@ public class UserService {
 		return user_like.get();
 	}
 	
-	public List<UserLikes> userLikeList(Long user_idx) {
-		return userRepository.userLikes(user_idx);
+	public List<Nutri> userLikeList(Long user_idx) {
+		List<Long> idx_list = likeIdxList(user_idx);
+		List<Nutri> nutri_list = new ArrayList<Nutri>();
+		idx_list.stream().forEach(idx -> {
+			Nutri nutri = nutriRepository.findByIdxNutri(idx).stream().findAny().get();
+			nutri_list.add(nutri);
+		});
+		return nutri_list;
+	}
+	
+	public List<Long> likeIdxList(Long user_idx) {
+		List<UserLikes> like_list = userRepository.userLikes(user_idx);
+		List<Long> idx_list = new ArrayList<Long>();
+		for(UserLikes like : like_list) {
+			idx_list.add(like.getNutri_idx()); 
+		}
+		return idx_list;
 	}
 	
 	public String login(String try_email, String try_pwd) {

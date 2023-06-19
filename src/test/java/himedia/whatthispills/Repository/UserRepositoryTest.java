@@ -26,7 +26,7 @@ class UserRepositoryTest {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
 //		when
-		User result = userRepository.save(user);
+		User result = userRepository.saveUser(user);
 //		then
 		log.info("id >> {}", result.getIdx());
 		assertThat(result.getIdx()).isNotNull();
@@ -36,7 +36,7 @@ class UserRepositoryTest {
 	void 이메일조회() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		Optional<User> result = userRepository.findByEmail(user.getEmail());
 //		then
@@ -49,7 +49,7 @@ class UserRepositoryTest {
 	void 이메일이름조회() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		Optional<User> result = userRepository.findByEmailName(user.getEmail(), user.getName());
 //		then
@@ -63,7 +63,7 @@ class UserRepositoryTest {
 //		given
 		int len = userRepository.findAll().size();
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		userRepository.save(user);
+		userRepository.saveUser(user);
 //		when
 		int result = userRepository.findAll().size();
 //		then
@@ -75,7 +75,7 @@ class UserRepositoryTest {
 	void 유저정보수정() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		User update_user = new User("test1@test1.com", "test2", "1234", "1997-03-27", "nan");
 		Optional<User> result = userRepository.updateUser(update_user);
@@ -90,7 +90,7 @@ class UserRepositoryTest {
 	void 비밀번호수정() {
 //		given
 		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
-		User save_user = userRepository.save(user);
+		User save_user = userRepository.saveUser(user);
 //		when
 		String user_email = save_user.getEmail();
 		String update_pwd = "1234";

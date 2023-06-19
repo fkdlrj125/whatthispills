@@ -1,11 +1,13 @@
 package himedia.whatthispills.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import himedia.whatthispills.Domain.Nutri;
+import himedia.whatthispills.Domain.NutriRec;
 import himedia.whatthispills.Repository.NutriRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,6 +33,43 @@ public class NutriService {
 	// 카테고리 이동
 	public List<Nutri> findByCategory(String keyword) {
 		return nutriRepository.findByCategory(keyword);
+	}
+	
+	// 추천
+	public Optional<NutriRec> recGenderAge(String gender, String birth) {
+		LocalDate now = LocalDate.now();
+		LocalDate user_date = LocalDate.parse(birth);
+		int age = now.getYear() - user_date.getYear();
+		
+		if(age == 0) {
+			age++;
+			age *= 10;
+		} else {
+			age /= 10;
+			age *= 10;
+		}
+		
+		String user_age = age <= 60 ? age + "대" : age + "대 이상";
+		
+		switch(gender) {
+		case "male":
+			gender = "남자";
+			break;
+			
+		case "female":
+			gender= "여자";
+			break;
+			
+		case "nan":
+			gender = "전체";
+			user_age = "전체";
+		}
+		
+		return nutriRepository.findByGenderAge(gender, user_age);
+	}
+	
+	public Optional<NutriRec> recforAll() {
+		return nutriRepository.findRecforAll();
 	}
 
 	// 관리자 -------------------------------------------------------

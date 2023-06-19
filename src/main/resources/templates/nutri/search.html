@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <title>영양제 찾기</title>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <div class="container-lg">
+    <h2>영양제 찾기</h2>
+    <form action="/nutri/result">
+      <div class="input-group my-5 pb-5 w-50 m-auto">
+        <input type="text" class="form-control" placeholder="어떤 의약품을 찾고 계신가요?" aria-label="어떤 의약품을 찾고 계신가요?"
+          aria-describedby="button-addon2" />
+        <button class="btn" type="submit" id="button-addon2">검색</button>
+      </div>
+    </form>
+    <div class="recommend">
+      <div class="rec-title py-4">
+        <h3>님을 위한 추천! 대 남성 인기</h3>
+      </div>
+      <div class="rec-products row row-cols-3">
+        <div class="rec-product col" th:each="nutri : ${nutri_rec}">
+          <div class="product_rank">
+            <h3 th:text="${nutriStat.index} + 1 + '.'">1.</h3>
+          </div>
+          <div class="cal">
+            <div class="cal-v">
+              <div class="p_img">
+                <a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
+                  <img th:src="@{${nutri.image}}" alt="제품이미지" id="product">
+                </a>
+              </div>
+              <div class="p_content">
+                <div class="row">
+                  <a class="col-10" th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
+                    <span class="p_name" th:text="${nutri.name}">고려은단 비타민C 1000 </span>
+                  </a>
+                  <button type="button" class="heart-button col-2" aria-label="Heart Button" th:classappend="${#lists.contains(like_list, nutri.idx)} ? 'active' : ''"  th:if="${user}" th:onclick="|location.href='@{/user/like(nutri_idx=${nutri.idx}, user_idx=${user.idx})}'|">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                </div>
+                <div class="labels">
+                  <label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label> <label
+                    for="nutri_company">제조사: <span th:text="${nutri.company}">고려은단</span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form th:action="@{/nutri/category}" method="get" class="nutri_list">
+      <button type="submit" name="category" value="비타민" class="nutri_item">비타민</button>
+      <button type="submit" name="category" value="루테인" class="nutri_item">루테인</button>
+      <button type="submit" name="category" value="콜라겐" class="nutri_item">콜라겐</button>
+      <button type="submit" name="category" value="칼슘" class="nutri_item">칼슘</button>
+      <button type="submit" name="category" value="오메가" class="nutri_item">오메가</button>
+      <button type="submit" name="category" value="유산균" class="nutri_item">유산균</button>
+      <button type="submit" name="category" value="단백질" class="nutri_item">단백질</button>
+      <button type="submit" name="category" value="기타" class="nutri_item">기타</button>
+    </form>
+
+
+
+    <div id="footer-placeholder"></div>
+    <script th:src="@{/js/hf.js}"></script>
+    <script th:src="@{/js/heartbutton.js}"></script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

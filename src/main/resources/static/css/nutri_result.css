@@ -23,82 +23,81 @@
 }
 
 #main_title {
-	margin-bottom: 10%;
-	margin-top: 5%;
-}
-h1{
 	margin-bottom: 5%;
+	margin-top: 5%;
 }
 
 .text_area.grid-item1,
 .text_area.grid-item2 {
 	display: inline-block;
 	width: 50%;
+	text-align: left;
 	margin-bottom: 2%;
-	margin-top: 5%;
-	height: 250px;
 }
 
-.text_area.grid-item1 .cal-v,
-.text_area.grid-item2 .cal-v {
-	display: flex;
-	align-items: center;
-	width: 500px;
-	height: 200px;
+
+.text_area.grid-item1 .p_img #product {
+	text-align: right;
+	margin-left: 10px;
 }
 
-.text_area.grid-item1 #product,
-.text_area.grid-item2 #product{
-	display: inline;
+.text_area.grid-item2 .p_img {
+	margin-left: 5%;
+}
+
+.p_name {
+	text-align: left;
+	font-size : 18px;
+}
+
+.p_img {
+	float: left;
+	margin-right: 10px 0;
+}
+
+.p_img #product {
 	width: 250px;
-	height: 100%;
 }
 
-.text_area.grid-item1 .p_content,
-.text_area.grid-item2 .p_content {
+.cal-v {
+	display: flex;
+	justify-content: center;
+}
+
+.p_content {
+	display: flex;
+	width: 300px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.row {
+	width:inherit;
+}
+
+.labels {
 	display: flex;
 	flex-direction: column;
-	justify-content: left;
-	/* align-items: stretch; */
-	width: 100%;
-	margin-left: 5%;
-}
-.text_area.grid-item1 .labels,
-.text_area.grid-item2 .labels{
-	display: flex;
-	flex-direction: column;
+	align-items: flex-start;
 }
 
-.text_area.grid-item1{
-	float: left;
-	text-align: left;
-}
-.text_area.grid-item2 {
-	float: right;
-	text-align: left;
+.col-10, .col-2 {
+	padding-left: 0;
+	padding-right: 0;
 }
 
-.text_area.grid-item1 img {
-	float: left;
-}
-.text_area.grid-item1 .cal{
-	display: flex;
-	flex-direction: row-reverse;
-	margin-right: 5%;
-}
-.text_area.grid-item2 .cal{
-	display: flex;
-	margin-left: 5%;
-}
 .heart-button {
 	border: none;
 	background-color: transparent;
 	padding: 0;
-	margin-left: 10px;
-	font-size: 24px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
 	color: #ccc;
 	cursor: pointer;
 	flex-shrink: 0;
+	vertical-align: -1.5px;
 	/* 버튼이 축소되지 않도록 설정 */
 }
 
@@ -144,4 +143,8 @@ h1{
 	.bd-placeholder-img-lg {
 		font-size: 3.5rem;
 	}
+}
+
+.theach {
+	display: none;
 }

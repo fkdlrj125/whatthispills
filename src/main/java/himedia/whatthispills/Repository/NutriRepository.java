@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import himedia.whatthispills.Domain.Nutri;
+import himedia.whatthispills.Domain.NutriRec;
 
 public interface NutriRepository {
 
@@ -15,6 +16,12 @@ public interface NutriRepository {
 
 	// 카테고리 이동
 	List<Nutri> findByCategory(Object keyword);
+	
+	// 추천
+	public Optional<NutriRec> findByGenderAge(String gender, String age);
+	
+	public Optional<NutriRec> findRecforAll();
+	
 
 	// 관리자에서 사용 ----------------------------------------
 	// 영양제 전체 조회

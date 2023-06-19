@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import himedia.whatthispills.Domain.Nutri;
+import himedia.whatthispills.Domain.NutriRec;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -41,6 +42,18 @@ public class JDBCNutriRepository implements NutriRepository {
 					rs.getString("nutri_type"),
 					rs.getString("nutri_image"));
 			return nutri;
+		};
+	}
+	
+	public RowMapper<NutriRec> nutriRecMapper() {
+		return (ResultSet rs, int rowNum) -> {
+			NutriRec nutriRec = new NutriRec(
+					rs.getString("gender"),
+					rs.getString("age"),
+					rs.getLong("recommend1"),
+					rs.getLong("recommend2"),
+					rs.getLong("recommend3"));
+			return nutriRec;
 		};
 	}
 
@@ -85,6 +98,22 @@ public class JDBCNutriRepository implements NutriRepository {
 				"%" + category + "%");
 		return categoryList;
 	}
+	
+	// 추천
+	@Override
+	public Optional<NutriRec> findByGenderAge(String gender, String age) {
+		List<NutriRec> rec_list = jdbcTemplate.query("select * from nutri_recommend where gender = ? and age = ?", nutriRecMapper(), gender, age);
+		return rec_list.stream().findAny();
+		
+	}
+	
+	@Override
+	public Optional<NutriRec> findRecforAll() {
+		List<NutriRec> rec_list = jdbcTemplate.query("select * from nutri_recommend where gender = ? and age = ?", nutriRecMapper(), "전체", "전체");
+		return rec_list.stream().findAny();
+	}
+	
+	
 	// admin ===============================================================
 
 	@Override

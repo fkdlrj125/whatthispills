@@ -1,5 +1,6 @@
 package himedia.whatthispills.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import himedia.whatthispills.Domain.Nutri;
+import himedia.whatthispills.Domain.NutriRec;
 import himedia.whatthispills.Domain.User;
-import himedia.whatthispills.Domain.UserLikes;
 import himedia.whatthispills.Service.NutriService;
 import himedia.whatthispills.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -29,43 +30,58 @@ public class NutriController {
 		this.nutriService = nutriService;
 	}
 
-	@GetMapping("/nutri/nutri_search")
-	public String goToSearch() {
-		return "nutri/nutri_search";
+	@GetMapping("/nutri/search")
+	public String nutriSearch(@SessionAttribute(required = false) User passUser, Model model) {
+		Optional<NutriRec> rec;
+		List<Nutri> rec_list = new ArrayList<Nutri>();
+		if(passUser == null || passUser.getGender() == "없음") {
+			rec = nutriService.recforAll();
+			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend11()).get());
+			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend12()).get());
+			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend13()).get());
+		} else {
+			rec = nutriService.recGenderAge(passUser.getGender(), passUser.getBirth());
+			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend11()).get());
+			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend12()).get());
+			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend13()).get());
+		}
+		
+		if(passUser != null) {
+			List<Long> idx_list = userService.likeIdxList(passUser.getIdx());
+			model.addAttribute("like_list", idx_list);
+		}
+		
+		model.addAttribute("nutri_rec", rec_list);
+		model.addAttribute("user", passUser);
+		return "nutri/search";
 	}
 
 	// 영양제 검색
-//	@GetMapping("/nutri/search")
-//	public String nutriSearch(@RequestParam String keyword, Model model) {
-//		List<Nutri> nutri = nutriService.findByNameNutri(keyword);
-//		model.addAttribute("nutri", nutri);
-//		model.addAttribute("keyword", keyword);
-//		return "nutri/result";
-//	}
-	@GetMapping("/nutri/search")
-	public String nutriSearch(@RequestParam String keyword, Model model) {
-	    if (keyword == null || keyword.trim().isEmpty()) {
-	        return "index";
-	    }
-	    List<Nutri> nutri = nutriService.findByNameNutri(keyword);
-	    model.addAttribute("nutri", nutri);
-	    model.addAttribute("keyword", keyword);
-	    return "nutri/result";
+	@GetMapping("/nutri/result")
+	public String nutriResult(@SessionAttribute(required = false) User passUser, @RequestParam(required = false) String keyword, Model model) {
+		List<Nutri> nutri = nutriService.findByNameNutri(keyword);
+		if (keyword == null || keyword.trim().isEmpty()) {
+			return "index";
+		}
+		
+		if(passUser != null) {
+			List<Long> idx_list = userService.likeIdxList(passUser.getIdx());
+			model.addAttribute("like_list", idx_list);
+		}
+		model.addAttribute("nutri", nutri);
+		model.addAttribute("keyword", keyword);
+		model.addAttribute("user", passUser);
+		return "nutri/result";
 	}
 
 	// 상세 페이지
 	@GetMapping("/nutri/{nutri_name}")
-	public String nutriAbout(@SessionAttribute(required = false) User passUser, @PathVariable String nutri_name,
+	public String nutriAboutGet(@SessionAttribute(required = false) User passUser, @PathVariable String nutri_name,
 			Model model) {
 		Nutri nutri = nutriService.findByNameInfo(nutri_name).get();
 		if (passUser != null) {
-			List<UserLikes> like_list = userService.userLikeList(passUser.getIdx());
-			Optional<UserLikes> user_like = like_list.stream().filter(like -> {
-				return like.getNutri_idx().equals(nutri.getIdx());
-			}).findAny();
-			if (user_like.isPresent()) {
-				model.addAttribute("like", user_like.get());
-			}
+			List<Long> idx_list = userService.likeIdxList(passUser.getIdx());
+			model.addAttribute("like_list", idx_list);
 		}
 		model.addAttribute("nutri", nutri);
 		model.addAttribute("user", passUser);
@@ -80,5 +96,5 @@ public class NutriController {
 		model.addAttribute("keyword", category);
 		return "nutri/result";
 	}
-
+	
 }

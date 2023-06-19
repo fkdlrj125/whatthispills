@@ -1,40 +1,151 @@
+@font-face {
+	font-family: 'NanumSquareNeo-Variable';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
 .body {
-  min-height: calc(100vh - 100px);
-  margin: 30px;
-  width: 500px;
+	min-height: calc(100vh - 100px);
+	margin: 30px;
+	width: 500px;
 }
 
-#main_likes {
-  text-align: center;
-  margin: 100px;
+.location {
+	margin-top: 5%;
+	margin-left: 20%;
 }
 
-.like_product {
-  margin: 20%;
+#nutri_main {
+	text-align: center;
+	margin: 10px;
 }
 
-.like_product img {
-  width: 240px;
+#main_title {
+	margin-bottom: 5%;
+	margin-top: 5%;
 }
 
-.like_product table {
-  display: flex;
-  align-items: center;
+.p_name {
+	text-align: left;
+	font-size : 18px;
 }
 
-.like_product table td {
-  margin-left: 10px;
-}
-.like-button{
-  border: 10px white;
-}
-.like-button img{
-  width: 40px;
+.p_img {
+	float: left;
+	margin-right: 10px 0;
 }
 
-.non-like-button{
-  border: 10px white;
+.p_img #product {
+	width: 250px;
 }
-.non-like-button img{
-  width: 40px;
+
+
+.text_area.grid-item1,
+.text_area.grid-item2 {
+	display: inline-block;
+	width: 50%;
+	text-align: left;
+	margin-bottom: 2%;
+}
+
+
+.text_area.grid-item1 .p_img #product {
+	text-align: right;
+	margin-left: 10px;
+}
+
+.text_area.grid-item2 .p_img {
+	margin-left: 5%;
+}
+
+.cal-v {
+	display: flex;
+	justify-content: center;
+}
+
+.p_content {
+	display: flex;
+	width: 300px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.row {
+	width:inherit;
+}
+
+.labels {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.col-10, .col-2 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.heart-button {
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	color: #ccc;
+	cursor: pointer;
+	flex-shrink: 0;
+	vertical-align: -1.5px;
+	/* 버튼이 축소되지 않도록 설정 */
+}
+
+.heart-button i {
+	transition: color 0.3s ease;
+}
+
+.heart-button.active i {
+	color: rgba(255, 0, 0, 0.719);
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width : 40em) {
+
+	/* Bump up size of carousel content */
+	.carousel-caption p {
+		margin-bottom: 1.25rem;
+		font-size: 1.25rem;
+		line-height: 1.4;
+	}
+
+	.featurette-heading {
+		font-size: 50px;
+	}
+}
+
+@media (min-width : 62em) {
+	.featurette-heading {
+		margin-top: 7rem;
+	}
+}
+
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+@media (min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.theach {
+	display: none;
 }

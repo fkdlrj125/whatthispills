@@ -66,11 +66,9 @@ a {
   margin-right: 20px;
 }
 
-z
-
 /* Second SearchBar */
 #button-addon2 {
-  border: 1px solid #00997b;
+  border: 1px solid #dee2e6;
   color: #00997b;
 }
 
@@ -89,63 +87,69 @@ z
   text-align: left;
 }
 
+.p_name {
+	text-align: left;
+	font-size : 18px;
+}
+
+.p_img {
+	float: left;
+	margin-right: 10px 0;
+}
+
+.p_img #product {
+	width: 250px;
+}
+
+.cal-v {
+	display: flex;
+	justify-content: center;
+}
+
+.p_content {
+	display: flex;
+	width: 100%;
+	text-align: left;
+	flex-direction: column;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.row {
+	width:inherit;
+}
+
+.labels {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.col-10, .col-2 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .heart-button {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  margin-left: 10px;
-  font-size: 38px;
+	border: none;
+	background-color: transparent;
+	padding: 0;
+	height: 30px;
+	line-height: 30px;
+	font-size: 20px;
+	color: #ccc;
+	cursor: pointer;
+	flex-shrink: 0;
+	vertical-align: -1.5px;
+	/* 버튼이 축소되지 않도록 설정 */
 }
 
 .heart-button i {
-  transition: color 0.3s ease;
+	transition: color 0.3s ease;
 }
 
 .heart-button.active i {
-  color: rgba(255, 0, 0, 0.719);
-}
-
-.card-text {
-  margin-bottom: 0;
-}
-
-.card {
-  max-width: 520px;
-}
-
-.card-body {
-  text-align: left;
-}
-
-.card-body .card-title {
-  align-items: center;
-}
-
-.card-body .card-title * {
-  height: inherit;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.card-body .like_button {
-  border: none;
-  background: none;
-}
-
-.card-body .like_button img {
-  width: 24px;
-}
-
-.card-body .like_button img:hover {
-  filter: invert(53%) sepia(10%) saturate(7265%) hue-rotate(323deg) brightness(86%) contrast(85%);
-}
-
-.card-body a {
-  display: block;
-}
-
-.card-body a:first-of-type {
-  margin-bottom: 2px;
+	color: rgba(255, 0, 0, 0.719);
 }
 
 .nutri_list {

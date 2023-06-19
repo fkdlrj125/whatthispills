@@ -41,7 +41,6 @@ public class JDBCUserRepository implements UserRepository{
 	public RowMapper<UserLikes> userLikesMapper() {
 		return (ResultSet rs, int rowNum) -> {
 			UserLikes userlikes = new UserLikes(
-					rs.getLong("user_idx"),
 					rs.getLong("nutri_idx"));
 			return userlikes;
 		};
@@ -89,7 +88,7 @@ public class JDBCUserRepository implements UserRepository{
 	
 	@Override
 	public Optional<UserLikes> findByIdToNutriLike(Long nutri_idx, Long user_idx) {
-		List<UserLikes> userLike = jdbcTemplate.query("select * from nutri_like where nutri_idx = ? and user_idx = ?", userLikesMapper(), nutri_idx, user_idx);
+		List<UserLikes> userLike = jdbcTemplate.query("select nutri_idx from nutri_like where nutri_idx = ? and user_idx = ?", userLikesMapper(), nutri_idx, user_idx);
 		return userLike.stream().findAny();
 	}
 	
