@@ -47,7 +47,7 @@ public class JDBCNutriRepository implements NutriRepository {
 	}
 	
 	@Override
-	public Nutri saveNutri(Nutri nutri) {
+	public Nutri save(Nutri nutri) {
 		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri_");
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("nutri_idx", nutri.getIdx());
@@ -67,7 +67,6 @@ public class JDBCNutriRepository implements NutriRepository {
 	}
 	
 	
-	
 	// 제품명 검색
 	@Override
 	public List<Nutri> findByNameNutri(Object name) {
@@ -78,14 +77,26 @@ public class JDBCNutriRepository implements NutriRepository {
 		System.out.println("nutriList: " + nutriList);
 		return nutriList;
 	}
-	//검색에서 상세 페이지
+	
+	// 검색에서 상세 페이지
 	@Override
 	public Optional<Nutri> findByNameInfo(Object nutri_name) {
 		List<Nutri> result = jdbcTemplate.query("select * from nutri_ where nutri_name = ?", nutriMapper(), nutri_name);
 		return result.stream().findAny();
 	}
-
-	// 관리자 -------------------------------------------------------
+	
+	// admin ===============================================================
+	
+	@Override
+	public Nutri update(Long nutri_idx, Nutri update_nutri) {
+		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_shape = ?, nutri_base = ?, nutri_taking = ?, nutri_effect = ?, nutri_caution= ?, nutri_storage = ?, nutri_type = ?, nutri_image = ? where nutri_idx = ? ";
+		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
+				update_nutri.getCompany(), update_nutri.getShape(), update_nutri.getBase(), update_nutri.getTaking(),
+				update_nutri.getEffect(), update_nutri.getCaution(), update_nutri.getStorage(), update_nutri.getType(),
+				update_nutri.getImage(), nutri_idx);
+		update_nutri.setIdx(nutri_idx);
+		return findByIdxNutri(nutri_idx).get();
+	}
 	
 	@Override
 	public List<Nutri> findAllNutri() {
@@ -113,17 +124,6 @@ public class JDBCNutriRepository implements NutriRepository {
 
 
 	@Override
-	public Nutri update(Long nutri_idx, Nutri update_nutri) {
-		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_base = ?, nutri_effect = ?, nutri_taking = ?, nutri_caution= ?, nutri_image = ?, nutri_etc = ? where nutri_idx = ? " ;
-		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
-				update_nutri.getCompany(), update_nutri.getBase(), update_nutri.getEffect(),
-				update_nutri.getTaking(), update_nutri.getCaution(), update_nutri.getImage(),
-				update_nutri.getStorage(), nutri_idx);
-		update_nutri.setIdx(nutri_idx);
-		return findByIdxNutri(nutri_idx).get();
-	}
-
-	@Override
 	public Optional<Nutri> delete(Long nutri_idx) {
 		String sql = "delete from nutri_ where nutri_idx = ?";
 		jdbcTemplate.update(sql, nutri_idx);
@@ -131,9 +131,4 @@ public class JDBCNutriRepository implements NutriRepository {
 	}
 
 
-	@Override
-	public Optional<Nutri> nutriRemoveByIdx(Long nutri_idx) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
-	}
 }

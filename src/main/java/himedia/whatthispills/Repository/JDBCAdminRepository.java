@@ -34,7 +34,7 @@ public class JDBCAdminRepository implements AdminRepository{
 	}
 
 	@Override
-	public Optional<Admin> findByEmail(String id) {
+	public Optional<Admin> findById(String id) {
 		List<Admin> adminList = jdbcTemplate.query("select * from admin_ where admin_id like ?", adminMapper(), id);
 		return adminList.stream().findAny();
 	}

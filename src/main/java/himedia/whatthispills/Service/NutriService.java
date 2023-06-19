@@ -37,7 +37,7 @@ public class NutriService {
 
 	// 영양제 저장
 	public Nutri saveNutri(Nutri nutri) {
-		return nutriRepository.saveNutri(nutri);
+		return nutriRepository.save(nutri);
 	}
 
 	// 인덱스로 검색

@@ -44,7 +44,7 @@ public class UserService {
 	}
 	
 	public String login(String try_email, String try_pwd) {
-		Optional<Admin> admin = adminRepository.findByEmail(try_email);
+		Optional<Admin> admin = adminRepository.findById(try_email);
 		Optional<User> user = userRepository.findByEmail(try_email);
 		if(user.isPresent() && user.get().getPwd().equals(try_pwd)) {
 			return "user";

@@ -21,7 +21,7 @@ public interface NutriRepository {
 	List<Nutri> search(Object search);
 
 	// 영양제 추가
-	Nutri saveNutri(Nutri nutri);
+	Nutri save(Nutri nutri);
 
 	// 영양제 번호로 찾기
 	Optional<Nutri> findByIdxNutri(Long nutri_idx);
@@ -32,6 +32,5 @@ public interface NutriRepository {
 	// 영양제 삭제
 	Optional<Nutri> delete(Long nutri_idx);
 
-	Optional<Nutri> nutriRemoveByIdx(Long nutri_idx);
 
 }

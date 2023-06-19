@@ -55,7 +55,7 @@ public class LoginController {
 			return "redirect:/";
 		} else if(result.equals("admin")) {
 			HttpSession session = request.getSession();
-			session.setAttribute("admin", adminService.findEmail(input_email).get());
+			session.setAttribute("admin", adminService.findid(input_email).get());
 			return "redirect:/admin/nutri_list";
 		}
 		re.addFlashAttribute("message", "아이디와 비밀번호가 일치하지 않습니다."); // alert 문구
