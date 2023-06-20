@@ -167,4 +167,12 @@ public class JDBCNutriRepository implements NutriRepository {
 		return Optional.empty();
 	}
 
+	@Override
+	public Long checkIdx(String check_idx) {
+		String sql = "select count(*) from nutri_ where nutri_idx = ?";
+		Long result = jdbcTemplate.queryForObject(sql, Long.class, check_idx);
+		log.info("리파지토리 >> {}", result);
+		return result;
+	}
+
 }

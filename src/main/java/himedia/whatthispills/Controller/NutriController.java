@@ -36,14 +36,14 @@ public class NutriController {
 		List<Nutri> rec_list = new ArrayList<Nutri>();
 		if(passUser == null || passUser.getGender() == "없음") {
 			rec = nutriService.recforAll();
-			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend11()).get());
-			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend12()).get());
-			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend13()).get());
+			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend11()).get());
+			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend12()).get());
+			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend13()).get());
 		} else {
 			rec = nutriService.recGenderAge(passUser.getGender(), passUser.getBirth());
-			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend11()).get());
-			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend12()).get());
-			rec_list.add(nutriService.findIdNutri(rec.get().getRecommend13()).get());
+			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend11()).get());
+			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend12()).get());
+			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend13()).get());
 		}
 		
 		if(passUser != null) {

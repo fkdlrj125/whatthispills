@@ -8,9 +8,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/css/admin_nutri_edit.css}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/admin_nutri_edit.css}">
   <title>관리자 영양제 추가</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(function(){
+    $("#checkIdxButton").click(function(){
+    
+        let nutri_idx = $("#nutri_idx").val();
+         
+        $.ajax({
+            type:'post', //post 형식으로 controller 에 보내기위함!!
+            url:"/admin/check_idx", // 컨트롤러로 가는 mapping 입력
+            data: {"nutri_idx":nutri_idx}, // 원하는 값을 중복확인하기위해서  JSON 형태로 DATA 전송
+            success: function(data){ 
+                if(data == "N"){ // 만약 성공할시
+                    result = "사용 가능한 분류코드";
+                    $("#result_checkIdx").html(result).css("color", "blue");
+
+             }else{ // 만약 실패할시
+                 result="이미 사용중인 분류코드";
+                     $("#result_checkIdx").html(result).css("color","red");
+             }
+                 
+         },
+            error : function(error){alert(error);}
+        });
+        
+    });
+    
+});
+ 
+ 
+</script>
 </head>
 
 <body>
@@ -24,8 +55,11 @@
           <tr>
             <td>분류 코드:</td>
             <td>
-              <input type="text" id="idx_check" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" />
-<!--               <button onclick="checkDupliicate()">중복확인</button> -->
+              <input type="text" id="nutri_idx" name="nutri_idx" placeholder="내용을 입력해주세요" th:value="${idx}" />
+			  <button type="button" id="checkIdxButton" style=" font-family:NanumSquareNeo-Variable 14px bold;
+ 						 background-color: rgb(10, 78, 124); border: 4px solid rgb(10, 78, 124); 
+  						border-radius: 4px !important; color: #fff ;">중복확인</button>
+			  <span id="result_checkIdx" style="font-size:12px;"></span>
             </td>
             <td>이름:</td>
             <td>
@@ -97,27 +131,6 @@
   </div>
   <div id="footer-placeholder"></div>
   <script th:src="@{/js/hf.js}"></script>
-<!--   <script>
-    function checkDupliicate() {
-      var idx_check = document.getElementById('idx_check').value;
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/checkDuplicate', true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          var response = JSON.parse(xhr.responseText);
-          var message;
-          if (response.duplicated) {
-            message = '이미 존재하는 분류코드 입니다.';
-          } else {
-            message = '사용 가능한 분류코드 입니다.';
-          }
-          alert(message);
-        }
-      };
-      xhr.send(JSON.stringify({idx_check: idx_check }))
-    }
-  </script> -->
 </body>
 
 </html>

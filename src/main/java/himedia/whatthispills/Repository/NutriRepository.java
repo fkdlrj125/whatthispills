@@ -22,8 +22,6 @@ public interface NutriRepository {
 	
 	public Optional<NutriRec> findRecforAll();
 	
-
-	// 관리자에서 사용 ----------------------------------------
 	// 영양제 전체 조회
 	List<Nutri> findAllNutri();
 
@@ -41,5 +39,8 @@ public interface NutriRepository {
 
 	// 영양제 삭제
 	Optional<Nutri> delete(Long nutri_idx);
+	
+	// 영양제 분류코드 중복검사
+	Long checkIdx(String check_idx);
 
 }

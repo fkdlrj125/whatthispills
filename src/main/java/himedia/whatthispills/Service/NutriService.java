@@ -94,25 +94,26 @@ public class NutriService {
 	}
 	
 
-	// 인덱스로 검색
-	public Optional<Nutri> findIdNutri(Long nutri_idx) {
+	public Optional<Nutri> findIdxNutri(Long nutri_idx) {
 		return nutriRepository.findByIdxNutri(nutri_idx);
 	}
 
 	public List<Nutri> searchNutri(Object search) {
-		log.info("서비스");
 		return nutriRepository.search(search);
-
 	}
 
-	// 영양제 수정
 	public Nutri nutriEdit(Long nutri_idx, Nutri nutri) {
 		return nutriRepository.update(nutri_idx, nutri);
 	}
 
-	// 영양제 삭제
 	public Optional<Nutri> removeNutri(Long nutri_idx) {
 		return nutriRepository.delete(nutri_idx);
+	}
+	
+	public Long checkIdx(String check_idx) {
+		Long result = nutriRepository.checkIdx(check_idx);
+		log.info("컨트롤러 >> {}", result);
+		return result;
 	}
 
 }

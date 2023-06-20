@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import himedia.whatthispills.Domain.Nutri;
@@ -55,7 +56,7 @@ public class AdminController {
 
 	@GetMapping("/nutri_edit/{nutri_idx}")
 	public String nutriEditGet(@PathVariable Long nutri_idx, Model model) {
-		Nutri nutri = nutriService.findIdNutri(nutri_idx).get();
+		Nutri nutri = nutriService.findIdxNutri(nutri_idx).get();
 		model.addAttribute("nutri", nutri);
 		return "admin/nutri_edit";
 	}
@@ -73,14 +74,15 @@ public class AdminController {
 		return "redirect:/admin/nutri_list";
 	}
 	
-//	@PostMapping("/checkDuplicate")
-//	  public Map<String, Boolean> checkIdx(@RequestBody Map<String, String> request) {
-//	    String idx_check = request.get("idx_check");
-//	    boolean duplicated = nutriService.checkDuplicate(idx_check); // 아이템 번호 중복 체크 로직 수행
-//	    Map<String, Boolean> response = new HashMap<>();
-//	    response.put("duplicated", duplicated);
-//	    return response;
-//	  }
-//	}
-
+	@ResponseBody
+	@RequestMapping("/check_idx")
+	  public String checkIdx(@RequestParam("nutri_idx") String check_idx) {
+        String result = "N";
+        log.info("컨트롤러1 >> {}", result);
+        Long flag = nutriService.checkIdx(check_idx);
+        if(flag == 1) 
+        	result = "Y"; 
+        log.info("컨트롤러2 >> {}", result);
+        return result;
+	}
 }
