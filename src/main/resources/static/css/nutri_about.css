@@ -67,6 +67,11 @@
 /* nutri_about
 ------------------------- */
 
+.image-area {
+	display: flex;
+	align-items: center;
+}
+
 .nutri_about li {
   font-size: 32px;
   margin-left: 40px;

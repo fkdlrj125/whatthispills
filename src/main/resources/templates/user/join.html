@@ -59,11 +59,17 @@
               <label for="floatingPassword"></label>
             </div>
             <div class="info-title">성별</div>
-            <div class="form-floating gender">
-              <input type="radio" name="gender" value="male" checked /> 남자
-              <input type="radio" name="gender" value="female" /> 여자
-              <input type="radio" name="gender" value="nan" /> 없음
-            </div>
+           <div class="form-floating gender">
+          <label>
+          	<input type="radio" name="gender" id="male" value="male"/> 남자
+          </label>
+          <label>
+          	<input type="radio" name="gender" id="female" value="female"/> 여자 
+          </label>
+          <label>
+          	<input type="radio" name="gender" id="nan" value="nan" /> 없음
+          </label>
+        </div>
             <div class="info-title">생년월일</div>
             <div class="form-floating">
               <input type="date" name="birth" />

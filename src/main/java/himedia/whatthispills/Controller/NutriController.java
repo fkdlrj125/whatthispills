@@ -82,7 +82,7 @@ public class NutriController {
 		if (passUser != null) {
 			List<Long> idx_list = userService.likeIdxList(passUser.getIdx());
 			model.addAttribute("like_list", idx_list);
-		}
+		}	
 		model.addAttribute("nutri", nutri);
 		model.addAttribute("user", passUser);
 		return "nutri/about";
@@ -90,10 +90,15 @@ public class NutriController {
 
 	// 카테고리 검색
 	@GetMapping("/nutri/category")
-	public String nutriCategory(@RequestParam String category, Model model) {
+	public String nutriCategory(@SessionAttribute(required = false) User passUser, @RequestParam String category, Model model) {
 		List<Nutri> nutri = nutriService.findByCategory(category);
+		if (passUser != null) {
+			List<Long> idx_list = userService.likeIdxList(passUser.getIdx());
+			model.addAttribute("like_list", idx_list);
+		}
 		model.addAttribute("nutri", nutri);
 		model.addAttribute("keyword", category);
+		model.addAttribute("user", passUser);
 		return "nutri/result";
 	}
 	

@@ -27,6 +27,11 @@
 	margin-top: 5%;
 }
 
+.grid-contents {
+	width: 80%;
+	margin: 0 auto;
+}
+
 .text_area.grid-item1,
 .text_area.grid-item2 {
 	display: inline-block;
@@ -67,6 +72,7 @@
 .p_content {
 	display: flex;
 	width: 300px;
+	padding: 0 20px;
 	flex-direction: column;
 	justify-content: center;
 	align-items: baseline;

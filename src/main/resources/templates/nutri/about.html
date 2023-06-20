@@ -36,11 +36,11 @@
             <li th:text="${nutri.base}">효능</li>
           </ul>
         </div>
-        <div class="col-md-5 order-md-1">
+        <div class="col-md-5 order-md-1 image-area">
           <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
             height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
             preserveAspectRatio="xMidYMid slice" focusable="false">
-            <image th:src="@{${nutri.image}}" width="100%" height="100%" />
+            <image th:href="@{${nutri.image}}" width="100%" height="100%" />
           </svg>
         </div>
       </div>
@@ -67,7 +67,7 @@
           tenetur consequatur deleniti eos, neque rerum aspernatur amet corporis laborum veniam fugiat, ipsam ut facere!
         </h3>
       </div>
-      <div class="nutri_index">storage:
+      <div class="nutri_index">보관방법:
         <h3 th:text="${nutri.storage}">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa
           quia
           animi autem officiis

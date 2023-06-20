@@ -27,6 +27,11 @@
 	margin-top: 5%;
 }
 
+.grid-contents {
+	width: 80%;
+	margin: 0 auto;
+}
+
 .p_name {
 	text-align: left;
 	font-size : 18px;

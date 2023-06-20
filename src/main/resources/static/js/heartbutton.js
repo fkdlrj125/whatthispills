@@ -4,4 +4,3 @@ heartButton.forEach((btn) => {
     this.classList.toggle('active');
   });
 })
-console.log(like_list);
