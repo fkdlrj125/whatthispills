@@ -140,39 +140,3 @@ a {
   transition: 0.25s;
 }
 
-/* admin_nutri_list */
-.product_table {
-  width: 75%;
-  margin: 0 auto;
-}
-
-.product_table .add {
-  text-align: right;
-}
-
-.product_table .add .add_btn {
-  width: 65px;
-  height: 25px;
-  line-height: 10px;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.table th:first-of-type {
-  border-right: 1px solid #ddd;
-}
-
-.user_menu {
-  width: 160px;
-  height: 160px;
-  background-color: #fefefe;
-  border: 1px solid #eee;
-  justify-content: center;
-  justify-items: center;
-  border-radius: 20px;
-  line-height: 60px;
-  box-shadow: 5px 10px 15px #bbb;
-  font-size: 24px;
-  font-weight: 500;
-  color: #333;
-}

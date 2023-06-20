@@ -160,6 +160,11 @@ input[id="icon"]:checked + label > span:nth-child(3) {
   margin-left: 20px;
 }
 
+.admin {
+  margin-left: 130px !important;
+}
+
+
 #util #login,
 #util #signup,
 #util #mypage,

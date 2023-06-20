@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import himedia.whatthispills.Domain.Admin;
 import himedia.whatthispills.Domain.User;
 
 @Controller
@@ -16,8 +17,9 @@ public class IndexController {
 	}
 	
 	@GetMapping("/header")
-	public String header(@SessionAttribute(required = false) User passUser, Model model) {
+	public String header(@SessionAttribute(required = false) User passUser, @SessionAttribute(required = false) Admin admin, Model model) {
 		model.addAttribute("user", passUser);
+		model.addAttribute("admin", admin);
 		return "header";
 	}
 	

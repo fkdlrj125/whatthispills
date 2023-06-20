@@ -38,11 +38,14 @@
         <button type="button" onclick="refreshPage()"></button>
       </form>
     </div>
-    <div th:if="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
+    <div th:if="${admin}" class="flex-sm-fill text-sm-center nav-link admin" id="util">
+      <a href="/user/logout" id="logout" style="font-family: 'NanumSquareNeo-Variable'">로그아웃</a>
+    </div>
+    <div th:if="${user} == null and ${admin} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
       <a href="/user/login" id="login" style="font-family: 'NanumSquareNeo-Variable'">로그인</a>
       <a href="/user/join" id="signup" style="font-family: 'NanumSquareNeo-Variable'">회원가입</a>
     </div>
-    <div th:unless="${user} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
+    <div th:if="${user} and ${admin} == null" class="flex-sm-fill text-sm-center nav-link" id="util">
       <a href="/user/menu" id="mypage" style="font-family: 'NanumSquareNeo-Variable'">마이페이지</a>
       <a href="/user/logout" id="logout" style="font-family: 'NanumSquareNeo-Variable'">로그아웃</a>
     </div>
