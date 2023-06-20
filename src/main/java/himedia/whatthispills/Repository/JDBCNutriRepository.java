@@ -27,23 +27,31 @@ public class JDBCNutriRepository implements NutriRepository {
 	}
 
 	public RowMapper<Nutri> nutriMapper() {
-		return (ResultSet rs, int rowNum) -> {
-			Nutri nutri = new Nutri(
-					rs.getLong("nutri_idx"),
-					rs.getString("nutri_name"),
-					rs.getString("nutri_category"),
-					rs.getString("nutri_company"),
-					rs.getString("nutri_shape"),
-					rs.getString("nutri_base"),
-					rs.getString("nutri_taking"),
-					rs.getString("nutri_effect"),
-					rs.getString("nutri_caution"),
-					rs.getString("nutri_storage"),
-					rs.getString("nutri_type"),
-					rs.getString("nutri_image"));
-			return nutri;
-		};
+	    return (ResultSet rs, int rowNum) -> {
+	        Nutri nutri = new Nutri(
+	            rs.getLong("nutri_idx"),
+	            rs.getString("nutri_name"),
+	            rs.getString("nutri_category"),
+	            rs.getString("nutri_company"),
+	            rs.getString("nutri_shape"),
+	            rs.getString("nutri_base"),
+	            rs.getString("nutri_taking"),
+	            rs.getString("nutri_effect"),
+	            rs.getString("nutri_caution"),
+	            rs.getString("nutri_storage"),
+	            rs.getString("nutri_type"),
+	            null 
+	        );
+
+	        String imagePath = rs.getString("nutri_image");
+	        if (imagePath != null && !imagePath.isEmpty()) {
+	            nutri.setImage(imagePath);
+	        }
+
+	        return nutri;
+	    };
 	}
+	
 	
 	public RowMapper<NutriRec> nutriRecMapper() {
 		return (ResultSet rs, int rowNum) -> {
@@ -59,22 +67,24 @@ public class JDBCNutriRepository implements NutriRepository {
 
 	@Override
 	public Nutri save(Nutri nutri) {
-		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri_");
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("nutri_idx", nutri.getIdx());
-		map.put("nutri_name", nutri.getName());
-		map.put("nutri_category", nutri.getCategory());
-		map.put("nutri_company", nutri.getCompany());
-		map.put("nutri_shape", nutri.getShape());
-		map.put("nutri_base", nutri.getBase());
-		map.put("nutri_taking", nutri.getTaking());
-		map.put("nutri_effect", nutri.getEffect());
-		map.put("nutri_caution", nutri.getCaution());
-		map.put("nutri_storage", nutri.getStorage());
-		map.put("nutri_type", nutri.getType());
-		map.put("nutri_image", nutri.getImage());
-		insert.execute(map);
-		return nutri;
+	    SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate).withTableName("nutri_");
+	    Map<String, Object> map = new HashMap<String, Object>();
+	    map.put("nutri_idx", nutri.getIdx());
+	    map.put("nutri_name", nutri.getName());
+	    map.put("nutri_category", nutri.getCategory());
+	    map.put("nutri_company", nutri.getCompany());
+	    map.put("nutri_shape", nutri.getShape());
+	    map.put("nutri_base", nutri.getBase());
+	    map.put("nutri_taking", nutri.getTaking());
+	    map.put("nutri_effect", nutri.getEffect());
+	    map.put("nutri_caution", nutri.getCaution());
+	    map.put("nutri_storage", nutri.getStorage());
+	    map.put("nutri_type", nutri.getType());
+	    String imagePath = "/img/nutri/" + nutri.getCategory() + "/" + nutri.getIdx() + ".jpg";
+	    map.put("nutri_image", imagePath);
+	    insert.execute(map);
+	    
+	    return nutri;
 	}
 
 	// 제품명 검색

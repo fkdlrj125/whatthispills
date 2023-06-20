@@ -1,11 +1,18 @@
 package himedia.whatthispills.Controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,14 +20,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Service.NutriService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 	private final NutriService nutriService;
+    private String uploadDir;
 
 	public AdminController(NutriService nutriService) {
 		this.nutriService = nutriService;
@@ -47,10 +58,11 @@ public class AdminController {
 	}
 
 	@PostMapping("/nutri_add")
-	public String nutriAddPost(@ModelAttribute Nutri nutri) {
-		nutriService.saveNutri(nutri);
-		return "redirect:/admin/nutri_list";
+	public String nutriAddPost(@ModelAttribute Nutri nutri, MultipartFile file) throws Exception {
+	    nutriService.saveNutri(nutri, file);
+	    return "redirect:/admin/nutri_list";
 	}
+	
 
 	@GetMapping("/nutri_edit/{nutri_idx}")
 	public String nutriEditGet(@PathVariable Long nutri_idx, Model model) {

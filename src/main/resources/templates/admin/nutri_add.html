@@ -18,14 +18,14 @@
 
   <div class="admin_nutri_add">
     <h1>영양제 추가</h1>
-    <form action="/admin/nutri_add" method="POST">
+    <form action="/admin/nutri_add" method="POST" enctype="multipart/form-data">
       <table>
         <tbody>
           <tr>
             <td>분류 코드:</td>
-            <td for="idx_check">
-              <input type="text" id="idx_check" name="idx_check" placeholder="내용을 입력해주세요" th:value="${idx}" />
-              <button onclick="checkDupliicate()">중복확인</button>
+            <td>
+              <input type="text" id="idx_check" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" />
+<!--               <button onclick="checkDupliicate()">중복확인</button> -->
             </td>
             <td>이름:</td>
             <td>
@@ -86,7 +86,7 @@
         </tbody>
         <tr>
           <td>이미지 첨부:</td>
-          <td><input type="file" name="image" accept="image/*" th:value="${image}" /></td>
+          <td><input type="file" name="file" accept="image/*" th:value="${image}" /></td>
         </tr>
       </table>
       <div class="button-row">
@@ -97,7 +97,7 @@
   </div>
   <div id="footer-placeholder"></div>
   <script th:src="@{/js/hf.js}"></script>
-  <script>
+<!--   <script>
     function checkDupliicate() {
       var idx_check = document.getElementById('idx_check').value;
       var xhr = new XMLHttpRequest();
@@ -110,14 +110,14 @@
           if (response.duplicated) {
             message = '이미 존재하는 분류코드 입니다.';
           } else {
-            message = '사용 가능한 분료코드 입니다.';
+            message = '사용 가능한 분류코드 입니다.';
           }
           alert(message);
         }
       };
       xhr.send(JSON.stringify({idx_check: idx_check }))
     }
-  </script>
+  </script> -->
 </body>
 
 </html>
