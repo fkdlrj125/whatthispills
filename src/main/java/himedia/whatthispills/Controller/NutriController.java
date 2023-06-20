@@ -50,7 +50,7 @@ public class NutriController {
 			List<Long> idx_list = userService.likeIdxList(passUser.getIdx());
 			model.addAttribute("like_list", idx_list);
 		}
-		
+		model.addAttribute("rec", rec.get());
 		model.addAttribute("nutri_rec", rec_list);
 		model.addAttribute("user", passUser);
 		return "nutri/search";

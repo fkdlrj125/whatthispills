@@ -5,8 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <link rel="stylesheet" th:href="@{/css/nutri_search.css}" />
   <title>영양제 찾기</title>
 </head>
 
@@ -22,8 +23,11 @@
       </div>
     </form>
     <div class="recommend">
-      <div class="rec-title py-4">
-        <h3>님을 위한 추천! 대 남성 인기</h3>
+      <div class="rec-title py-4" th:if="${user}">
+        <h3 th:text="|${user.name}님을 위한 추천! ${rec.age} ${rec.gender} 인기 상품 Top3|">님을 위한 추천! 대 남성 인기</h3>
+      </div>
+      <div class="rec-title py-4" th:unless="${user}">
+        <h3>인기 상품 Top 3</h3>
       </div>
       <div class="rec-products row row-cols-3">
         <div class="rec-product col" th:each="nutri : ${nutri_rec}">
@@ -66,13 +70,12 @@
       <button type="submit" name="category" value="단백질" class="nutri_item">단백질</button>
       <button type="submit" name="category" value="기타" class="nutri_item">기타</button>
     </form>
-
+	</div>
 
 
     <div id="footer-placeholder"></div>
     <script th:src="@{/js/hf.js}"></script>
     <script th:src="@{/js/heartbutton.js}"></script>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
