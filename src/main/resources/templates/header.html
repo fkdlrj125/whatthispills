@@ -35,7 +35,7 @@
       <form action="/nutri/result" class="text-sm-center nav-link" id="search-bar">
         <input type="search" name="keyword" id="searchInput" placeholder="검색어를 입력하세요"
           style="font-family: 'NanumSquareNeo-Variable'">
-        <button type="button" onclick="refreshPage()"></button>
+        <button type="button" onclick="submitForm()"></button>
       </form>
     </div>
     <div th:if="${admin}" class="flex-sm-fill text-sm-center nav-link admin" id="util">

@@ -10,9 +10,13 @@ fetch('/footer')
     document.getElementById('footer-placeholder').innerHTML = html;
   });
 
-function refreshPage() {
+function submitForm() {
 	var searchInput = document.getElementById("searchInput");
-	if (searchInput.value.trim() === "") {
+	var keyword = searchInput.value.trim();
+	if (keyword !== "") {
+		searchInput.value = keyword;
+		document.getElementById("search-bar").submit();
+	} else {
 		location.reload();
 	}
 }
