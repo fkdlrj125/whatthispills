@@ -18,7 +18,57 @@ import lombok.extern.slf4j.Slf4j;
 class JDBCNutriRepositoryTest{
 	
 	@Autowired
-	JDBCNutriRepository nutriRepository;
+	JDBCNutriRepository nutriRepository,repository;
+	
+	
+
+	@Test
+	void 이름검색및상세페이지() {
+		Nutri nutri = new Nutri(
+				1235L,
+				"영양제1",
+				"영양제2",
+				"영양제3",
+				"영양제4",
+				"영양제5",
+				"영양제6",
+				"영양제7",
+				"영양제8",
+				"영양제9",
+				"영양제11"
+				);
+		repository.save(nutri);
+		List<Nutri> result = repository.findByNameNutri("영양제1");
+		assertThat(result.get(0).getName()).isEqualTo(nutri.getName());
+		//상세페이지 넘어가기
+		Optional<Nutri> result1 = repository.findByNameInfo(nutri.getName());
+        assertThat(result1.get().getName()).isEqualTo(nutri.getName());
+	}
+	
+	
+	@Test
+	void 카테고리() {
+		Nutri nutri = new Nutri(
+				1235L,
+				"영양제1",
+				"영양제2",
+				"영양제3",
+				"영양제4",
+				"영양제5",
+				"영양제6",
+				"영양제7",
+				"영양제8",
+				"영양제9",
+				"영양제11"
+				);
+		repository.save(nutri);
+		List<Nutri> result = repository.findByCategory("영양제2");
+		assertThat(result.get(0).getName()).isEqualTo(nutri.getName());
+	}
+	
+	
+	
+	
 	
 	@Test
 	void 영양제저장() {
