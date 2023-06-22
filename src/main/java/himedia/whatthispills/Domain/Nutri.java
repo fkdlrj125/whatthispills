@@ -15,7 +15,6 @@ public class Nutri {
 	private String taking;
 	private String effect;
 	private String caution;
-	private String storage;
 	private String type;
 	private String image;
 	
@@ -24,7 +23,7 @@ public class Nutri {
 	}
 	
 	public Nutri(Long idx, String name, String category, String company, String shape, String base, String taking,
-			String effect, String caution, String storage, String type) {
+			String effect, String caution, String type) {
 		this.idx = idx;
 		this.name = name;
 		this.category = category;
@@ -34,12 +33,11 @@ public class Nutri {
 		this.taking = taking;
 		this.effect = effect;
 		this.caution = caution;
-		this.storage = storage;
 		this.type = type;
 	}
 
 	public Nutri(Long idx, String name, String category, String company, String shape, String base, String taking,
-			String effect, String caution, String storage, String type, String image) {
+			String effect, String caution, String type, String image) {
 		this.idx = idx;
 		this.name = name;
 		this.category = category;
@@ -49,7 +47,6 @@ public class Nutri {
 		this.taking = taking;
 		this.effect = effect;
 		this.caution = caution;
-		this.storage = storage;
 		this.type = type;
 		this.image = image;
 	}

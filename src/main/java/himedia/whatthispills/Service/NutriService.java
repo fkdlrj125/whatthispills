@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class NutriService {
 	private final NutriRepository nutriRepository;
+	
 
 	public NutriService(NutriRepository repository) {
 		this.nutriRepository = repository;
@@ -82,14 +83,10 @@ public class NutriService {
 	}
 
 	// 영양제 저장
-	public Nutri saveNutri(Nutri nutri, MultipartFile file) throws Exception {
-		String upload_dir = "/src/main/resources/static/img/nutri/" + nutri.getCategory() + "/";
-		String file_name =  nutri.getIdx() + ".jpg";
-		String project_path = System.getProperty("user.dir") + upload_dir;
-		log.info(System.getProperty("user.dir"));
-		File save_file = new File(project_path, file_name);
-		file.transferTo(save_file);
-		
+	public Nutri saveNutri(Nutri nutri, String image) throws Exception {
+		if(!image.isBlank()) {
+			nutri.setImage(image);
+		}
 		return nutriRepository.save(nutri);
 	}
 	
@@ -112,7 +109,6 @@ public class NutriService {
 	
 	public Long checkIdx(String check_idx) {
 		Long result = nutriRepository.checkIdx(check_idx);
-		log.info("컨트롤러 >> {}", result);
 		return result;
 	}
 

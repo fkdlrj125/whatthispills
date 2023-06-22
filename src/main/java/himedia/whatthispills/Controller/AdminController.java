@@ -1,5 +1,6 @@
 package himedia.whatthispills.Controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Service.NutriService;
+import himedia.whatthispills.Service.S3Service;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -22,9 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/admin")
 public class AdminController {
 	private final NutriService nutriService;
+	private final S3Service s3Service;
 
-	public AdminController(NutriService nutriService) {
+	public AdminController(NutriService nutriService, S3Service s3Service) {
 		this.nutriService = nutriService;
+		this.s3Service = s3Service;
 	}
 
 	@GetMapping("/nutri_list")
@@ -49,7 +53,11 @@ public class AdminController {
 
 	@PostMapping("/nutri_add")
 	public String nutriAddPost(@ModelAttribute Nutri nutri, MultipartFile file) throws Exception {
-	    nutriService.saveNutri(nutri, file);
+		String url = "";
+		if(file != null) {
+			url = s3Service.saveFile(file, nutri.getIdx(), nutri.getCategory());
+		}
+		nutriService.saveNutri(nutri, url);
 	    return "redirect:/admin/nutri_list";
 	}
 	
@@ -62,7 +70,14 @@ public class AdminController {
 	}
 
 	@PostMapping("/nutri_edit/{nutri_idx}")
-	public String nutriEditPost(@PathVariable Long nutri_idx, Nutri nutri, Model model) {
+	public String nutriEditPost(@PathVariable Long nutri_idx, @ModelAttribute Nutri nutri, MultipartFile file, Model model) throws IOException {
+		if(file != null) {
+			s3Service.deleteFile(nutri_idx);
+			String url = s3Service.saveFile(file, nutri_idx, nutri.getCategory());
+			nutri.setImage(url);
+		} else {
+			nutri.setImage(nutriService.findIdxNutri(nutri_idx).get().getImage());
+		}
 		Nutri nutri_edit = nutriService.nutriEdit(nutri_idx, nutri);
 		model.addAttribute("nutri", nutri_edit);
 		return "redirect:/admin/nutri_list";
@@ -70,6 +85,7 @@ public class AdminController {
 
 	@GetMapping("/nutri_remove/{nutri_idx}")
 	public String nutriRemove(@PathVariable Long nutri_idx) {
+		s3Service.deleteFile(nutri_idx);
 		nutriService.removeNutri(nutri_idx);
 		return "redirect:/admin/nutri_list";
 	}
@@ -78,11 +94,9 @@ public class AdminController {
 	@RequestMapping("/check_idx")
 	  public String checkIdx(@RequestParam("nutri_idx") String check_idx) {
         String result = "N";
-        log.info("컨트롤러1 >> {}", result);
         Long flag = nutriService.checkIdx(check_idx);
         if(flag == 1) 
         	result = "Y"; 
-        log.info("컨트롤러2 >> {}", result);
         return result;
 	}
 }

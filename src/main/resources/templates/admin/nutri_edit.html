@@ -18,7 +18,7 @@
 
   <div class="admin_nutri_edit">
     <h1>영양제 수정</h1>
-    <form th:object=${nutri} th:action="@{/admin/nutri_edit/}+${nutri.idx}" method="POST">
+    <form th:action="@{/admin/nutri_edit/}+${nutri.idx}" method="POST" enctype="multipart/form-data">
       <table>
         <tbody>
           <tr>
@@ -72,12 +72,6 @@
           </td>
         </tr>
         <tr>
-          <td>보관방법:</td>
-          <td colspan="2" class="textarea-row">
-            <textarea name="storage" maxlength="500" placeholder="내용을 입력해주세요" th:value="${storage}" th:field="${nutri.storage}"></textarea>
-          </td>
-        </tr>
-        <tr>
           <td>제품형태:</td>
           <td colspan="2" class="textarea-row">
             <textarea name="type" maxlength="500" placeholder="내용을 입력해주세요" th:value="${type}" th:field="${nutri.type}"></textarea>
@@ -86,7 +80,7 @@
         </tbody>
         <tr>
           <td>이미지 첨부:</td>
-          <td><input type="file" name="image" accept="image/*" th:value="${image}"  /></td>
+          <td><input type="file" name="file" accept="image/*" /></td>
         </tr>
       </table>
       <div style="font-family: 35px extrabold 'NanumSquareNeo-Variable'" class="button-row">

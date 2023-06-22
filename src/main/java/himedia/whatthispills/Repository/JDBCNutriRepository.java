@@ -38,7 +38,6 @@ public class JDBCNutriRepository implements NutriRepository {
 	            rs.getString("nutri_taking"),
 	            rs.getString("nutri_effect"),
 	            rs.getString("nutri_caution"),
-	            rs.getString("nutri_storage"),
 	            rs.getString("nutri_type"),
 	            null 
 	        );
@@ -78,10 +77,8 @@ public class JDBCNutriRepository implements NutriRepository {
 	    map.put("nutri_taking", nutri.getTaking());
 	    map.put("nutri_effect", nutri.getEffect());
 	    map.put("nutri_caution", nutri.getCaution());
-	    map.put("nutri_storage", nutri.getStorage());
 	    map.put("nutri_type", nutri.getType());
-	    String imagePath = "/img/nutri/" + nutri.getCategory() + "/" + nutri.getIdx() + ".jpg";
-	    map.put("nutri_image", imagePath);
+	    map.put("nutri_image", nutri.getImage());
 	    insert.execute(map);
 	    
 	    return nutri;
@@ -128,10 +125,10 @@ public class JDBCNutriRepository implements NutriRepository {
 
 	@Override
 	public Nutri update(Long nutri_idx, Nutri update_nutri) {
-		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_shape = ?, nutri_base = ?, nutri_taking = ?, nutri_effect = ?, nutri_caution= ?, nutri_storage = ?, nutri_type = ?, nutri_image = ? where nutri_idx = ? ";
+		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_shape = ?, nutri_base = ?, nutri_taking = ?, nutri_effect = ?, nutri_caution= ?, nutri_type = ?, nutri_image = ? where nutri_idx = ? ";
 		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
 				update_nutri.getCompany(), update_nutri.getShape(), update_nutri.getBase(), update_nutri.getTaking(),
-				update_nutri.getEffect(), update_nutri.getCaution(), update_nutri.getStorage(), update_nutri.getType(),
+				update_nutri.getEffect(), update_nutri.getCaution(), update_nutri.getType(),
 				update_nutri.getImage(), nutri_idx);
 		update_nutri.setIdx(nutri_idx);
 		return findByIdxNutri(nutri_idx).get();
@@ -171,7 +168,6 @@ public class JDBCNutriRepository implements NutriRepository {
 	public Long checkIdx(String check_idx) {
 		String sql = "select count(*) from nutri_ where nutri_idx = ?";
 		Long result = jdbcTemplate.queryForObject(sql, Long.class, check_idx);
-		log.info("리파지토리 >> {}", result);
 		return result;
 	}
 
