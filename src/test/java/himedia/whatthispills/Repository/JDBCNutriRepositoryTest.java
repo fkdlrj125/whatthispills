@@ -22,7 +22,7 @@ class JDBCNutriRepositoryTest{
 	
 	
 	@Test
-	void 이름검색에서상세t페이지() {
+	void 이름검색에서상세페이지() {
 		Nutri nutri = new Nutri(
 				1235L,
 				"영양제1",

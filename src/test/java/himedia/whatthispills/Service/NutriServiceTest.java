@@ -27,19 +27,19 @@ public class NutriServiceTest {
 		Nutri nutri = new Nutri(
 				1235L,
 				"영양제1",
-				"영양제2",
-				"영양제3",
-				"영양제4",
-				"영양제5",
-				"영양제6",
-				"영양제7",
-				"영양제8",
-				"영양제9",
-				"영양제11"
+				"노랑",
+				"파랑",
+				"빨강",
+				"초록",
+				"남색",
+				"보라",
+				"검은색",
+				"핑크색",
+				"베이지"
 				);
-		repository.save(nutri); //give
-		List<Nutri> result = service.findByNameNutri("영양제"); //when
-		assertThat(result.equals(nutri)); //
+		repository.save(nutri); 
+		List<Nutri> result = service.findByNameNutri("영양제1"); 
+		assertThat(result.equals(nutri)); 
 	}
 	
 	@Test
@@ -47,15 +47,15 @@ public class NutriServiceTest {
 		Nutri nutri = new Nutri(
 				1235L,
 				"영양제1",
-				"영양제2",
-				"영양제3",
-				"영양제4",
-				"영양제5",
-				"영양제6",
-				"영양제7",
-				"영양제8",
-				"영양제9",
-				"영양제11"
+				"노랑",
+				"파랑",
+				"빨강",
+				"초록",
+				"남색",
+				"보라",
+				"검은색",
+				"핑크색",
+				"베이지"
 				);
 		repository.save(nutri);
 		Optional<Nutri> result = service.findByNameInfo("영양제1");
@@ -66,18 +66,18 @@ public class NutriServiceTest {
 		Nutri nutri = new Nutri(
 				1235L,
 				"영양제1",
-				"영양제2",
-				"영양제3",
-				"영양제4",
-				"영양제5",
-				"영양제6",
-				"영양제7",
-				"영양제8",
-				"영양제9",
-				"영양제11"
+				"노랑",
+				"파랑",
+				"빨강",
+				"초록",
+				"남색",
+				"보라",
+				"검은색",
+				"핑크색",
+				"베이지"
 				);
 		repository.save(nutri);
-		List<Nutri> result = service.findByCategory("영양");
+		List<Nutri> result = service.findByCategory("파랑");
 		assertThat(result.equals(nutri));
 	}
 	

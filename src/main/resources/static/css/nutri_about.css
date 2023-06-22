@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'NanumSquareNeo-Variable';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
@@ -12,20 +11,24 @@
   width: 500px;
 }
 
+.container.marketing {
+  scale: 0.8;
+}
+
 /* Carousel base class */
 .carousel {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  bottom: 3rem;
+  bottom: 1rem;
   z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 32rem;
+  height: 20rem;
 }
 
 /* Center align the text within the three columns below the carousel */
@@ -68,12 +71,12 @@
 ------------------------- */
 
 .image-area {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nutri_about li {
-  font-size: 32px;
+  font-size: 22px;
   margin-left: 40px;
   margin-bottom: 20px;
 }
@@ -84,9 +87,10 @@
   border-radius: 5px;
 }
 
-.col-8, .col-2 {
-	padding-left: 0;
-	padding-right: 0;
+.col-8,
+.col-2 {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .heart-button {
@@ -108,13 +112,14 @@
 }
 
 .nutri_index {
-  font-size: 38px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 400;
   margin-bottom: 150px;
 }
 
 .nutri_index h3 {
   line-height: 2;
+  font: 20px normal;
 }
 
 
