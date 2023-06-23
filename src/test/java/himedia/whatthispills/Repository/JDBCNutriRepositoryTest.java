@@ -69,7 +69,7 @@ class JDBCNutriRepositoryTest{
 	
 	@Test
 	void 영양제저장() {
-		Nutri nutri = new Nutri(123456L, "비타민C1000", "비타민C", "고려금단", "알약", "비타민C", 
+		Nutri nutri = new Nutri(123456L, "비타민C1000", "비타민C", "고려금단", "알약", 
 				"하루세번식후30분", "면역력증가", "테스트", "테스트", "테스트", "테스트");
 		log.info("nutri name >> {}", nutri.getName());
 		Nutri save_nutri = nutriRepository.save(nutri);
@@ -79,11 +79,11 @@ class JDBCNutriRepositoryTest{
 	
 	@Test
 	void 영양제수정() {
-		Nutri before = new Nutri(123456L, "비타민C1000", "비타민C", "고려금단", "알약", "비타민C", 
+		Nutri before = new Nutri(123456L, "비타민C1000", "비타민C", "고려금단", "알약", 
 				"하루세번식후30분", "면역력증가", "테스트", "테스트", "테스트", "테스트");
 		nutriRepository.save(before);
 		Nutri after = nutriRepository.update(before.getIdx(), new Nutri(123456L, "비타민C500", "비타민C", 
-				"고려은단", "알약", "비타민C", "하루세번식후30분", "면역력증가", "테스트", "테스트", "테스트", "테스트"));
+				"고려은단", "알약", "비타민C", "하루세번식후30분", "면역력증가", "테스트", "테스트", "테스트"));
 		log.info("before >> {}, {}", before.getName(), before.getCompany());
 		log.info("after >> {}, {}", after.getName(), after.getCompany());
 		assertThat(before.getIdx()).isEqualTo(after.getIdx());
@@ -91,9 +91,9 @@ class JDBCNutriRepositoryTest{
 	
 	@Test
 	void 영양제전체조회() {
-		Nutri nutri_one = new Nutri(1000L, "테스트1", "테스트1", "테스트1", "테스트1", "테스트1", 
+		Nutri nutri_one = new Nutri(1000L, "테스트1", "테스트1", "테스트1", "테스트1", 
 				"테스트1", "테스트1", "테스트1", "테스트1", "테스트1", "테스트1");
-		Nutri nutri_two = new Nutri(2000L, "테스트2", "테스트2", "테스트2", "테스트2", "테스트2", 
+		Nutri nutri_two = new Nutri(2000L, "테스트2", "테스트2", "테스트2", "테스트2", 
 				"테스트2", "테스트2", "테스트2", "테스트2", "테스트2", "테스트2");
 		nutriRepository.save(nutri_one);
 		nutriRepository.save(nutri_two);
@@ -104,7 +104,7 @@ class JDBCNutriRepositoryTest{
 	
 	@Test
 	void 영양제분류코드조회() {
-		Nutri nutri = new Nutri(123456L, "비타민C1000", "비타민C", "고려금단", "알약", "비타민C", 
+		Nutri nutri = new Nutri(123456L, "비타민C1000", "비타민C", "고려금단", "알약", 
 				"하루세번식후30분", "면역력증가", "테스트", "테스트", "테스트", "테스트");
 		Nutri save_nutri = nutriRepository.save(nutri);
 		Optional<Nutri> result = nutriRepository.findByIdxNutri(nutri.getIdx());
@@ -114,11 +114,11 @@ class JDBCNutriRepositoryTest{
 	
 	@Test
 	void 영양제검색() {
-		Nutri nutri_one = new Nutri(1000L, "테스트1", "테스트1", "테스트1", "테스트1", "테스트1", 
+		Nutri nutri_one = new Nutri(1000L, "테스트1", "테스트1", "테스트1", "테스트1", 
 				"테스트1", "테스트1", "테스트1", "테스트1", "테스트1", "테스트1");
-		Nutri nutri_two = new Nutri(2000L, "테스트2", "테스트2", "테스트2", "테스트2", "테스트2", 
+		Nutri nutri_two = new Nutri(2000L, "테스트2", "테스트2", "테스트2", "테스트2", 
 				"테스트2", "테스트2", "테스트2", "테스트2", "테스트2", "테스트2");
-		Nutri nutri_three = new Nutri(3000L, "테스트3", "테스트3", "테스트3", "테스트3", "테스트3", 
+		Nutri nutri_three = new Nutri(3000L, "테스트3", "테스트3", "테스트3", "테스트3", 
 				"테스트3", "테스트3", "테스트3", "테스트3", "테스트3", "테스트3");
 		nutriRepository.save(nutri_one);
 		nutriRepository.save(nutri_two);
@@ -131,7 +131,7 @@ class JDBCNutriRepositoryTest{
 	@Test
 	void 영양제삭제() {
 		List<Nutri> before_delete = nutriRepository.findAllNutri();
-		Nutri nutri = new Nutri(1000L, "테스트1", "테스트1", "테스트1", "테스트1", "테스트1", 
+		Nutri nutri = new Nutri(1000L, "테스트1", "테스트1", "테스트1", "테스트1",
 				"테스트1", "테스트1", "테스트1", "테스트1", "테스트1", "테스트1");
 		nutriRepository.save(nutri);
 		Long nutri_idx = nutri.getIdx();
