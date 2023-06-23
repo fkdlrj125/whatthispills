@@ -37,4 +37,4 @@ out/
 .vscode/
 
 /src/main/resources/application.properties
-whatsthispills.pem
+*.pem

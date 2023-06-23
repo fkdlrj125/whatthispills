@@ -11,10 +11,10 @@ public interface UserRepository {
 	public void saveLikes(Long nutri_idx, Long user_idx);
 	public Optional<User> findByEmail(String email);
 	public Optional<User> findByEmailName(String email, String name);
-	public Optional<UserLikes> findByIdToNutriLike(Long nutri_idx, Long user_idx); 
 	public List<User> findAll();
-	public List<UserLikes> userLikes(Long user_idx);
 	public Optional<User> updateUser(User update_user);
 	public Optional<User> updatePwd(String user_email, String update_pwd);
 	public void removeLikes(Long nutri_idx, Long user_idx);
+	List<UserLikes> userLikes(Long user_idx);
+	Optional<UserLikes> findByIdToNutriLike(Long nutri_idx, Long user_idx);
 }

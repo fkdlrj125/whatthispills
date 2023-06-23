@@ -44,7 +44,8 @@ public class NutriService {
 		LocalDate user_date = LocalDate.parse(birth);
 		int age = now.getYear() - user_date.getYear();
 		
-		if(age == 0) {
+		if(age / 10 == 0) {
+			age /= 10;
 			age++;
 			age *= 10;
 		} else {
@@ -52,7 +53,7 @@ public class NutriService {
 			age *= 10;
 		}
 		
-		String user_age = age <= 60 ? age + "대" : age + "대 이상";
+		String user_age = age < 60 ? (age + "대") : (age + "대 이상");
 		
 		switch(gender) {
 		case "male":
@@ -90,7 +91,6 @@ public class NutriService {
 		return nutriRepository.save(nutri);
 	}
 	
-
 	public Optional<Nutri> findIdxNutri(Long nutri_idx) {
 		return nutriRepository.findByIdxNutri(nutri_idx);
 	}

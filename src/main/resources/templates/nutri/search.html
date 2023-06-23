@@ -23,10 +23,10 @@
       </div>
     </form>
     <div class="recommend">
-      <div class="rec-title py-4" th:if="${user}">
+      <div class="rec-title py-4" th:if="${user} and ${user.gender} != nan">
         <h3 th:text="|${user.name}님을 위한 추천! ${rec.age} ${rec.gender} 인기 상품 Top3|">님을 위한 추천! 대 남성 인기</h3>
       </div>
-      <div class="rec-title py-4" th:unless="${user}">
+      <div class="rec-title py-4" th:unless="${user} and ${user.gender} != nan">
         <h3>인기 상품 Top 3</h3>
       </div>
       <div class="rec-products row row-cols-3">

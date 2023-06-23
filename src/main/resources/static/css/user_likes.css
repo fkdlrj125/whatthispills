@@ -28,8 +28,11 @@
 }
 
 .grid-contents {
-	width: 80%;
+	display: grid;
+	grid-template-columns: auto auto;
 	margin: 0 auto;
+	justify-items: center;
+	justify-content: space-evenly;
 }
 
 .p_name {
@@ -44,6 +47,7 @@
 
 .p_img #product {
 	width: 250px;
+	height: 250px;
 }
 
 
@@ -66,13 +70,15 @@
 }
 
 .cal-v {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto;
 	justify-content: center;
 }
 
 .p_content {
 	display: flex;
 	width: 300px;
+	padding: 0 20px;
 	flex-direction: column;
 	justify-content: center;
 	align-items: baseline;
@@ -88,7 +94,7 @@
 	align-items: flex-start;
 }
 
-.col-10, .col-2 {
+.col-10, .col-2, .col-8 {
 	padding-left: 0;
 	padding-right: 0;
 }

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import himedia.whatthispills.Domain.Nutri;
 import himedia.whatthispills.Domain.NutriRec;
+import himedia.whatthispills.Domain.UserLikes;
 
 public interface NutriRepository {
 

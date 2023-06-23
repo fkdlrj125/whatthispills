@@ -28,8 +28,11 @@
 }
 
 .grid-contents {
-	width: 80%;
+	display: grid;
+	grid-template-columns: auto auto;
 	margin: 0 auto;
+	justify-items: center;
+	justify-content: space-evenly;
 }
 
 .text_area.grid-item1,
@@ -62,10 +65,12 @@
 
 .p_img #product {
 	width: 250px;
+	height: 250px;
 }
 
 .cal-v {
-	display: flex;
+	display: grid;
+	grid-template-columns: auto auto;
 	justify-content: center;
 }
 
@@ -88,7 +93,7 @@
 	align-items: flex-start;
 }
 
-.col-10, .col-2 {
+.col-10, .col-2, .col-8 {
 	padding-left: 0;
 	padding-right: 0;
 }
