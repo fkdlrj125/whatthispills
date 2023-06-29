@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 import himedia.whatthispills.Domain.Nutri;
+import himedia.whatthispills.Domain.NutriRec;
+import himedia.whatthispills.Domain.User;
 import himedia.whatthispills.Repository.JDBCNutriRepository;
 
 @SpringBootTest
@@ -18,6 +20,8 @@ import himedia.whatthispills.Repository.JDBCNutriRepository;
 public class NutriServiceTest {
 	@Autowired
 	NutriService service;
+	@Autowired
+	UserService userService;
 	@Autowired
 	JDBCNutriRepository repository;
 	
@@ -80,7 +84,6 @@ public class NutriServiceTest {
 		List<Nutri> result = service.findByCategory("파랑");
 		assertThat(result.equals(nutri));
 	}
-	
 }
 	
 	

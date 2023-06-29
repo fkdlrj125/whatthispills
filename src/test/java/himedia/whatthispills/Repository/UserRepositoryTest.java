@@ -100,4 +100,19 @@ class UserRepositoryTest {
 		log.info("pwd >> {}", result.get().getPwd());
 		assertThat(result.get().getPwd()).isEqualTo(update_pwd);
 	}
+	
+	@Test
+	void 비밀번호수정() {
+//		given
+		User user = new User("test1@test1.com", "test1", "1111", "1998-09-02", "male");
+		User save_user = userRepository.saveUser(user);
+//		when
+		String user_email = save_user.getEmail();
+		String update_pwd = "1234";
+		Optional<User> result = userRepository.updatePwd(user_email, update_pwd);
+//		then
+		log.info("idx >> {}", result.get().getIdx());
+		log.info("pwd >> {}", result.get().getPwd());
+		assertThat(result.get().getPwd()).isEqualTo(update_pwd);
+	}
 }

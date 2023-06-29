@@ -20,14 +20,14 @@
         id="checkbox"
       >
         <input type="checkbox" id="icon" />
-        <label for="icon" id="icon">
+        <label th:if="!${admin}" for="icon" id="icon">
           <div>
             <span></span>
             <span></span>
             <span></span>
           </div>
         </label>
-        <div id="in_navi">
+        <div th:if="!${admin}" id="in_navi">
           <ul>
             <li>
               <a
@@ -54,11 +54,30 @@
           </ul>
         </div>
       </div>
-      <a class="text-sm-center nav-link" aria-current="page" href="/" id="logo">
+      <a th:if="${admin}" class="text-sm-center nav-link" aria-current="page" href="/admin/nutri_list" id="logo">
+        <img class="logo" src="/img/logo3.png" alt="" />
+      </a>
+      <a th:unless="${admin}" class="text-sm-center nav-link" aria-current="page" href="/" id="logo">
         <img class="logo" src="/img/logo3.png" alt="" />
       </a>
       <div class="flex-sm-fill">
         <form
+          th:if="${admin}"
+          action="/admin/nutri_search"
+          class="text-sm-center nav-link"
+          id="search-bar"
+        >
+          <input
+            type="search"
+            name="search"
+            id="searchInput"
+            placeholder="검색어를 입력하세요"
+            style="font-family: 'NanumSquareNeo-Variable'"
+          />
+          <button type="button" onclick="submitForm()"></button>
+        </form>
+        <form
+          th:unless="${admin}"
           action="/nutri/result"
           class="text-sm-center nav-link"
           id="search-bar"

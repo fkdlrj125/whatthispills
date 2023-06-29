@@ -109,14 +109,16 @@ public class JDBCNutriRepository implements NutriRepository {
 	// 추천
 	@Override
 	public Optional<NutriRec> findByGenderAge(String gender, String age) {
-		List<NutriRec> rec_list = jdbcTemplate.query("select * from nutri_recommend where gender = ? and age = ?", nutriRecMapper(), gender, age);
+		List<NutriRec> rec_list = jdbcTemplate.query("select * from nutri_recommend where gender = ? and age = ?",
+				nutriRecMapper(), gender, age);
 		return rec_list.stream().findAny();
 		
 	}
 	
 	@Override
 	public Optional<NutriRec> findRecforAll() {
-		List<NutriRec> rec_list = jdbcTemplate.query("select * from nutri_recommend where gender = ? and age = ?", nutriRecMapper(), "전체", "전체");
+		List<NutriRec> rec_list = jdbcTemplate.query("select * from nutri_recommend where gender = '전체' and age = '전체'",
+				nutriRecMapper());
 		return rec_list.stream().findAny();
 	}
 	
