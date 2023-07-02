@@ -55,20 +55,6 @@ public class NutriService {
 		
 		String user_age = age < 60 ? (age + "대") : (age + "대 이상");
 		
-		switch(gender) {
-		case "male":
-			gender = "남자";
-			break;
-			
-		case "female":
-			gender= "여자";
-			break;
-			
-		case "nan":
-			gender = "전체";
-			user_age = "전체";
-		}
-		
 		return nutriRepository.findByGenderAge(gender, user_age);
 	}
 	

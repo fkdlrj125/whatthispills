@@ -34,7 +34,7 @@ public class NutriController {
 	public String nutriSearch(@SessionAttribute(required = false) User passUser, Model model) {
 		Optional<NutriRec> rec;
 		List<Nutri> rec_list = new ArrayList<Nutri>();
-		if(passUser == null || passUser.getGender() == "nan") {
+		if(passUser == null || passUser.getGender() == "없음") {
 			rec = nutriService.recforAll();
 			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend11()).get());
 			rec_list.add(nutriService.findIdxNutri(rec.get().getRecommend12()).get());
