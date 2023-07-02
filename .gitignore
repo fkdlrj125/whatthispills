@@ -22,5 +22,6 @@ out/
 .vscode/
 
 build/
-/src/main/resources/application.properties
+bin/main/application.properties
+src/main/resources/application.properties
 *.pem
