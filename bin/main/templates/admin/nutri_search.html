@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" th:href="@{/css/admin_nutri_list.css}" />
+  <title>영양제 관리</title>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+  <div class="container-lg">
+    <h2>"<span th:text="${search}"></span>" 에 대한 검색 결과</h2>
+    <form action="/admin/nutri_search">
+      <div class="input-group my-5 pb-5 w-50 m-auto">
+        <input type="text" name="search" class="form-control" placeholder="어떤 영양제를 찾고 계신가요?" aria-label="어떤 영양제를 찾고 계신가요?"
+          aria-describedby="button-addon2" />
+        <button class="btn" type="submit" id="button-addon2">검색</button>
+      </div>
+    </form>
+
+    <div class="product_table">
+      <div class="add">
+        <button class="btn btn-secondary add_btn" onclick="location.href='nutri_add'">추가</button>
+      </div>
+      <table class="table">
+        <thead class="table-active">
+          <tr>
+            <th scope="col">분류코드</th>
+            <th scope="col">제품명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="nutri: ${nutri}">
+            <th scope="row"><a th:href="@{nutri_edit/}+${nutri.idx}" th:text="${nutri.idx}"></a></th>
+            <td class="product_name"><a th:href="@{nutri_edit/}+${nutri.idx}" th:text="${nutri.name}"></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script th:src="@{/js/hf.js}"></script>
+</body>

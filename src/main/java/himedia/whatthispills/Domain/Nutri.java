@@ -1,5 +1,7 @@
 package himedia.whatthispills.Domain;
 
+import java.util.Map;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +19,7 @@ public class Nutri {
 	private String caution;
 	private String type;
 	private String image;
+	private Map<String, String> review;
 	
 	public Nutri() {
 		
@@ -50,5 +53,4 @@ public class Nutri {
 		this.type = type;
 		this.image = image;
 	}
-
 }

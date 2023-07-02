@@ -39,12 +39,28 @@ public class JDBCNutriRepository implements NutriRepository {
 	            rs.getString("nutri_effect"),
 	            rs.getString("nutri_caution"),
 	            rs.getString("nutri_type"),
-	            null 
+	            null
 	        );
 
 	        String imagePath = rs.getString("nutri_image");
-	        if (imagePath != null && !imagePath.isEmpty()) {
+	        if(imagePath != null && !imagePath.isEmpty()) {
 	            nutri.setImage(imagePath);
+	        }
+	        
+	        String review = rs.getString("nutri_review");
+	        Map<String, String> review_map = new HashMap<>();
+	        if(review != null && !review.isBlank()) {
+	        	String[] review_arr = review.split(", ");
+	        	for(String r : review_arr) {
+	        		String[] result = r.split(": ");
+	        		String r_name = result[0].replace("'", "");
+	        		int r_percent = Math.round((Float.parseFloat(result[1])*100));
+	        		if(r_percent > 100) {
+	        			r_percent *= 0.6;
+	        		}
+	        		review_map.put(r_name, r_percent+"%");
+	        	}
+	        	nutri.setReview(review_map);
 	        }
 
 	        return nutri;
@@ -79,6 +95,7 @@ public class JDBCNutriRepository implements NutriRepository {
 	    map.put("nutri_caution", nutri.getCaution());
 	    map.put("nutri_type", nutri.getType());
 	    map.put("nutri_image", nutri.getImage());
+	    map.put("nutri_review", nutri.getReview());
 	    insert.execute(map);
 	    
 	    return nutri;
@@ -127,11 +144,11 @@ public class JDBCNutriRepository implements NutriRepository {
 
 	@Override
 	public Nutri update(Long nutri_idx, Nutri update_nutri) {
-		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_shape = ?, nutri_base = ?, nutri_taking = ?, nutri_effect = ?, nutri_caution= ?, nutri_type = ?, nutri_image = ? where nutri_idx = ? ";
+		String sql = "update nutri_ set nutri_name = ?, nutri_category = ?, nutri_company = ?, nutri_shape = ?, nutri_base = ?, nutri_taking = ?, nutri_effect = ?, nutri_caution= ?, nutri_type = ?, nutri_image = ?, nutri_review = ? where nutri_idx = ? ";
 		jdbcTemplate.update(sql, update_nutri.getName(), update_nutri.getCategory(),
 				update_nutri.getCompany(), update_nutri.getShape(), update_nutri.getBase(), update_nutri.getTaking(),
 				update_nutri.getEffect(), update_nutri.getCaution(), update_nutri.getType(),
-				update_nutri.getImage(), nutri_idx);
+				update_nutri.getImage(), update_nutri.getReview(), nutri_idx);
 		update_nutri.setIdx(nutri_idx);
 		return findByIdxNutri(nutri_idx).get();
 	}

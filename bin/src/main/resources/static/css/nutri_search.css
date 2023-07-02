@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+/* Defuault settings */
+h1,
+h2,
+h3,
+h4,
+h5,
+a {
+  font-size: 16px;
+  line-height: normal;
+  font-weight: 100;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Container */
+.container-lg {
+  text-align: center;
+}
+
+/* Semi title */
+.container-lg h2 {
+  font-size: 42px;
+  font-weight: 400;
+}
+
+/* Second SearchBar */
+#button-addon2 {
+  border: 1px solid #dee2e6;
+  color: #00997b;
+}
+
+#button-addon2:hover {
+  background-color: #00997b;
+  color: #fff;
+}
+
+/* nutri-search */
+.recommend .rec-title h3 {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.product_rank {
+  text-align: left;
+}
+
+.p_name {
+  text-align: left;
+  font-size: 18px;
+}
+
+.p_img {
+  float: left;
+  margin-right: 10px 0;
+}
+
+.p_img #product {
+  width: 250px;
+  height: 250px;
+}
+
+.cal-v {
+  display: flex;
+  justify-content: center;
+}
+
+.p_content {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.row {
+  width: inherit;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.col-10,
+.col-2 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.heart-button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  color: #ccc;
+  cursor: pointer;
+  flex-shrink: 0;
+  vertical-align: -1.5px;
+  /* 버튼이 축소되지 않도록 설정 */
+}
+
+.heart-button i {
+  transition: color 0.3s ease;
+}
+
+.heart-button.active i {
+  color: rgba(255, 0, 0, 0.719);
+}
+
+.nutri_list {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  justify-content: center;
+  justify-items: center;
+  gap: 100px;
+  margin: 100px 0;
+}
+
+.nutri_list .nutri_item {
+  width: 160px;
+  height: 160px;
+  background-color: #fefefe;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  line-height: 100px;
+  box-shadow: 5px 10px 15px #bbb;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+}
+
+.nutri_list .nutri_item:hover {
+  scale: 1.1;
+  box-shadow: 7px 15px 20px #ddd;
+  transition: 0.25s;
+}
+

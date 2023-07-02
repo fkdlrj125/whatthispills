@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<!-- START : header -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/admin_nutri_edit.css}">
+  <title>관리자 영양제 추가</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
+$(function(){
+    $("#checkIdxButton").click(function(){
+    
+        let nutri_idx = $("#nutri_idx").val();
+         
+        $.ajax({
+            type:'post', //post 형식으로 controller 에 보내기위함!!
+            url:"/admin/check_idx", // 컨트롤러로 가는 mapping 입력
+            data: {"nutri_idx":nutri_idx}, // 원하는 값을 중복확인하기위해서  JSON 형태로 DATA 전송
+            success: function(data){ 
+                if(data == "N"){ // 만약 성공할시
+                    result = "사용 가능한 분류코드";
+                    $("#result_checkIdx").html(result).css("color", "blue");
+
+             }else{ // 만약 실패할시
+                 result="이미 사용중인 분류코드";
+                     $("#result_checkIdx").html(result).css("color","red");
+             }
+                 
+         },
+            error : function(error){alert(error);}
+        });
+        
+    });
+    
+});
+ 
+ 
+</script>
+</head>
+
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="admin_nutri_add">
+    <h1>영양제 추가</h1>
+    <form action="/admin/nutri_add" method="POST" enctype="multipart/form-data">
+      <table>
+        <tbody>
+          <tr>
+            <td>분류 코드:</td>
+            <td>
+              <input type="text" id="nutri_idx" name="idx" placeholder="내용을 입력해주세요" th:value="${idx}" />
+			  <button type="button" id="checkIdxButton" style=" font-family:NanumSquareNeo-Variable 14px bold;
+ 						 background-color: rgb(10, 78, 124); border: 4px solid rgb(10, 78, 124); 
+  						border-radius: 4px !important; color: #fff ;">중복확인</button>
+			  <span id="result_checkIdx" style="font-size:12px;"></span>
+            </td>
+            <td>이름:</td>
+            <td>
+              <input type="text" name="name" placeholder="내용을 입력해주세요" th:value="${name}" />
+            </td>
+          </tr>
+          <tr>
+            <td>구분:</td>
+            <td>
+              <input type="text" name="category" placeholder="내용을 입력해주세요" th:value="${category}" />
+            </td>
+            <td>제조사:</td>
+            <td>
+              <input type="text" name="company" placeholder="내용을 입력해주세요" th:value="${company}" />
+            </td>
+          </tr>
+          <tr>
+            <td>성상:</td>
+            <td>
+              <input type="text" name="shape" placeholder="내용을 입력해주세요" th:value="${shape}" />
+            </td>
+            <td>주성분:</td>
+            <td>
+              <input type="text" name="base" placeholder="내용을 입력해주세요" th:value="${base}" />
+            </td>
+          </tr>
+        <tr>
+          <td>복용법:</td>
+          <td colspan="2" class="textarea-row">
+            <textarea name="taking" placeholder="내용을 입력해주세요" th:value="${taking}"></textarea>
+          </td>
+        </tr>
+        </tbody>
+        <tr>
+          <td>효능:</td>
+          <td colspan="2" class="textarea-row">
+            <textarea name="effect" placeholder="내용을 입력해주세요" th:value="${effect}"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>주의사항:</td>
+          <td colspan="2" class="textarea-row">
+            <textarea name="caution" maxlength="500" placeholder="내용을 입력해주세요" th:value="${caution}"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>제품형태:</td>
+          <td colspan="2" class="textarea-row">
+            <textarea name="type" maxlength="500" placeholder="내용을 입력해주세요" th:value="${type}"></textarea>
+          </td>
+        </tr>
+        </tbody>
+        <tr>
+          <td>이미지 첨부:</td>
+          <td><input type="file" name="file" accept="image/*" th:value="${image}" /></td>
+        </tr>
+      </table>
+      <div class="button-row">
+        <input type="button" class="cancel" value="취소" onclick="location.href='/admin/nutri_list'" />
+        <input type="submit" class="check" value="확인" />
+      </div>
+    </form>
+  </div>
+  <div id="footer-placeholder"></div>
+  <script th:src="@{/js/hf.js}"></script>
+</body>
+
+</html>

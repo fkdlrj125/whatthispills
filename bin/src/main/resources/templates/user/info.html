@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.104.2" />
+    <title>회원정보</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.2/examples/sign-in/"
+    />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+    <link rel="stylesheet" th:href="@{/css/join.css}" />
+  </head>
+
+  <body class="text-center">
+    <div id="header-placeholder"></div>
+    <main class="form-signin w-100 m-auto container">
+      <h1 class="h1 mb-3 fw-normal">회원정보</h1>
+      <div class="form-align">
+        <div id="user_info">
+          <div class="info-title">이메일</div>
+          <div class="form-floating">
+            <p class="user_info" th:text="${user.email}">hong@sample.com</p>
+          </div>
+          <div class="info-title">이름</div>
+          <div class="form-floating">
+            <p class="user_info" th:text="${user.name}">홍길동</p>
+          </div>
+          <div class="info-title">성별</div>
+          <div class="form-floating gender">
+            <p class="user_info" th:if="${user.gender=='male'}">남자</p>
+            <p class="user_info" th:if="${user.gender=='female'}">여자</p>
+            <p class="user_info" th:if="${user.gender=='nan'}">없음</p>
+          </div>
+          <div class="info-title">생년월일</div>
+          <div class="form-floating">
+            <p class="user_info" th:text="${user.birth}">2000. 01. 01</p>
+          </div>
+          <div class="form-btn">
+            <button class="w-100 btn btn-lg btn-primary" type="button" th:onclick="|location.href='@{/user/edit}'|">
+              회원정보 수정
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script th:src="@{/js/hf.js}"></script>
+  </body>
+</html>

@@ -71,7 +71,7 @@ public class AdminController {
 
 	@PostMapping("/nutri_edit/{nutri_idx}")
 	public String nutriEditPost(@PathVariable Long nutri_idx, @ModelAttribute Nutri nutri, MultipartFile file, Model model) throws IOException {
-		if(file != null) {
+		if(!file.isEmpty()) {
 			s3Service.deleteFile(nutri_idx);
 			String url = s3Service.saveFile(file, nutri_idx, nutri.getCategory());
 			nutri.setImage(url);

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="kr">
+<!-- START : header -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-...your-sha512-hash..." crossorigin="anonymous" />
+  <link rel="stylesheet" th:href="@{/css/user_likes.css}"/>
+  <title>내가 찜한 목록</title>
+</head>
+<body>
+<!-- end : header -->  
+<div id="header-placeholder"></div>
+  	<div id="nutri_main">
+		<h1>
+			<span id="main_title">찜 목록</span>
+		</h1>
+
+		<!-- START THE FEATURETTES -->
+		<div class="nutri-result">
+			<div class="text_context">
+				<div class="grid-contents">
+					<table>
+						<tbody>
+							<th:block th:each="nutri, stat : ${like_list}">
+								<div th:class="${stat.index % 2 == 0} ? 'text_area grid-item1' : 'text_area grid-item2'">
+									<div class="cal">
+										<div class="cal-v">
+											<div class="p_img">
+												<a th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
+													<img th:src="@{${nutri.image}}" alt="제품이미지" id="product">
+												</a>
+											</div>
+											<div class="p_content">
+												<div class="row">
+													<a class="col-10" th:href="@{/nutri/{nutri_name}(nutri_name=${nutri.name})}">
+														<span class="p_name col-8" th:text="${nutri.name}">고려은단 비타민C 1000 </span>
+													</a>
+													<button type="button" class="heart-button col-2" aria-label="Heart Button" th:classappend="${#lists.contains(idx_list, nutri.idx)} ? 'active' : ''"  th:if="${user}" th:onclick="|location.href='@{/user/like(nutri_idx=${nutri.idx}, user_idx=${user.idx})}'|">
+														<i class="col-2 fas fa-heart"></i>
+													</button>
+												</div>
+												<div class="labels">
+													<label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label> <label
+														for="nutri_company">제조사: <span th:text="${nutri.company}">고려은단</span></label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</th:block>
+						</tbody>
+					</table>
+					<!-- END THE FEATURETTES -->
+				</div>
+			</div>
+		</div>
+	</div>
+  <div id="footer-placeholder"></div>
+  <script th:src="@{/js/hf.js}"></script>
+</body>
+
