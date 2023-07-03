@@ -49,8 +49,8 @@
 												<div class="labels">
 													<label for="nutri_contens">구분: <span th:text="${nutri.category}">비타민C</span></label> <label
 														for="nutri_company">제조사: <span th:text="${nutri.company}">고려은단</span></label>
-													<div th:each="s : ${nutri.review}">
-														<span th:text="${s}"></span>
+													<div th:each="s : ${nutri.review}" class='review'>
+														<span th:text="|${s.key} ${s.value}|"></span>
 													</div>
 												</div>
 											</div>

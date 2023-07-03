@@ -159,3 +159,18 @@
 .theach {
 	display: none;
 }
+
+.review {
+	width : 180px;
+	height : 30px;
+	margin : 8px 0;
+	border : 1px solid #00997b;
+	border-radius : 15px;
+	background-color : #00997b;
+	text-align : center;
+	line-height: 30px;
+}
+
+.review > span {
+	color : #fff;
+}

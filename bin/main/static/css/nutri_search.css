@@ -113,6 +113,27 @@ a {
   color: rgba(255, 0, 0, 0.719);
 }
 
+.ranking{
+	font-size: 32px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.review {
+	width : 180px;
+	height : 30px;
+	margin : 8px 0;
+	border : 1px solid #00997b;
+	border-radius : 15px;
+	background-color : #00997b;
+	text-align : center;
+	line-height: 30px;
+}
+
+.review > span {
+	color : #fff;
+}
+
 .nutri_list {
   display: grid;
   grid-template-columns: repeat(4, 100px);
@@ -140,4 +161,5 @@ a {
   box-shadow: 7px 15px 20px #ddd;
   transition: 0.25s;
 }
+
 

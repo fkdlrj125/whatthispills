@@ -12,7 +12,8 @@
 }
 
 .container.marketing {
-  scale: 0.8;
+  transform : scale(0.8);
+  transform-origin : top;
 }
 
 /* Carousel base class */
@@ -111,6 +112,11 @@
   color: rgba(255, 0, 0, 0.719);
 }
 
+.chart_title {
+  font-size: 22px;
+  font-weight: 400;
+}
+
 .nutri_index {
   font-size: 22px;
   font-weight: 400;
@@ -121,6 +127,7 @@
   line-height: 2;
   font: 20px normal;
 }
+
 
 
 

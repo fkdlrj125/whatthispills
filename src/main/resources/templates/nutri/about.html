@@ -29,8 +29,7 @@
        ]);
 
        var options = {
-         width:500,
-         height:300
+   		   fontSize : 20
        };
 
        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -64,7 +63,6 @@
             <li th:text="${nutri.shape}">주성분</li>
             <li th:text="${nutri.base}">효능</li>
           </ul>
-          <div id="piechart" style="width: 600px; height: 200px;"></div>
         </div>
         <div class="col-md-5 order-md-1 image-area">
           <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
@@ -75,6 +73,10 @@
         </div>
       </div>
 
+      <hr class="featurette-divider">
+      	<div class="chart_title">분석 결과
+      		<div id="piechart" style="width: 900px; height: 400px;"></div>
+      	</div>
       <hr class="featurette-divider">
       <div class="nutri_index">복용법
         <h3 th:text="${nutri.taking}">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi obcaecati culpa
@@ -107,7 +109,7 @@
       <!-- /END THE FEATURETTES -->
     </div>
     <!-- /.container -->
-
+	</div>
     <div id="footer-placeholder"></div>
     <script th:src="@{/js/hf.js}"></script>
 </body>
